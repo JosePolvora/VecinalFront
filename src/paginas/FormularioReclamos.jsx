@@ -1,8 +1,13 @@
 import { useState } from 'react';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
 
 const FormularioReclamos = () => {
   const [formData, setFormData] = useState({
-    nombre: '',
+    nombres: '',
+    apellido: '',
+    direccion: '',
     email: '',
     telefono: '',
     asunto: '',
@@ -19,124 +24,143 @@ const FormularioReclamos = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Aquí podés agregar validaciones básicas
-    if (!formData.nombre || !formData.email || !formData.descripcion) {
-      setError('Por favor, completa los campos requeridos.');
+    if (!formData.nombres || !formData.apellido || !formData.email || !formData.descripcion) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Campos Incompletos',
+        text: 'Por favor, completá los campos requeridos.',
+      });
       return;
     }
 
-    setError(null);
+    try {
+      await axios.post('http://localhost:3000/api/reclamos', formData);
 
-    // Simulamos envío
-    console.log('Datos enviados:', formData);
+      Swal.fire({
+        icon: 'success',
+        title: '¡Reclamo enviado!',
+        text: 'Tu reclamo fue registrado correctamente.',
+      });
 
-    // Aquí pondrías tu lógica real para enviar datos al backend con fetch o axios
-
-    setEnviado(true);
-
-    // Limpiar formulario si querés
-    setFormData({
-      nombre: '',
-      email: '',
-      telefono: '',
-      asunto: '',
-      descripcion: '',
-    });
+      setFormData({
+        nombres: '',
+        apellido: '',
+        direccion: '',
+        email: '',
+        telefono: '',
+        asunto: '',
+        descripcion: '',
+      });
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un problema al enviar el reclamo.',
+      });
+    }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded shadow mt-10">
-      <h2 className="text-2xl font-bold mb-6 text-[#00527A] text-center">
-        Formulario de Reclamos y Denuncias
-      </h2>
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-4xl mx-auto p-8 rounded-2xl shadow-xl text-white bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] space-y-6"
+    >
+      <h2 className="text-2xl font-bold text-center">RECLAMOS Y DENUNCIAS</h2>
 
       {enviado && (
-        <div className="mb-4 p-4 bg-green-100 text-green-700 rounded">
+        <div className="p-3 text-center bg-green-100 text-green-800 rounded-lg text-sm font-semibold">
           ¡Tu reclamo fue enviado con éxito!
         </div>
       )}
 
       {error && (
-        <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">
+        <div className="p-3 text-center bg-red-100 text-red-800 rounded-lg text-sm font-semibold">
           {error}
         </div>
       )}
 
-      <form onSubmit={handleSubmit}>
-        <label className="block mb-2 font-semibold" htmlFor="nombre">
-          Nombre completo *
-        </label>
+      {/* Nombres y Apellido */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <input
           type="text"
-          id="nombre"
-          name="nombre"
-          value={formData.nombre}
+          name="nombres"
+          value={formData.nombres}
           onChange={handleChange}
-          className="w-full mb-4 p-2 border rounded"
-          required
+          placeholder="Nombres *"
+          className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
         />
+        <input
+          type="text"
+          name="apellido"
+          value={formData.apellido}
+          onChange={handleChange}
+          placeholder="Apellido *"
+          className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+        />
+      </div>
 
-        <label className="block mb-2 font-semibold" htmlFor="email">
-          Email *
-        </label>
+      {/* Dirección */}
+      <input
+        type="text"
+        name="direccion"
+        value={formData.direccion}
+        onChange={handleChange}
+        placeholder="Dirección"
+        className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+      />
+
+      {/* Email y Teléfono */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <input
           type="email"
-          id="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full mb-4 p-2 border rounded"
-          required
+          placeholder="Email *"
+          className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
         />
-
-        <label className="block mb-2 font-semibold" htmlFor="telefono">
-          Teléfono
-        </label>
         <input
           type="tel"
-          id="telefono"
           name="telefono"
           value={formData.telefono}
           onChange={handleChange}
-          className="w-full mb-4 p-2 border rounded"
+          placeholder="Teléfono"
+          className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
         />
+      </div>
 
-        <label className="block mb-2 font-semibold" htmlFor="asunto">
-          Asunto
-        </label>
-        <input
-          type="text"
-          id="asunto"
-          name="asunto"
-          value={formData.asunto}
-          onChange={handleChange}
-          className="w-full mb-4 p-2 border rounded"
-        />
+      {/* Asunto */}
+      <input
+        type="text"
+        name="asunto"
+        value={formData.asunto}
+        onChange={handleChange}
+        placeholder="Asunto"
+        className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+      />
 
-        <label className="block mb-2 font-semibold" htmlFor="descripcion">
-          Descripción del reclamo/denuncia *
-        </label>
-        <textarea
-          id="descripcion"
-          name="descripcion"
-          value={formData.descripcion}
-          onChange={handleChange}
-          className="w-full mb-4 p-2 border rounded"
-          rows="5"
-          required
-        ></textarea>
+      {/* Descripción */}
+      <textarea
+        name="descripcion"
+        value={formData.descripcion}
+        onChange={handleChange}
+        rows="5"
+        placeholder="Descripción del reclamo o denuncia *"
+        className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+      />
 
-        <button
-          type="submit"
-          className="bg-[#00527A] text-white px-6 py-2 rounded hover:bg-[#003f57] transition"
-        >
-          Enviar
-        </button>
-      </form>
-    </div>
+      {/* Botón */}
+      <button
+        type="submit"
+        className="w-full py-3 bg-white text-[#002c73] font-bold rounded-lg hover:bg-white/90 transition"
+      >
+        ENVIAR
+      </button>
+    </form>
   );
 };
 

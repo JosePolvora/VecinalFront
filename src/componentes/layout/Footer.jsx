@@ -75,9 +75,9 @@ export default function Footer() {
                         <Link to="/institucional" className="hover:text-gray-300 transition-colors">
                             Institucional
                         </Link>
-                        <Link to="/digital" className="hover:text-gray-300 transition-colors">
+                        {/* <Link to="/digital" className="hover:text-gray-300 transition-colors">
                             Santa Isabel Digital
-                        </Link>
+                        </Link> */}
                         <Link to="/novedades" className="hover:text-gray-300 transition-colors">
                             Novedades
                         </Link>

@@ -170,18 +170,48 @@ const Inicio = () => {
       {/* Sección adaptada: "Hacer tus reclamos y denuncias aquí" */}
       <section className="max-w-6xl mx-auto px-5 py-10 text-center">
         <h2 className="text-3xl font-black mb-10 text-[#00527A] text-center border-b-2 border-[#00527A] pb-4 uppercase">
-          Hace tus reclamos y denuncias, <span className="text-cyan-500">aquí</span>
+          Todos tus accesos, <span className="text-cyan-500">están acá.</span>
         </h2>
 
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+          {/* Acceso a Reclamos */}
+          <Link
+            to="/reclamos"
+            className="bg-[#00a8e6] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#008cc4] transition flex flex-col items-center justify-center text-center space-y-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              fill="white"
+              viewBox="0 0 24 24"
+            >
+              <path d="M19 2H8a2 2 0 0 0-2 2v3H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-4.5 12a.5.5 0 0 1-1 0V9a.5.5 0 0 1 1 0Zm-.5 1.75a.75.75 0 1 1-.001 1.501A.75.75 0 0 1 14 15.75ZM8 4h11v11h-1V9a2 2 0 0 0-2-2h-6V4Z" />
+            </svg>
+            <div className="text-base font-semibold leading-tight">Reclamos</div>
+            <div className="text-sm">Denuncias o quejas</div>
+          </Link>
 
-        {/* Aquí cambio a Link para navegación interna */}
-        <Link
-          to="/reclamos"
-          className="block bg-blue-600 rounded-xl p-6 text-white font-semibold w-48 mx-auto hover:bg-blue-700 transition"
-        >
-          Reclamos y Denuncias
-        </Link>
+          {/* Acceso a Cámara */}
+          <Link
+            to="/camara"
+            className="bg-[#e91e63] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#d81b60] transition flex flex-col items-center justify-center text-center space-y-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              fill="white"
+              viewBox="0 0 24 24"
+            >
+              <path d="M19 7h-1.586l-2-2H4a2 2 0 0 0-2 2v8h2v2h8v-2h6v2h2v-2h2v-4a3 3 0 0 0-3-3Zm1 5h-1v-2H4V7h11.586l2 2H19a1 1 0 0 1 1 1Z" />
+            </svg>
+            <div className="text-base font-semibold leading-tight">Cámara en Vivo</div>
+            <div className="text-sm">Ver plaza en directo</div>
+          </Link>
+        </div>
       </section>
+
 
       {/* NOVEDADES con carrusel */}
       <section className="max-w-6xl mx-auto px-4 py-8">
@@ -253,11 +283,17 @@ const Inicio = () => {
       {lightboxActive && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
-          onClick={closeLightbox}
+          onClick={closeLightbox}  // clic fuera cierra
         >
-          <div className="relative w-full max-w-6xl max-h-[90vh] mx-4">
+          <div
+            className="relative w-full max-w-6xl max-h-[90vh] mx-4"
+            onClick={(e) => e.stopPropagation()} // evita cerrar cuando clickeas dentro del cuadro
+          >
             <button
-              onClick={closeLightbox}
+              onClick={(e) => {
+                e.stopPropagation();  // para evitar que el click en el botón propague y cierre dos veces
+                closeLightbox();
+              }}
               className="absolute top-2 right-2 text-white text-3xl font-bold z-50"
             >
               ×
@@ -266,11 +302,12 @@ const Inicio = () => {
               src={currentImage}
               alt="Imagen ampliada"
               className="w-full max-h-[90vh] object-contain rounded shadow-lg"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()} // evita cerrar si clickeas la imagen
             />
           </div>
         </div>
       )}
+
     </div>
   );
 };
