@@ -21,6 +21,15 @@ const AdminSidebar = () => {
           <i className="fas fa-image"></i>
           Subir Imagen
         </Link>
+
+        <Link to="/adminpanel/formrevista" className="flex items-center gap-2 hover:underline">
+          <i className="fas fa-file-pdf"></i>
+          Subir Revista
+        </Link>
+
+
+
+
       </nav>
     </aside>
   );

@@ -4,6 +4,7 @@ import FormSubirImagen from "../componentes/admin/FormSubirImagen";
 import AdminHeader from "../componentes/admin/AdminHeader";
 import AdminSidebar from "../componentes/admin/AdminSidebar";
 import AdminInicio from "../componentes/admin/AdminInicio";
+import FormSubirRevista from "../componentes/admin/FormSubirRevista";
 
 const AdminPanel = () => {
     return (
@@ -16,6 +17,7 @@ const AdminPanel = () => {
                         <Route path="" element={<AdminInicio />} /> {/* ruta inicial */}
                         <Route path="formnovedad" element={<FormNovedad />} />
                         <Route path="formimagen" element={<FormSubirImagen />} />
+                        <Route path="formrevista" element={<FormSubirRevista />} />
 
                     </Routes>
                 </main>

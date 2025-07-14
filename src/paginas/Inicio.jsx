@@ -1,109 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-// import Banner from '../componentes/layout/Banner';
-// import { Link } from 'react-router-dom';
-// import { Carousel } from 'flowbite-react';
-// import axios from 'axios';
-// import InfoActual from '../componentes/layout/InfoActual';
-
-
-// const Inicio = () => {
-//   const [novedades, setNovedades] = useState([]);
-
-//   // Traer novedades del backend al cargar el componente
-//   useEffect(() => {
-//     const cargarNovedades = async () => {
-//       try {
-//         const res = await axios.get('http://localhost:3000/api/novedades');
-//         console.log('Novedades:', res.data.body);
-//         setNovedades(res.data.body);
-//       } catch (error) {
-//         console.error('Error al cargar novedades:', error);
-//       }
-//     };
-
-//     cargarNovedades();
-//   }, []);
-
-//   // Agrupar novedades de a 3 para el carrusel
-//   const agruparTarjetas = (array, tamañoGrupo) => {
-//     const grupos = [];
-//     for (let i = 0; i < array.length; i += tamañoGrupo) {
-//       grupos.push(array.slice(i, i + tamañoGrupo));
-//     }
-//     return grupos;
-//   };
-
-//   const gruposTarjetas = agruparTarjetas(novedades, 3);
-
-//   return (
-//     <div>
-//       <Banner />
-//       <InfoActual />
-//       {/* Sección de Bienvenida / Misión */}
-//       <section className="max-w-6xl mx-auto px-4 py-8 text-center">
-//         <h2 className="text-3xl font-bold text-[#00527A] mb-4">BIENVENIDOS</h2>
-//         <p className="text-gray-700 max-w-2xl mx-auto text-justify">
-//           Somos un espacio comunitario donde los vecinos nos organizamos para mejorar nuestro barrio, fortalecer los lazos sociales y promover el bien común...
-//         </p>
-//       </section>
-
-//       {/* NOVEDADES con carrusel */}
-//       <section className="max-w-6xl mx-auto px-4 py-8">
-//         <h2 className="text-3xl font-bold mb-8 text-[#00527A] text-center border-b-2 border-[#00527A] pb-4 uppercase">
-//           NOVEDADES
-//         </h2>
-
-//         <div className="h-[35rem]">
-//           <Carousel
-//             pauseOnHover
-//             slide={true}
-//             leftControl="◀"
-//             rightControl="▶"
-//             className="rounded-lg"
-//           >
-//             {gruposTarjetas.length === 0 ? (
-//               <p>Cargando novedades...</p>
-//             ) : (
-//               gruposTarjetas.map((grupo, i) => (
-//                 <div key={i} className="grid md:grid-cols-3 gap-6 px-4">
-//                   {grupo.map((novedad, j) => (
-//                     // <Link to="/novedades" key={j} className="block">
-//                     <Link to={`/novedades/${novedad.id}`} key={j} className="block">
-
-//                       <div
-//                         className="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition-all h-[28rem] flex flex-col"
-//                       >
-//                         <img
-//                           src={
-//                             novedad.imagen_url
-//                               ? `http://localhost:3000${novedad.imagen_url}`
-//                               : 'https://via.placeholder.com/300x200'
-//                           }
-//                           alt={novedad.titulo}
-//                           className="object-cover w-full h-64"
-//                         />
-
-//                         <div className="p-5 flex flex-col flex-grow">
-//                           <h3 className="text-xl font-semibold mb-2 text-[#00527A]">
-//                             {novedad.titulo}
-//                           </h3>
-//                           <p className="text-gray-600">{novedad.descripcion}</p>
-//                         </div>
-//                       </div>
-//                     </Link>
-//                   ))}
-//                 </div>
-//               ))
-//             )}
-//           </Carousel>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Inicio;
-
 import React, { useEffect, useState } from 'react';
 import Banner from '../componentes/layout/Banner';
 import { Link } from 'react-router-dom';
@@ -167,7 +61,7 @@ const Inicio = () => {
       <Banner />
       <InfoActual />
 
-      {/* Sección adaptada: "Hacer tus reclamos y denuncias aquí" */}
+      {/* Sección todos tus acceso aquí" */}
       <section className="max-w-6xl mx-auto px-5 py-10 text-center">
         <h2 className="text-3xl font-black mb-10 text-[#00527A] text-center border-b-2 border-[#00527A] pb-4 uppercase">
           Todos tus accesos, <span className="text-cyan-500">están acá.</span>
@@ -194,7 +88,7 @@ const Inicio = () => {
 
           {/* Acceso a Cámara */}
           <Link
-            to="/camara"
+            to="/camara/vivo"
             className="bg-[#e91e63] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#d81b60] transition flex flex-col items-center justify-center text-center space-y-2"
           >
             <svg
@@ -209,8 +103,27 @@ const Inicio = () => {
             <div className="text-base font-semibold leading-tight">Cámara en Vivo</div>
             <div className="text-sm">Ver plaza en directo</div>
           </Link>
+
+          {/* Acceso a Diario o Revista */}
+          <Link
+            to="/revistas"
+            className="bg-[#4CAF50] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#388E3C] transition flex flex-col items-center justify-center text-center space-y-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              fill="white"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 3h16a1 1 0 0 1 1 1v13a3 3 0 1 1-6 0V6H5v11a3 3 0 1 1-6 0V4a1 1 0 0 1 1-1Zm6 5h5v4h-5V8Zm0 6h8v1h-8v-1Zm0 2h8v1h-8v-1Z" />
+            </svg>
+            <div className="text-base font-semibold leading-tight">Revista</div>
+            <div className="text-sm">Nuestro Barrio</div>
+          </Link>
         </div>
       </section>
+
 
 
       {/* NOVEDADES con carrusel */}
