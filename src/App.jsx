@@ -27,7 +27,7 @@
 //         <Route path="/revistas/:id" element={<RevistaDetalle />} />
 
 //         <Route path="/camara/vivo" element={<CamaraVivo />} />
-        
+
 //       </Route>
 
 //       {/* Rutas admin SIN navbar/footer */}
@@ -55,6 +55,11 @@ import CamaraVivo from "./paginas/CamaraVivo";
 
 import RevistasLista from "./paginas/RevistasLista"; // <--- nueva lista
 import RevistaDetalle from "./paginas/RevistaDetalle";
+import Login from "./paginas/Login";
+
+import PrivateRoute from './componentes/admin/PrivateRoute';
+import ConsultaReclamo from "./paginas/ConsultaReclamo";
+
 
 function App() {
   return (
@@ -69,9 +74,20 @@ function App() {
         <Route path="/revistas" element={<RevistasLista />} />  {/* Lista revistas */}
         <Route path="/revistas/:id" element={<RevistaDetalle />} /> {/* Detalle revista */}
         <Route path="/camara/vivo" element={<CamaraVivo />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/reclamos/consulta" element={<ConsultaReclamo />} />
       </Route>
 
-      <Route path="/adminpanel/*" element={<AdminPanel />} />
+      {/* <Route path="/adminpanel/*" element={<AdminPanel />} /> */}
+
+      <Route
+        path="/adminpanel/*"
+        element={
+          <PrivateRoute>
+            <AdminPanel />
+          </PrivateRoute>
+        }
+      />
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

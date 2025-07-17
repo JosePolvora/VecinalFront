@@ -2,7 +2,6 @@ import { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-
 const FormularioReclamos = () => {
   const [formData, setFormData] = useState({
     nombres: '',
@@ -37,12 +36,13 @@ const FormularioReclamos = () => {
     }
 
     try {
-      await axios.post('http://localhost:3000/api/reclamos', formData);
+      const res = await axios.post('http://localhost:3000/api/reclamos', formData);
+      const numero = res.data.body.numeroReclamo; // <-- tomamos el número desde la respuesta
 
       Swal.fire({
         icon: 'success',
         title: '¡Reclamo enviado!',
-        text: 'Tu reclamo fue registrado correctamente.',
+        html: `<p>Tu reclamo fue registrado correctamente.</p><br><strong>Número de Reclamo:</strong> <code>${numero}</code>`,
       });
 
       setFormData({
@@ -54,6 +54,8 @@ const FormularioReclamos = () => {
         asunto: '',
         descripcion: '',
       });
+      setEnviado(true);
+      setError(null);
     } catch (error) {
       console.error(error);
       Swal.fire({
@@ -61,6 +63,8 @@ const FormularioReclamos = () => {
         title: 'Error',
         text: 'Hubo un problema al enviar el reclamo.',
       });
+      setError('Hubo un problema al enviar el reclamo.');
+      setEnviado(false);
     }
   };
 

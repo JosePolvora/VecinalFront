@@ -4,7 +4,7 @@ import axios from "axios";
 const Novedades = () => {
   const [novedades, setNovedades] = useState([]);
   const [paginaActual, setPaginaActual] = useState(1);
-  const novedadesPorPagina = 10;
+  const novedadesPorPagina = 5;
 
   useEffect(() => {
     const cargarNovedades = async () => {

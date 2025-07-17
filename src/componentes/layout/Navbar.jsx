@@ -4,7 +4,7 @@ import LogoCv from '../../imagenes/LogoCv.png';
 export default function Navbar() {
     return (
         <header className="bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] text-white shadow-md">
-            <div className="max-w-7xl mx-auto px-4 py-1 flex items-center justify-between">
+            <div className="container mx-auto px-4 py-1 flex items-center justify-between">
                 <div className="flex items-center">
 
                     <div className="flex flex-col text-center">

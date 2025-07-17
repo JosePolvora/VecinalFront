@@ -84,6 +84,16 @@ export default function Footer() {
                         <Link to="/contacto" className="hover:text-gray-300 transition-colors">
                             Contacto
                         </Link>
+                        {/* <Link to="/login" className="hover:text-gray-300 transition-colors">
+                            Admin
+                        </Link> */}
+                        <Link
+                            to="/login"
+                            className="hover:text-gray-300 transition-colors font-bold underline"
+                        >
+                            Admin
+                        </Link>
+
                     </div>
 
                     <div className="text-center pb-10 text-xs text-white font-semibold">
