@@ -6,6 +6,7 @@ import AdminSidebar from "../componentes/admin/AdminSidebar";
 import AdminInicio from "../componentes/admin/AdminInicio";
 import FormSubirRevista from "../componentes/admin/FormSubirRevista";
 import Imagenes from "../componentes/admin/Imagenes";
+import Novedades from "../componentes/admin/Novedades";
 
 const AdminPanel = () => {
     const navigate = useNavigate();
@@ -31,6 +32,7 @@ const AdminPanel = () => {
                         <Route path="formrevista" element={<FormSubirRevista />} />
 
                         <Route path="imagenes" element={<Imagenes />} />
+                        <Route path="novedades" element={<Novedades />} />
                     </Routes>
                 </main>
             </div>
