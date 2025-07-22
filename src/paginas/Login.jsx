@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -9,30 +9,30 @@ export default function Login({ onLogin }) {
     const [cargando, setCargando] = useState(false);
     const navigate = useNavigate();
 
+    // Redirigir si ya hay una sesión activa
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate("/adminpanel", { replace: true });
+        }
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         setCargando(true);
 
-        console.log("Intentando login con:", { correo, clave });
-
         try {
-
             const res = await axios.post('http://localhost:3000/api/login', { correo, clave });
 
-            console.log("Respuesta recibida:", res.data);
-
-            // Guardar token y usuario
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('usuario', JSON.stringify(res.data.usuario));
 
             if (onLogin) onLogin(res.data.usuario);
 
-            // Redirigir al panel admin
             navigate('/adminpanel', { replace: true });
 
         } catch (err) {
-            console.error("Error en login:", err);
             setError(err.response?.data?.message || 'Error de conexión');
         } finally {
             setCargando(false);
@@ -40,13 +40,11 @@ export default function Login({ onLogin }) {
     };
 
     return (
-
         <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] min-h-screen flex justify-center items-center p-4 sm:p-6">
             <div className="bg-white/10 rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md mr-36 ml-36">
                 <form
                     onSubmit={handleSubmit}
-                    className="mx-auto p-10 rounded-2xl  text-white space-y-6"
-                    //className="max-w-xl mx-auto p-8 rounded-2xl shadow-xl text-white bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] space-y-6"
+                    className="mx-auto p-10 rounded-2xl text-white space-y-6"
                 >
                     <h2 className="text-2xl font-bold text-center">INICIAR SESIÓN</h2>
 

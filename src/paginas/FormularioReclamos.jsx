@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import { FaSearch, FaHistory } from 'react-icons/fa';
 
 const FormularioReclamos = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +39,7 @@ const FormularioReclamos = () => {
 
     try {
       const res = await axios.post('http://localhost:3000/api/reclamos', formData);
-      const numero = res.data.body.numeroReclamo; // <-- tomamos el número desde la respuesta
+      const numero = res.data.body.numeroReclamo;
 
       Swal.fire({
         icon: 'success',
@@ -69,110 +71,146 @@ const FormularioReclamos = () => {
   };
 
   return (
+    <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] min-h-screen flex justify-center items-center sm:p-10">
 
-    //<div className="bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] min-h-screen flex justify-center items-center p-4 sm:p-6">
-    <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] min-h-screen flex justify-center items-center sm:p-10 ml-10 mr-10">
-      <div className="bg-white/10 rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
-        <form
-          onSubmit={handleSubmit}
-          className=" mx-auto text-white space-y-10"
-        // className="max-w-4xl mx-auto p-8 rounded-2xl shadow-xl text-white bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] space-y-6"
-        >
-          <h2 className="text-2xl font-bold text-center">RECLAMOS Y DENUNCIAS</h2>
+      <div className="flex justify-between items-start w-full max-w-6xl gap-8">
 
-          {enviado && (
-            <div className="p-3 text-center bg-green-100 text-green-800 rounded-lg text-sm font-semibold">
-              ¡Tu reclamo fue enviado con éxito!
-            </div>
-          )}
-
-          {error && (
-            <div className="p-3 text-center bg-red-100 text-red-800 rounded-lg text-sm font-semibold">
-              {error}
-            </div>
-          )}
-
-          {/* Nombres y Apellido */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              name="nombres"
-              value={formData.nombres}
-              onChange={handleChange}
-              placeholder="Nombres *"
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
-            />
-            <input
-              type="text"
-              name="apellido"
-              value={formData.apellido}
-              onChange={handleChange}
-              placeholder="Apellido *"
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
-            />
-          </div>
-
-          {/* Dirección */}
-          <input
-            type="text"
-            name="direccion"
-            value={formData.direccion}
-            onChange={handleChange}
-            placeholder="Dirección"
-            className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
-          />
-
-          {/* Email y Teléfono */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email *"
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
-            />
-            <input
-              type="tel"
-              name="telefono"
-              value={formData.telefono}
-              onChange={handleChange}
-              placeholder="Teléfono"
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
-            />
-          </div>
-
-          {/* Asunto */}
-          <input
-            type="text"
-            name="asunto"
-            value={formData.asunto}
-            onChange={handleChange}
-            placeholder="Asunto"
-            className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
-          />
-
-          {/* Descripción */}
-          <textarea
-            name="descripcion"
-            value={formData.descripcion}
-            onChange={handleChange}
-            rows="5"
-            placeholder="Descripción del reclamo o denuncia *"
-            className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
-          />
-
-          {/* Botón */}
-          <button
-            type="submit"
-            className="w-full py-3 bg-white text-[#002c73] font-bold rounded-lg hover:bg-white/90 transition"
+        {/* Formulario a la izquierda */}
+        <div className="bg-white/10 rounded-2xl border border-white/20 p-6 sm:p-10 w-3/5 shadow-xl backdrop-blur-md">
+          <form
+            onSubmit={handleSubmit}
+            className="text-white space-y-10"
           >
-            ENVIAR
-          </button>
-        </form>
+            <h2 className="text-2xl font-bold text-center">RECLAMOS Y DENUNCIAS</h2>
+
+            {enviado && (
+              <div className="p-3 text-center bg-green-100 text-green-800 rounded-lg text-sm font-semibold">
+                ¡Tu reclamo fue enviado con éxito!
+              </div>
+            )}
+
+            {error && (
+              <div className="p-3 text-center bg-red-100 text-red-800 rounded-lg text-sm font-semibold">
+                {error}
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input
+                type="text"
+                name="nombres"
+                value={formData.nombres}
+                onChange={handleChange}
+                placeholder="Nombres *"
+                className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+              <input
+                type="text"
+                name="apellido"
+                value={formData.apellido}
+                onChange={handleChange}
+                placeholder="Apellido *"
+                className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+            </div>
+
+            <input
+              type="text"
+              name="direccion"
+              value={formData.direccion}
+              onChange={handleChange}
+              placeholder="Dirección"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email *"
+                className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+              <input
+                type="tel"
+                name="telefono"
+                value={formData.telefono}
+                onChange={handleChange}
+                placeholder="Teléfono"
+                className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <select
+                name="asunto"
+                value={formData.asunto}
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-[#004c99] text-white border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+              >
+                <option value="">Seleccionar Asunto</option>
+                <option value="Alumbrado público">Alumbrado público</option>
+                <option value="Recolección de residuos">Recolección de residuos</option>
+                <option value="Seguridad">Seguridad</option>
+                <option value="Ruidos molestos">Ruidos molestos</option>
+                <option value="Veredas o calles en mal estado">Veredas o calles en mal estado</option>
+                <option value="Otros">Otros</option>
+              </select>
+
+              <input
+                type="date"
+                name="fecha"
+                value={formData.fecha}
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+            </div>
+
+            <textarea
+              name="descripcion"
+              value={formData.descripcion}
+              onChange={handleChange}
+              rows="5"
+              placeholder="Descripción del reclamo o denuncia *"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+
+            <button
+              type="submit"
+              className="w-full py-3 bg-white text-[#002c73] font-bold rounded-lg hover:bg-white/90 transition"
+            >
+              ENVIAR
+            </button>
+          </form>
+        </div>
+
+        {/* Enlaces a la derecha */}
+
+        <div className="flex flex-col gap-6 w-1/5">
+          <Link
+            to="/reclamos/consulta"
+            className="bg-blue-500 hover:bg-blue-600 text-white rounded-2xl p-6 shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center justify-center space-y-2 text-center"
+            title="Consultar Reclamo"
+          >
+            <FaSearch className="text-3xl" /> {/* Ícono más grande */}
+            <span className="font-semibold">Consulta tu Reclamo</span>
+          </Link>
+
+          <Link
+            to="/reclamos/historial"
+            className="bg-green-500 hover:bg-green-600 text-white rounded-2xl p-6 shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center justify-center space-y-2 text-center"
+            title="Historial de Reclamos"
+          >
+            <FaHistory className="text-3xl" />
+            <span className="font-semibold">Ver Reclamos</span>
+          </Link>
+        </div>
+
       </div>
     </div>
   );
+
 };
 
 export default FormularioReclamos;

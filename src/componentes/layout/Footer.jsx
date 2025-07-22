@@ -69,26 +69,25 @@ export default function Footer() {
                     </div>
 
                     <div className="text-white font-semibold text-sm flex flex-col sm:flex-row justify-center items-center gap-5 pb-10">
+
                         <Link to="/" className="hover:text-gray-300 transition-colors">
                             Inicio
                         </Link>
+
                         <Link to="/institucional" className="hover:text-gray-300 transition-colors">
                             Institucional
                         </Link>
-                        {/* <Link to="/digital" className="hover:text-gray-300 transition-colors">
-                            Santa Isabel Digital
-                        </Link> */}
+
                         <Link to="/novedades" className="hover:text-gray-300 transition-colors">
                             Novedades
                         </Link>
+
                         <Link to="/contacto" className="hover:text-gray-300 transition-colors">
                             Contacto
                         </Link>
-                        {/* <Link to="/login" className="hover:text-gray-300 transition-colors">
-                            Admin
-                        </Link> */}
+
                         <Link
-                            to="/login"
+                            to={localStorage.getItem('token') ? "/adminpanel" : "/login"}
                             className="hover:text-gray-300 transition-colors font-bold underline"
                         >
                             Admin

@@ -7,6 +7,9 @@ import AdminInicio from "../componentes/admin/AdminInicio";
 import FormSubirRevista from "../componentes/admin/FormSubirRevista";
 import Imagenes from "../componentes/admin/Imagenes";
 import Novedades from "../componentes/admin/Novedades";
+import FormReclamo from "../componentes/admin/FormReclamo";
+import Reclamos from "../componentes/admin/Reclamos";
+
 
 const AdminPanel = () => {
     const navigate = useNavigate();
@@ -30,9 +33,13 @@ const AdminPanel = () => {
                         <Route path="formnovedad" element={<FormNovedad />} />
                         <Route path="formimagen" element={<FormSubirImagen />} />
                         <Route path="formrevista" element={<FormSubirRevista />} />
-
+                        <Route path="formreclamo" element={<FormReclamo />} />
+                        <Route path="formreclamo/:id" element={<FormReclamo />} />
                         <Route path="imagenes" element={<Imagenes />} />
                         <Route path="novedades" element={<Novedades />} />
+                        <Route path="reclamos/lista" element={<Reclamos />} />
+
+
                     </Routes>
                 </main>
             </div>
