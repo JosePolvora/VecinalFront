@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../componentes/layout/Banner';
+import BannerAuspiciantes from '../componentes/layout/BannerAuspiciantes';
+
 import { Link } from 'react-router-dom';
 import { Carousel } from 'flowbite-react';
 import axios from 'axios';
@@ -62,9 +64,9 @@ const Inicio = () => {
       <Banner />
       <InfoActual />
 
-      {/* Sección todos tus acceso aquí" */}
+      {/* Sección todos tus acceso aquí" border-b-2*/}
       <section className="max-w-6xl mx-auto px-5 py-10 text-center">
-        <h2 className="text-3xl font-black mb-10 text-[#00527A] text-center border-b-2 border-[#00527A] pb-4 uppercase">
+        <h2 className="text-3xl font-black mb-10 text-[#00527A] text-center  border-[#00527A] pb-4 pt-10 uppercase">
           Todos tus accesos, <span className="text-cyan-500">están acá.</span>
         </h2>
 
@@ -122,12 +124,31 @@ const Inicio = () => {
             <div className="text-base font-semibold leading-tight">Revista</div>
             <div className="text-sm">Nuestro Barrio</div>
           </Link>
+
+          {/* Acceso a Radio */}
+          <Link
+            to="/radio"
+            className="bg-orange-500 rounded-xl p-6 text-white w-48 h-48 hover:bg-orange-600 transition flex flex-col items-center justify-center text-center space-y-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              fill="white"
+              viewBox="0 0 24 24"
+            >
+              <path d="M20 5.41 10.26 9H20v2h-9.74l-1.6.62L3 7.85V19h2v-2h14v2h2V7a2 2 0 0 0-1-1.72ZM17 15H7v-2h10Z" />
+            </svg>
+            <div className="text-base font-semibold leading-tight">Radio</div>
+            <div className="text-sm">En vivo 24hs</div>
+          </Link>
+
         </div>
       </section>
 
       {/* NOVEDADES con carrusel */}
       <section className="max-w-6xl mx-auto px-4 py-8">
-        <h2 className="text-3xl font-black mb-8 text-[#00527A] text-center border-b-2 border-[#00527A] pb-4 uppercase">
+        <h2 className="text-3xl font-black  text-[#00527A] text-center  border-[#00527A] pt-10 uppercase">
           Novedades
         </h2>
 
@@ -182,7 +203,7 @@ const Inicio = () => {
 
       {/* GALERÍA DE IMÁGENES */}
       <section className="max-w-6xl mx-auto px-4 py-16" id="galeria">
-        <h2 className="text-3xl font-black mb-8 text-[#00527A] text-center border-b-2 border-[#00527A] pb-4 uppercase">
+        <h2 className="text-3xl font-black mb-8 text-[#00527A] text-center  border-[#00527A] pb-4 uppercase">
           Galería
         </h2>
 
@@ -227,6 +248,51 @@ const Inicio = () => {
           </div>
         </div>
       )}
+
+
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-black mb-8  text-[#00527A] text-center  border-[#00527A] pb-10 uppercase">
+          Empresas que nos acompañan
+        </h2>
+        <BannerAuspiciantes />
+      </section>
+
+
+
+
+      {/* ACCESOS RÁPIDOS - Llamadas de emergencia */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-black mb-8  text-[#00527A] text-center  border-[#00527A] pb-4 uppercase">
+          Números Útiles
+        </h2>
+        <div className="flex justify-center items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+            <a className="flex flex-col justify-start items-center gap-2 text-[#00527A] hover:scale-[1.02] focus:outline-none focus:ring-4 p-2 rounded-xl transition-all">
+              <span className="text-xs font-semibold italic uppercase leading-7">Bomberos</span>
+              <span className="font-black text-5xl leading-[84px]">100</span>
+            </a>
+            <a className="flex flex-col justify-start items-center gap-2 text-[#00527A] hover:scale-[1.02] focus:outline-none focus:ring-4 p-2 rounded-xl transition-all">
+              <span className="text-xs font-semibold italic uppercase leading-7">Defensa Civil</span>
+              <span className="font-black text-5xl leading-[84px]">103</span>
+            </a>
+            <a className="flex flex-col justify-start items-center gap-2 text-[#00527A] hover:scale-[1.02] focus:outline-none focus:ring-4 p-2 rounded-xl transition-all">
+              <span className="text-xs font-semibold italic uppercase leading-7">Urgencias</span>
+              <span className="font-black text-5xl leading-[84px]">107</span>
+            </a>
+            <a className="flex flex-col justify-start items-center gap-2 text-[#00527A] hover:scale-[1.02] focus:outline-none focus:ring-4 p-2 rounded-xl transition-all">
+              <span className="text-xs font-semibold italic uppercase leading-7">Emergencias</span>
+              <span className="font-black text-5xl leading-[84px]">911</span>
+            </a>
+
+            <a className="flex flex-col justify-start items-center gap-2 text-[#00527A] col-span-2 lg:col-auto hover:scale-[1.02] focus:outline-none focus:ring-4 p-2 rounded-xl transition-all">
+              <span className="text-xs font-semibold italic uppercase leading-7">EPEC</span>
+              <span className="font-black text-2xl leading-[56px]">0800 777 0000</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
 
     </div>
   );
