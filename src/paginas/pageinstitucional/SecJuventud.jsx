@@ -1,11 +1,12 @@
 // PageJuventud.jsx
 
-// import juventudImg from "../imagenes/juventud.jpg"; // opcional
-// import suplenteImg from "../imagenes/suplente.jpg"; // opcional
+import lulyImg from '../../imagenes/imgInstitucional/luly.png';
+
 
 const SecJuventud = () => {
   const juventud = [
-    { nombre: "Elena Díaz", cargo: "Secretaría de Juventud y Género (Titular)", img: null },
+    { nombre: "Luciana Romero", cargo: "Secretaría de Juventud y Género (Titular)", img: lulyImg },
+
     { nombre: "Tomás Aguirre", cargo: "Secretaría de Juventud y Género (Suplente)", img: null },
   ];
 

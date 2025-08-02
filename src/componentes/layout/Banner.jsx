@@ -1,7 +1,7 @@
 import { Carousel } from "flowbite-react";
-import Slide1 from "/src/imagenes/banner.png";
-import Slide2 from "/src/imagenes/imgUno.jpg";
-import Slide3 from "/src/imagenes/imgDos.jpg";
+import Slide2 from "/src/imagenes/imgBanner/banner.png";
+import Slide1 from "/src/imagenes/imgBanner/banneralgarrobo.png";
+import Slide3 from "/src/imagenes/imgBanner/imgDos.jpg";
 
 const Banner = () => {
   return (

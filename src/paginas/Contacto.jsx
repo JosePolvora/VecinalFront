@@ -141,7 +141,7 @@ const Contacto = () => {
             <h3 className="text-2xl font-semibold mb-10 text-[#00527A]">Información de contacto</h3>
 
             <h4 className="font-semibold mb-5 text-xl text-gray-500">Centro Vecinal</h4>
-            <div className="mb-2"><span className="font-semibold">Dirección: </span>Cajamarca, Córdoba, Capital, Argentina</div>
+            <div className="mb-2"><span className="font-semibold">Dirección: </span>Cajamarca 2200, Córdoba, Capital, Argentina</div>
             <div className="mb-2"><span className="font-semibold">Código Postal: </span>5017</div>
             <div className="mb-10"><span className="font-semibold">Teléfonos: </span>351 xxxxxx / 351 xxxxxx (Centro Vecinal)</div>
 

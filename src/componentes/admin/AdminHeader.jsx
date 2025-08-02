@@ -10,25 +10,12 @@ const AdminHeader = ({ onLogout }) => {
       <h1 className="text-xl font-bold text-[#002c73]">Panel de Administración</h1>
 
       <div className="flex items-center gap-4 text-sm text-gray-600">
-        
-        {/* <Link
-          to="/"
-          className="flex items-center gap-1 text-[#002c73] font-semibold hover:underline"
-        >
-          <i className="fas fa-home"></i>
-          
-        </Link> */}
-
-
-        {/* Mostrar saludo con nombre, si existe usuario */}
 
         {usuario ? (
-          <span className="font-semibold text-base italic pr-3">Hola {usuario.nombre}</span>
+          <span className="font-semibold text-lg italic">Bienvenido {usuario.nombre} {usuario.apellido} </span>
         ) : (
           <span>Usuario Admin</span>
         )}
-
-
 
         <button
           onClick={onLogout}

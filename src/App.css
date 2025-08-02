@@ -1,58 +1,59 @@
-/* --- CONTENEDOR PRINCIPAL (COMENTADO PARA PERMITIR FULL WIDTH) --- */
-/*
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-*/
-
-/* --- LOGO (sólo si usás imágenes con clase "logo") --- */
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.image-rotate {
+  transform-style: preserve-3d;
+  display: inline-block;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.image-rotate:hover {
+  animation: spin 2s linear infinite;
 }
 
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-/* --- ANIMACIÓN (solo si usás el logo girando) --- */
-@keyframes logo-spin {
+@keyframes spin {
   from {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(360deg);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-/* --- CARD y DOCUMENTACIÓN (opcional, seguro de dejar) --- */
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* --- RESETEO DE BODY (puede ir aquí si no lo tenés en otro lado) --- */
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+.tv-container {
+  width: 100%;
+  max-width: 600px;
+  background: #222;
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.tv-screen {
+  border: 12px solid #444;
+  border-radius: 20px;
+  background: black;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.video-content {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.tv-stand {
+  width: 100px;
+  height: 15px;
+  background: #555;
+  border-radius: 8px 8px 0 0;
+  margin: 0 auto;
+  margin-top: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }

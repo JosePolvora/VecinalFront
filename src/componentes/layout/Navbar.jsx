@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
-import LogoCv from '../../imagenes/LogoCv.png';
+import LogoCv from '../../imagenes/imgLogo/LogoCv.png';
 
 export default function Navbar() {
     return (
-        <header className="bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] text-white shadow-md">
+        // <header className="bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] text-white shadow-md">
+        //<header className="bg-gradient-to-b from-[#002c73] via-[#006a8e] to-[#66ffd9] text-white shadow-md">
+        <header id="inicio" className="bg-gradient-to-b from-[#002c73] via-[#0057b7] to-[#66ccff] text-white shadow-md">
             <div className="container mx-auto px-4 py-1 flex items-center justify-between">
                 <div className="flex items-center">
 

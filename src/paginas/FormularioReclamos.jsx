@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import axios from 'axios';
-import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
-import { FaSearch, FaHistory } from 'react-icons/fa';
+import { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import { FaSearch, FaHistory } from "react-icons/fa";
 
 const FormularioReclamos = () => {
   const [formData, setFormData] = useState({
-    nombres: '',
-    apellido: '',
-    direccion: '',
-    email: '',
-    telefono: '',
-    asunto: '',
-    descripcion: '',
+    nombres: "",
+    apellido: "",
+    direccion: "",
+    email: "",
+    telefono: "",
+    asunto: "",
+    descripcion: "",
   });
 
   const [enviado, setEnviado] = useState(false);
@@ -28,60 +28,65 @@ const FormularioReclamos = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.nombres || !formData.apellido || !formData.email || !formData.descripcion) {
+    if (
+      !formData.nombres ||
+      !formData.apellido ||
+      !formData.email ||
+      !formData.descripcion
+    ) {
       Swal.fire({
-        icon: 'warning',
-        title: 'Campos Incompletos',
-        text: 'Por favor, completá los campos requeridos.',
+        icon: "warning",
+        title: "Campos Incompletos",
+        text: "Por favor, completá los campos requeridos.",
       });
       return;
     }
 
     try {
-      const res = await axios.post('http://localhost:3000/api/reclamos', formData);
+      const res = await axios.post(
+        "http://localhost:3000/api/reclamos",
+        formData
+      );
       const numero = res.data.body.numeroReclamo;
 
       Swal.fire({
-        icon: 'success',
-        title: '¡Reclamo enviado!',
+        icon: "success",
+        title: "¡Reclamo enviado!",
         html: `<p>Tu reclamo fue registrado correctamente.</p><br><strong>Número de Reclamo:</strong> <code>${numero}</code>`,
       });
 
       setFormData({
-        nombres: '',
-        apellido: '',
-        direccion: '',
-        email: '',
-        telefono: '',
-        asunto: '',
-        descripcion: '',
+        nombres: "",
+        apellido: "",
+        direccion: "",
+        email: "",
+        telefono: "",
+        asunto: "",
+        descripcion: "",
       });
       setEnviado(true);
       setError(null);
     } catch (error) {
       console.error(error);
       Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Hubo un problema al enviar el reclamo.',
+        icon: "error",
+        title: "Error",
+        text: "Hubo un problema al enviar el reclamo.",
       });
-      setError('Hubo un problema al enviar el reclamo.');
+      setError("Hubo un problema al enviar el reclamo.");
       setEnviado(false);
     }
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] min-h-screen flex justify-center items-center sm:p-10">
-
-      <div className="flex justify-between items-start w-full max-w-6xl gap-8">
-
+    <div className="min-h-screen flex justify-center items-center sm:p-10">
+      <div className="flex justify-center items-start w-full max-w-6xl gap-x-20">
         {/* Formulario a la izquierda */}
-        <div className="bg-white/10 rounded-2xl border border-white/20 p-6 sm:p-10 w-3/5 shadow-xl backdrop-blur-md">
-          <form
-            onSubmit={handleSubmit}
-            className="text-white space-y-10"
-          >
-            <h2 className="text-2xl font-bold text-center">RECLAMOS Y DENUNCIAS</h2>
+        <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] p-6 sm:p-10 w-3/5 shadow-xl backdrop-blur-md rounded-2xl">
+          <form onSubmit={handleSubmit} className="text-white space-y-10">
+            <h2 className="text-2xl font-bold text-center">
+              RECLAMOS Y DENUNCIAS
+            </h2>
 
             {enviado && (
               <div className="p-3 text-center bg-green-100 text-green-800 rounded-lg text-sm font-semibold">
@@ -151,10 +156,14 @@ const FormularioReclamos = () => {
               >
                 <option value="">Seleccionar Asunto</option>
                 <option value="Alumbrado público">Alumbrado público</option>
-                <option value="Recolección de residuos">Recolección de residuos</option>
+                <option value="Recolección de residuos">
+                  Recolección de residuos
+                </option>
                 <option value="Seguridad">Seguridad</option>
                 <option value="Ruidos molestos">Ruidos molestos</option>
-                <option value="Veredas o calles en mal estado">Veredas o calles en mal estado</option>
+                <option value="Veredas o calles en mal estado">
+                  Veredas o calles en mal estado
+                </option>
                 <option value="Otros">Otros</option>
               </select>
 
@@ -186,14 +195,13 @@ const FormularioReclamos = () => {
         </div>
 
         {/* Enlaces a la derecha */}
-
         <div className="flex flex-col gap-6 w-1/5">
           <Link
             to="/reclamos/consulta"
             className="bg-blue-500 hover:bg-blue-600 text-white rounded-2xl p-6 shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center justify-center space-y-2 text-center"
             title="Consultar Reclamo"
           >
-            <FaSearch className="text-3xl" /> {/* Ícono más grande */}
+            <FaSearch className="text-3xl" />
             <span className="font-semibold">Consulta tu Reclamo</span>
           </Link>
 
@@ -206,11 +214,9 @@ const FormularioReclamos = () => {
             <span className="font-semibold">Ver Reclamos</span>
           </Link>
         </div>
-
       </div>
     </div>
   );
-
 };
 
 export default FormularioReclamos;

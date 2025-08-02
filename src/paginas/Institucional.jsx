@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
-import pesceImg from '../imagenes/pesce.jpg';
-import oviedoImg from '../imagenes/oviedo.jpg';
+import pesceImg from '../imagenes/imgInstitucional/pesce.jpg';
+import oviedoImg from '../imagenes/imgInstitucional/oviedo.jpg';
+import cayutiImg from '../imagenes/imgInstitucional/cayuti.png';
+import sanchezImg from '../imagenes/imgInstitucional/sanchez.png';
+import lulyImg from '../imagenes/imgInstitucional/luly.png';
+
 
 const Institucional = () => {
   const titular = [
     { nombre: "Guillermo Pesce", cargo: "Presidente", img: pesceImg, ruta: "" },
-    { nombre: "Cristna Cayuti", cargo: "Secretaria", img: null, ruta: "" },
+    { nombre: "Cristna Cayuti", cargo: "Secretaria", img: cayutiImg, ruta: "" },
     { nombre: "José Oviedo", cargo: "Tesorero", img: oviedoImg, ruta: "" },
   ];
 
   const suplente = [
     { nombre: "xxxx xxxx", cargo: "Presidenta", img: null, ruta: "" },
-    { nombre: "Miguel Sanchez", cargo: "Secretario", img: null, ruta: "" },
+    { nombre: "Miguel Sanchez", cargo: "Secretario", img: sanchezImg, ruta: "" },
     { nombre: "Natalia Ruiz", cargo: "Tesorera", img: null, ruta: "" },
   ];
 
@@ -20,7 +24,7 @@ const Institucional = () => {
     { nombre: "Sofía Acuña", cargo: "Secretaría de Cultura y Educación (Suplente)", img: null, ruta: "/integrantes/seccultura" },
     { nombre: "Martín Sosa", cargo: "Secretaría de Deportes y Recreación (Titular)", img: null, ruta: "/integrantes/secdeporte" },
     { nombre: "Paula Giménez", cargo: "Secretaría de Deportes y Recreación (Suplente)", img: null, ruta: "/integrantes/secdeporte" },
-    { nombre: "Elena Díaz", cargo: "Secretaría de Juventud y Género (Titular)", img: null, ruta: "/integrantes/secjuventud" },
+    { nombre: "Luciana Romero", cargo: "Secretaría de Juventud y Género (Titular)", img: lulyImg, ruta: "/integrantes/secjuventud" },
     { nombre: "Tomás Aguirre", cargo: "Secretaría de Juventud y Género(Suplente)", img: null, ruta: "/integrantes/secjuventud" },
     { nombre: "Roberto Medina", cargo: "Secretaría de Seguridad y Convivencia (Titular)", img: null, ruta: "/integrantes/secseguridad" },
     { nombre: "Liliana Torres", cargo: "Secretaría de Seguridad y Convivencia (Suplente)", img: null, ruta: "/integrantes/secseguridad" },

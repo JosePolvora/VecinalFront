@@ -12,7 +12,7 @@ import CamaraVivo from "./paginas/CamaraVivo";
 import RevistasLista from "./paginas/RevistasLista";
 import RevistaDetalle from "./paginas/RevistaDetalle";
 import Login from "./paginas/Login";
-import PrivateRoute from './componentes/admin/PrivateRoute';
+import PrivateRoute from "./componentes/admin/PrivateRoute";
 import ConsultaReclamo from "./paginas/ConsultaReclamo";
 import ReclamosHistorial from "./paginas/ReclamosHistorial";
 import Radio from "./paginas/Radio";
@@ -24,12 +24,10 @@ import SecComunicacion from "./paginas/pageinstitucional/SecCominicacion";
 import SecJuventud from "./paginas/pageinstitucional/SecJuventud";
 import SecSeguridad from "./paginas/pageinstitucional/SecSeguridad";
 
-
 function App() {
   return (
     <Routes>
       <Route element={<PublicLayout />}>
-
         <Route path="/" element={<Inicio />} />
         <Route path="/institucional" element={<Institucional />} />
         <Route path="/novedades" element={<Novedades />} />
@@ -44,19 +42,23 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="radio" element={<Radio />} />
 
-
         <Route path="integrantes/seccultura" element={<SecCultura />} />
         <Route path="integrantes/secdeporte" element={<SecDeporte />} />
-        <Route path="integrantes/seccomunicacion" element={<SecComunicacion />} />
-        <Route path="integrantes/secinfraestructura" element={<SecInfraestructura />} />
+        <Route
+          path="integrantes/seccomunicacion"
+          element={<SecComunicacion />}
+        />
+        <Route
+          path="integrantes/secinfraestructura"
+          element={<SecInfraestructura />}
+        />
         <Route path="integrantes/secjuventud" element={<SecJuventud />} />
         <Route path="integrantes/secseguridad" element={<SecSeguridad />} />
-        
-
       </Route>
 
       <Route
-        path="/adminpanel/*" element={
+        path="/adminpanel/*"
+        element={
           <PrivateRoute>
             <AdminPanel />
           </PrivateRoute>

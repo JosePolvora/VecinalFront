@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Swal from 'sweetalert2';
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const ListadoReclamos = () => {
   const [reclamos, setReclamos] = useState([]);
@@ -9,12 +9,12 @@ const ListadoReclamos = () => {
   useEffect(() => {
     const fetchReclamos = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/reclamos');
+        const res = await axios.get("http://localhost:3000/api/reclamos");
         if (res.data.body) {
           setReclamos(res.data.body);
         }
       } catch (error) {
-        console.error('Error al obtener los reclamos:', error);
+        console.error("Error al obtener los reclamos:", error);
       }
     };
 
@@ -23,14 +23,14 @@ const ListadoReclamos = () => {
 
   const eliminarReclamo = async (id) => {
     const result = await Swal.fire({
-      title: '¿Estás seguro?',
-      text: 'Este reclamo será eliminado permanentemente.',
-      icon: 'warning',
+      title: "¿Estás seguro?",
+      text: "Este reclamo será eliminado permanentemente.",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar',
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
     });
 
     if (!result.isConfirmed) return;
@@ -40,18 +40,18 @@ const ListadoReclamos = () => {
       setReclamos((prev) => prev.filter((rec) => rec.id !== id));
 
       Swal.fire({
-        title: 'Eliminado',
-        text: 'El reclamo ha sido eliminado con éxito.',
-        icon: 'success',
+        title: "Eliminado",
+        text: "El reclamo ha sido eliminado con éxito.",
+        icon: "success",
         timer: 2000,
         showConfirmButton: false,
       });
     } catch (error) {
-      console.error('Error al eliminar el reclamo:', error);
+      console.error("Error al eliminar el reclamo:", error);
       Swal.fire({
-        title: 'Error',
-        text: 'Hubo un problema al eliminar el reclamo.',
-        icon: 'error',
+        title: "Error",
+        text: "Hubo un problema al eliminar el reclamo.",
+        icon: "error",
       });
     }
   };
@@ -59,10 +59,14 @@ const ListadoReclamos = () => {
   return (
     <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] min-h-screen flex justify-center items-start p-6 pt-16">
       <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-5xl shadow-xl text-white">
-        <h2 className="text-2xl font-bold mb-6 text-center">LISTADO DE RECLAMOS</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          LISTADO DE RECLAMOS
+        </h2>
 
         {reclamos.length === 0 ? (
-          <p className="text-white/80 text-center">No hay reclamos para mostrar.</p>
+          <p className="text-white/80 text-center">
+            No hay reclamos para mostrar.
+          </p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full border border-white/30 rounded-lg overflow-hidden">
@@ -77,8 +81,12 @@ const ListadoReclamos = () => {
               <tbody>
                 {reclamos.map((rec) => (
                   <tr key={rec.id} className="hover:bg-white/10 transition">
-                    <td className="p-3 border border-white/20">{rec.numeroReclamo}</td>
-                    <td className="p-3 border border-white/20">{rec.nombres} {rec.apellido}</td>
+                    <td className="p-3 border border-white/20">
+                      {rec.numeroReclamo}
+                    </td>
+                    <td className="p-3 border border-white/20">
+                      {rec.nombres} {rec.apellido}
+                    </td>
                     <td className="p-3 border border-white/20">{rec.estado}</td>
                     <td className="p-3 border border-white/20 text-center">
                       <Link

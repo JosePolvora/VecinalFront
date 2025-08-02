@@ -48,7 +48,7 @@ const RevistasLista = () => {
                 {revistas.map((revista) => (
                     <li
                         key={revista.id}
-                        className="border border-gray-300 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-300 bg-[#4CAF50] hover:bg-[#388E3C]"
+                        className="border border-gray-300 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-300 bg-[#66ccff] hover:bg-[#3399cc]"
                     >
                         <Link
                             to={`/revistas/${revista.id}`}
