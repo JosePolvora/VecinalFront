@@ -57,3 +57,17 @@ body {
   margin-top: 12px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite ease-in-out;
+}
+

@@ -195,24 +195,27 @@ const FormularioReclamos = () => {
         </div>
 
         {/* Enlaces a la derecha */}
-        <div className="flex flex-col gap-6 w-1/5">
-          <Link
-            to="/reclamos/consulta"
-            className="bg-blue-500 hover:bg-blue-600 text-white rounded-2xl p-6 shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center justify-center space-y-2 text-center"
-            title="Consultar Reclamo"
-          >
-            <FaSearch className="text-3xl" />
-            <span className="font-semibold">Consulta tu Reclamo</span>
-          </Link>
 
-          <Link
-            to="/reclamos/historial"
-            className="bg-green-500 hover:bg-green-600 text-white rounded-2xl p-6 shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center justify-center space-y-2 text-center"
-            title="Historial de Reclamos"
-          >
-            <FaHistory className="text-3xl" />
-            <span className="font-semibold">Ver Reclamos</span>
-          </Link>
+        <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] p-6 rounded-2xl shadow-2xl border border-gray-200 w-fit">
+          <div className="flex flex-col gap-6 w-64">
+            <Link
+              to="/reclamos/consulta"
+              className="bg-black/40 hover:bg-black/60 text-white rounded-2xl p-6 shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center justify-center space-y-2 text-center"
+              title="Consultar Reclamo"
+            >
+              <FaSearch className="text-3xl" />
+              <span className="font-semibold">Consulta tu Reclamo</span>
+            </Link>
+
+            <Link
+              to="/reclamos/historial"
+              className="bg-gray-200 hover:bg-gray-300 text-black rounded-2xl p-6 shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center justify-center space-y-2 text-center"
+              title="Historial de Reclamos"
+            >
+              <FaHistory className="text-3xl" />
+              <span className="font-semibold">Ver Reclamos</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

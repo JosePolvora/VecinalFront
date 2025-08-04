@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 // Importa las imágenes desde src
-import empresa1 from "../imagenes/imgBanner/sanchezmartinez.png";
-import empresa2 from "../imagenes/imgBanner/almacor.png";
-import empresa3 from "../imagenes/imgBanner/carniceriatriangulo.png";
-import empresa4 from "../imagenes/imgBanner/sanchezmartinez.png";
-import empresa5 from "../imagenes/imgBanner/carniceriatriangulo.png";
+import empresa1 from "../imagenes/imgPublicidad/sanchezmartinez.png";
+import empresa2 from "../imagenes/imgPublicidad/almacor.png";
+import empresa3 from "../imagenes/imgPublicidad/carniceriatriangulo.png";
+import empresa4 from "../imagenes/imgPublicidad/sanchezmartinez.png";
+import empresa5 from "../imagenes/imgPublicidad/carniceriatriangulo.png";
 
 const NovedadDetalle = () => {
   const { id } = useParams();

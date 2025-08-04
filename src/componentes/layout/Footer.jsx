@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
 
           <div className="text-white font-semibold text-sm flex flex-col sm:flex-row justify-center items-center gap-5 pb-10">
-            <a href="#inicio" className="hover:text-gray-300 transition-colors">
+            <a href="http://localhost:5173" className="hover:text-gray-300 transition-colors">
               Inicio
             </a>
 
