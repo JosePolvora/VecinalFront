@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import { useRef, useState } from "react";
+import ImgParlante from "../imagenes/parlante.png";
 
 const Radio = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const Radio = () => {
       <div className="relative bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#334155] backdrop-blur-lg rounded-3xl p-3 max-w-xl w-full text-white text-center shadow-2xl space-y-6">
         <div className="flex justify-center">
           <img
-            src="/src/imagenes/parlante.png"
+            src={ImgParlante}
             alt="Parlante"
             className="w-56 h-56 object-contain drop-shadow-xl animate-pulse"
           />

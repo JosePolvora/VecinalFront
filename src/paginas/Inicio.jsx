@@ -8,6 +8,12 @@ import { Carousel } from "flowbite-react";
 import axios from "axios";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
+import ImgReclamo from "../imagenes/imgAccesos/reclamo.png";
+import ImgCamara from "../imagenes/imgAccesos/camara.png";
+import ImgRevista from "../imagenes/imgAccesos/revista.png";
+import ImgMpf from "../imagenes/imgAccesos/mpf.png";
+import ImgRadio from "../imagenes/imgAccesos/radio.png";
+
 const Inicio = () => {
   const [novedades, setNovedades] = useState([]);
   const [imagenes, setImagenes] = useState([]);
@@ -188,7 +194,7 @@ const Inicio = () => {
             className="bg-[#00a8e6] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#008cc4] transition flex flex-col items-center justify-center text-center space-y-2"
           >
             <img
-              src="/src/imagenes/imgAccesos/reclamo.png"
+              src={ImgReclamo}
               alt="Reclamos"
               className="w-20 h-20"
             />
@@ -203,7 +209,7 @@ const Inicio = () => {
             className="bg-[#e91e63] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#d81b60] transition flex flex-col items-center justify-center text-center space-y-2"
           >
             <img
-              src="/src/imagenes/imgAccesos/camara.png"
+              src={ImgCamara}
               alt="Cámara en Vivo"
               className="w-16 h-16"
             />
@@ -218,7 +224,7 @@ const Inicio = () => {
             className="bg-[#4CAF50] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#388E3C] transition flex flex-col items-center justify-center text-center space-y-2"
           >
             <img
-              src="/src/imagenes/imgAccesos/revista.png"
+              src={ImgRevista}
               alt="Revista"
               className="w-20 h-20"
             />
@@ -232,7 +238,7 @@ const Inicio = () => {
             className="bg-white hover:bg-gray-100 rounded-xl p-6 text-gray-800 w-48 h-48 transition flex flex-col items-center justify-center text-center space-y-2 shadow-md"
           >
             <img
-              src="/src/imagenes/imgAccesos/mpf.png"
+              src={ImgMpf}
               alt="Ícono de denuncia"
               className="w-16 h-16"
             />
@@ -244,7 +250,7 @@ const Inicio = () => {
             className="bg-orange-500 rounded-xl p-6 text-white w-48 h-48 hover:bg-orange-600 transition flex flex-col items-center justify-center text-center space-y-2"
           >
             <img
-              src="/src/imagenes/imgAccesos/radio.png"
+              src={ImgRadio}
               alt="Radio en Vivo"
               className="w-20 h-20"
             />
