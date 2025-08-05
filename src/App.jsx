@@ -12,6 +12,7 @@ import CamaraVivo from "./paginas/CamaraVivo";
 import RevistasLista from "./paginas/RevistasLista";
 import RevistaDetalle from "./paginas/RevistaDetalle";
 import Login from "./paginas/Login";
+import Registro from "./paginas/Registro";
 import PrivateRoute from "./componentes/admin/PrivateRoute";
 import ConsultaReclamo from "./paginas/ConsultaReclamo";
 import ReclamosHistorial from "./paginas/ReclamosHistorial";
@@ -40,6 +41,8 @@ function App() {
         <Route path="/revistas/:id" element={<RevistaDetalle />} />
         <Route path="/camara/vivo" element={<CamaraVivo />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Registro />} />
+
         <Route path="radio" element={<Radio />} />
 
         <Route path="integrantes/seccultura" element={<SecCultura />} />
