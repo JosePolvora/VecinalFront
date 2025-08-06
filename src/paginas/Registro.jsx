@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2"; // <-- Importa SweetAlert2
 import algarrobo from "../imagenes/imgLogin/algarrobo.png";
 
 export default function Registro() {
@@ -28,13 +29,26 @@ export default function Registro() {
         clave,
         rol,
         activo,
-        claveAutorizacion, // Enviamos la clave al backend
+        claveAutorizacion, // Enviamos la clave al backend para validar
       });
 
-      alert("Usuario registrado con éxito");
+      await Swal.fire({
+        icon: "success",
+        title: "Registro exitoso",
+        text: "Usuario registrado con éxito.",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+
       navigate("/login");
     } catch (err) {
       setError(err.response?.data?.message || "Error al registrar usuario");
+
+      await Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: err.response?.data?.message || "Error al registrar usuario",
+      });
     } finally {
       setCargando(false);
     }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2"; // <-- Importa SweetAlert2
 import algarrobo from "../imagenes/imgLogin/algarrobo.png";
 
 export default function Login({ onLogin }) {
@@ -38,6 +39,35 @@ export default function Login({ onLogin }) {
       setError(err.response?.data?.message || "Error de conexión");
     } finally {
       setCargando(false);
+    }
+  };
+
+  // Función para pedir clave de autorización con SweetAlert2
+  const pedirClaveAutorizacion = async () => {
+    const { value: clave } = await Swal.fire({
+      title: "Clave de autorización",
+      input: "password",
+      inputLabel: "Ingresa la clave para poder registrarte",
+      inputPlaceholder: "Clave secreta",
+      inputAttributes: {
+        maxlength: 50,
+        autocapitalize: "off",
+        autocorrect: "off",
+      },
+      showCancelButton: true,
+    });
+
+    if (clave) {
+      if (clave === "CvSantaIsabel2*") {
+        // acá poné tu clave real
+        navigate("/registro");
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Clave incorrecta",
+          text: "No tienes acceso al registro.",
+        });
+      }
     }
   };
 
@@ -106,19 +136,11 @@ export default function Login({ onLogin }) {
           >
             {cargando ? "Cargando..." : "Entrar"}
           </button>
+
           <p className="text-center text-sm text-white mt-4">
             ¿No tienes usuario?{" "}
             <span
-              onClick={() => {
-                const clave = prompt(
-                  "Ingresa la clave de autorización para registrarte:"
-                );
-                if (clave === "CvSantaIsabel2*") {
-                  navigate("/registro");
-                } else if (clave !== null) {
-                  alert("Clave incorrecta. No tienes acceso al registro.");
-                }
-              }}
+              onClick={pedirClaveAutorizacion}
               className="underline cursor-pointer hover:text-blue-200 transition"
             >
               Regístrate aquí
