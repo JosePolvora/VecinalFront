@@ -9,6 +9,8 @@ import Imagenes from "../componentes/admin/Imagenes";
 import Novedades from "../componentes/admin/Novedades";
 import FormReclamo from "../componentes/admin/FormReclamo";
 import Reclamos from "../componentes/admin/Reclamos";
+import FormSubirBanner from "../componentes/admin/FormSubirBanner";
+import Banners from "../componentes/admin/banners";
 
 
 const AdminPanel = () => {
@@ -32,12 +34,15 @@ const AdminPanel = () => {
                         <Route path="" element={<AdminInicio />} /> {/* ruta inicial */}
                         <Route path="formnovedad" element={<FormNovedad />} />
                         <Route path="formimagen" element={<FormSubirImagen />} />
+                        <Route path="formbanner" element={<FormSubirBanner />} />
                         <Route path="formrevista" element={<FormSubirRevista />} />
                         <Route path="formreclamo" element={<FormReclamo />} />
                         <Route path="formreclamo/:id" element={<FormReclamo />} />
                         <Route path="imagenes" element={<Imagenes />} />
+                        <Route path="banners" element={<Banners />} />
                         <Route path="novedades" element={<Novedades />} />
                         <Route path="reclamos/lista" element={<Reclamos />} />
+                        
 
 
                     </Routes>
