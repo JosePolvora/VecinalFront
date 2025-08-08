@@ -1,48 +1,45 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 const FormNovedad = () => {
-  const [titulo, setTitulo] = useState('');
-  const [descripcion, setDescripcion] = useState('');
+  const [titulo, setTitulo] = useState("");
+  const [descripcion, setDescripcion] = useState("");
   const [imagen, setImagen] = useState(null);
-  const [mensaje, setMensaje] = useState('');
+  const [mensaje, setMensaje] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!titulo || !descripcion || !imagen) {
-      setMensaje('Completa todos los campos e incluí una imagen.');
+      setMensaje("Completa todos los campos e incluí una imagen.");
       return;
     }
 
     const formData = new FormData();
-    formData.append('titulo', titulo);
-    formData.append('descripcion', descripcion);
-    formData.append('imagen', imagen);
+    formData.append("titulo", titulo);
+    formData.append("descripcion", descripcion);
+    formData.append("imagen", imagen);
 
     try {
-      await axios.post('http://localhost:3000/api/novedades', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      await axios.post("http://localhost:3000/api/novedades", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
       });
 
-      setMensaje('Novedad creada con éxito ✅');
-      setTitulo('');
-      setDescripcion('');
+      setMensaje("Novedad creada con éxito ✅");
+      setTitulo("");
+      setDescripcion("");
       setImagen(null);
     } catch (error) {
       console.error(error);
-      setMensaje('Error al crear la novedad ❌');
+      setMensaje("Error al crear la novedad ❌");
     }
   };
 
   return (
-    // <div className="bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] min-h-screen flex justify-center items-center p-4 sm:p-6">
-    <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] min-h-screen flex justify-center items-center p-4 sm:p-6">
-      <div className="bg-white/10 rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
-
+    <div className="min-h-screen flex justify-center items-center p-4 sm:p-6">
+      <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#0059b3] rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
         <form
           onSubmit={handleSubmit}
-
           // className="max-w-xl mx-auto p-8 rounded-2xl shadow-xl text-white bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] space-y-6"
           className="max-w-xl mx-auto text-white space-y-10"
         >

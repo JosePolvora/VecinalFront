@@ -87,8 +87,8 @@ function Imagenes() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] min-h-screen flex justify-center items-center p-4 sm:p-6">
-      <div className="bg-white/10 rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
+    <div className="min-h-screen flex justify-center items-center p-4 sm:p-6">
+      <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#0059b3] rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
         <h2 className="text-center mb-6 sm:mb-8 text-2xl font-bold text-white">
           GESTOR DE IMÁGENES
         </h2>

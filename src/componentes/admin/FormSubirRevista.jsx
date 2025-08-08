@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 const FormSubirRevista = () => {
   const [pdf, setPdf] = useState(null);
-  const [descripcion, setDescripcion] = useState('');
-  const [mes, setMes] = useState('');
-  const [mensaje, setMensaje] = useState('');
+  const [descripcion, setDescripcion] = useState("");
+  const [mes, setMes] = useState("");
+  const [mensaje, setMensaje] = useState("");
   const [cargando, setCargando] = useState(false);
 
   const handleFileChange = (e) => {
@@ -16,49 +16,58 @@ const FormSubirRevista = () => {
     e.preventDefault();
 
     if (!pdf) {
-      setMensaje('Por favor, selecciona un archivo PDF');
+      setMensaje("Por favor, selecciona un archivo PDF");
       return;
     }
 
     const formData = new FormData();
-    formData.append('pdf', pdf);
-    formData.append('descripcion', descripcion);
-    formData.append('mes', mes);
+    formData.append("pdf", pdf);
+    formData.append("descripcion", descripcion);
+    formData.append("mes", mes);
 
     try {
       setCargando(true);
-      const res = await axios.post('http://localhost:3000/api/revistas', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const res = await axios.post(
+        "http://localhost:3000/api/revistas",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-      setMensaje('✅ Revista subida con éxito');
+      setMensaje("✅ Revista subida con éxito");
       setPdf(null);
-      setDescripcion('');
-      setMes('');
+      setDescripcion("");
+      setMes("");
     } catch (error) {
-      console.error('Error al subir la revista:', error.response?.data || error.message);
-      setMensaje('❌ Error al subir la revista');
+      console.error(
+        "Error al subir la revista:",
+        error.response?.data || error.message
+      );
+      setMensaje("❌ Error al subir la revista");
     } finally {
       setCargando(false);
     }
   };
 
   return (
-
-    // <div className="bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] min-h-screen flex justify-center items-center p-4 sm:p-6">
-    <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] min-h-screen flex justify-center items-center p-4 sm:p-6">
-      <div className="bg-white/10 rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
+    <div className="min-h-screen flex justify-center items-center p-4 sm:p-6">
+      <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#0059b3] rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
         <form
           onSubmit={handleSubmit}
           className="max-w-xl mx-auto text-white space-y-10"
-        // className="max-w-xl mx-auto p-8 rounded-2xl shadow-xl text-white bg-gradient-to-b from-[#003366] via-[#7b1fa2] to-[#e91e63] space-y-6"
+          // className="max-w-xl mx-auto p-8 rounded-2xl shadow-xl text-white bg-gradient-to-b from-[#003366] via-[#7b1fa2] to-[#e91e63] space-y-6"
         >
-          <h2 className="text-2xl font-bold text-center">CARGAR REVISTA MENSUAL</h2>
+          <h2 className="text-2xl font-bold text-center">
+            CARGAR REVISTA MENSUAL
+          </h2>
 
           <div>
-            <label className="block mb-1 text-sm font-medium">Selecciona PDF</label>
+            <label className="block mb-1 text-sm font-medium">
+              Selecciona PDF
+            </label>
             <input
               type="file"
               onChange={handleFileChange}
@@ -78,7 +87,9 @@ const FormSubirRevista = () => {
           </div>
 
           <div>
-            <label className="block mb-1 text-sm font-medium">Mes (formato YYYY-MM)</label>
+            <label className="block mb-1 text-sm font-medium">
+              Mes (formato YYYY-MM)
+            </label>
             <input
               type="month"
               value={mes}
@@ -89,7 +100,9 @@ const FormSubirRevista = () => {
           </div>
 
           <div>
-            <label className="block mb-1 text-sm font-medium">Descripción</label>
+            <label className="block mb-1 text-sm font-medium">
+              Descripción
+            </label>
             <input
               type="text"
               value={descripcion}
@@ -105,11 +118,13 @@ const FormSubirRevista = () => {
             disabled={cargando}
             className="w-full py-3 bg-white text-[#003366] font-bold rounded-lg hover:bg-white/90 transition"
           >
-            {cargando ? 'Subiendo...' : 'SUBIR REVISTA'}
+            {cargando ? "Subiendo..." : "SUBIR REVISTA"}
           </button>
 
           {mensaje && (
-            <p className="text-center text-sm mt-4 text-white/90 font-semibold">{mensaje}</p>
+            <p className="text-center text-sm mt-4 text-white/90 font-semibold">
+              {mensaje}
+            </p>
           )}
         </form>
       </div>

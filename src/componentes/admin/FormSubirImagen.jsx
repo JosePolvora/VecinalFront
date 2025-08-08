@@ -50,13 +50,11 @@ const FormSubirImagen = () => {
   };
 
   return (
-    // <div className="bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] min-h-screen flex justify-center items-center p-4 sm:p-6">
-    <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] min-h-screen flex justify-center items-center p-4 sm:p-6">
-      <div className="bg-white/10 rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
+    <div className="min-h-screen flex justify-center items-center p-4 sm:p-6">
+      <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#0059b3] rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
         <form
           onSubmit={handleSubmit}
           className="max-w-xl mx-auto text-white space-y-12"
-          //className="max-w-xl mx-auto p-8 rounded-2xl shadow-xl text-white bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] space-y-6"
         >
           <h2 className="text-2xl font-bold text-center">CARGAR IMAGEN</h2>
 
