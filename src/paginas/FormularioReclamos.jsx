@@ -160,10 +160,22 @@ const FormularioReclamos = () => {
                   Recolección de residuos
                 </option>
                 <option value="Seguridad">Seguridad</option>
-                <option value="Ruidos molestos">Ruidos molestos</option>
+                <option value="Poda de árboles">Poda de árboles</option>
                 <option value="Veredas o calles en mal estado">
                   Veredas o calles en mal estado
                 </option>
+                <option value="Ruidos molestos">Ruidos molestos</option>
+                <option value="Fugas de agua">Fugas de agua</option>
+                <option value="Animales sueltos">Animales sueltos</option>
+                <option value="Basurales">Basurales</option>
+
+                <option value="Semáforos o señales de tránsito">
+                  Semáforos o señales de tránsito
+                </option>
+                <option value="Iluminación en plazas o espacios públicos">
+                  Iluminación en plazas o espacios públicos
+                </option>
+
                 <option value="Otros">Otros</option>
               </select>
 
