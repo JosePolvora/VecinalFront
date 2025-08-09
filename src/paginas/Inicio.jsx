@@ -14,6 +14,8 @@ import ImgRevista from "../imagenes/imgAccesos/revista.png";
 import ImgMpf from "../imagenes/imgAccesos/mpf.png";
 import ImgRadio from "../imagenes/imgAccesos/radio.png";
 
+import subrayado from "../imagenes/subrayado.png";
+
 const Inicio = () => {
   const [novedades, setNovedades] = useState([]);
   const [imagenes, setImagenes] = useState([]);
@@ -193,11 +195,7 @@ const Inicio = () => {
             to="/reclamos"
             className="bg-[#00a8e6] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#008cc4] transition flex flex-col items-center justify-center text-center space-y-2"
           >
-            <img
-              src={ImgReclamo}
-              alt="Reclamos"
-              className="w-20 h-20"
-            />
+            <img src={ImgReclamo} alt="Reclamos" className="w-20 h-20" />
             <div className="text-base font-semibold leading-tight">
               Reclamos
             </div>
@@ -208,11 +206,7 @@ const Inicio = () => {
             to="/camara/vivo"
             className="bg-[#e91e63] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#d81b60] transition flex flex-col items-center justify-center text-center space-y-2"
           >
-            <img
-              src={ImgCamara}
-              alt="Cámara en Vivo"
-              className="w-16 h-16"
-            />
+            <img src={ImgCamara} alt="Cámara en Vivo" className="w-16 h-16" />
             <div className="text-base font-semibold leading-tight">
               Cámara en Vivo
             </div>
@@ -223,11 +217,7 @@ const Inicio = () => {
             to="/revistas"
             className="bg-[#4CAF50] rounded-xl p-6 text-white w-48 h-48 hover:bg-[#388E3C] transition flex flex-col items-center justify-center text-center space-y-2"
           >
-            <img
-              src={ImgRevista}
-              alt="Revista"
-              className="w-20 h-20"
-            />
+            <img src={ImgRevista} alt="Revista" className="w-20 h-20" />
             <div className="text-base font-semibold leading-tight">Revista</div>
             <div className="text-sm">Nuestro Barrio</div>
           </Link>
@@ -237,11 +227,7 @@ const Inicio = () => {
             target="_blank"
             className="bg-white hover:bg-gray-100 rounded-xl p-6 text-gray-800 w-48 h-48 transition flex flex-col items-center justify-center text-center space-y-2 shadow-md"
           >
-            <img
-              src={ImgMpf}
-              alt="Ícono de denuncia"
-              className="w-16 h-16"
-            />
+            <img src={ImgMpf} alt="Ícono de denuncia" className="w-16 h-16" />
             <div className="text-base font-semibold leading-tight">Portal</div>
             <div className="text-sm">MPF</div>
           </a>
@@ -249,11 +235,7 @@ const Inicio = () => {
             to="/radio"
             className="bg-orange-500 rounded-xl p-6 text-white w-48 h-48 hover:bg-orange-600 transition flex flex-col items-center justify-center text-center space-y-2"
           >
-            <img
-              src={ImgRadio}
-              alt="Radio en Vivo"
-              className="w-20 h-20"
-            />
+            <img src={ImgRadio} alt="Radio en Vivo" className="w-20 h-20" />
             <div className="text-base font-semibold leading-tight">Radio</div>
             <div className="text-sm">En vivo</div>
           </Link>
@@ -366,6 +348,16 @@ const Inicio = () => {
       )}
 
       <section className="max-w-6xl mx-auto px-4 py-16">
+        {/* <h2 className="relative text-3xl font-black mb-8 text-[#00527A] text-center uppercase pb-16">
+          Empresas que nos acompañan
+          <span
+            className="absolute left-1/2 -translate-x-1/2 bottom-[-10px] w-[333px] h-[53px] bg-no-repeat bg-contain"
+            style={{
+              backgroundImage: `url(${subrayado})`,
+            }}
+          />
+        </h2> */}
+
         <h2 className="text-3xl font-black mb-8 text-[#00527A] text-center border-[#00527A] pb-10 uppercase">
           Empresas que nos acompañan
         </h2>

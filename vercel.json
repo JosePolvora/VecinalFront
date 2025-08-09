@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.santaisabel2.com"
+        }
+      ],
+      "destination": "https://santaisabel2.com/$1",
+      "permanent": true
+    }
+  ]
+}
