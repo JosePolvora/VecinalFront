@@ -33,7 +33,10 @@ const Radio = () => {
   const barsCount = 20;
 
   return (
-    <div className="flex justify-center pt-2">
+    // <div className="flex justify-center pt-2">
+    //   <div className="relative bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#334155] backdrop-blur-lg rounded-3xl p-3 max-w-xl w-full text-white text-center shadow-2xl space-y-6">
+
+    <div className="flex justify-center items-center min-h-screen">
       <div className="relative bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#334155] backdrop-blur-lg rounded-3xl p-3 max-w-xl w-full text-white text-center shadow-2xl space-y-6">
         <div className="flex justify-center">
           <img
