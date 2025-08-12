@@ -13,6 +13,7 @@ import ImgCamara from "../imagenes/imgAccesos/camara.png";
 import ImgRevista from "../imagenes/imgAccesos/revista.png";
 import ImgMpf from "../imagenes/imgAccesos/mpf.png";
 import ImgRadio from "../imagenes/imgAccesos/radio.png";
+import { FaPaperPlane } from "react-icons/fa";
 
 const Inicio = () => {
   const [novedades, setNovedades] = useState([]);
@@ -485,7 +486,7 @@ const Inicio = () => {
           style={{ maxHeight: chatMaximizado ? "500px" : "auto" }}
         >
           <div className="flex justify-between items-center mb-2">
-            <h3 className="text-lg font-semibold text-blue-300">
+            <h3 className="text-lg font-semibold text-blue-300 uppercase">
               Asistente Virtual
             </h3>
             <div className="flex space-x-2">
@@ -527,14 +528,14 @@ const Inicio = () => {
             ref={chatRef}
           >
             {/* Preguntas frecuentes */}
-            <div className="mb-2 p-2 bg-[#333] rounded text-xs text-blue-300">
-              <strong>Preguntas frecuentes:</strong>
-              <ul className="mt-1 max-h-24 overflow-y-auto">
+            <div className="mb-2 p-2 bg-[#333] rounded text-xs text-white leading-relaxed">
+              <strong>PREGUNTAS FRECUENTES:</strong>
+              <ul className="mt-1 max-h-24 overflow-y-auto space-y-2">
                 {preguntasFrecuentes.map((pregunta, i) => (
                   <li
                     key={i}
                     onClick={() => enviarMensajeConTexto(pregunta)}
-                    className="cursor-pointer hover:underline hover:text-blue-400 my-1"
+                    className="cursor-pointer hover:underline hover:text-blue-400"
                     title="Haz click para enviar esta pregunta"
                   >
                     {pregunta}
@@ -548,7 +549,7 @@ const Inicio = () => {
               <p
                 key={i}
                 className={
-                  msg.from === "user" ? "text-right text-blue-300" : "text-left"
+                  msg.from === "user" ? "text-right text-white" : "text-left"
                 }
               >
                 {msg.text}
@@ -556,20 +557,23 @@ const Inicio = () => {
             ))}
           </div>
 
-          <textarea
-            rows={2}
-            value={mensaje}
-            onChange={(e) => setMensaje(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Escribe tu mensaje..."
-            className="mt-2 p-2 rounded bg-[#1f1f1f] text-white border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
-          />
-          <button
-            onClick={enviarMensaje}
-            className="mt-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold"
-          >
-            Enviar
-          </button>
+          <div className="relative mt-2 max-w-full">
+            <textarea
+              rows={2}
+              value={mensaje}
+              onChange={(e) => setMensaje(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Escribe tu mensaje..."
+              className="w-full p-2 pr-12 rounded bg-[#1f1f1f] text-white border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+            />
+            <button
+              onClick={enviarMensaje}
+              className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 bg-blue-600 hover:bg-blue-700 rounded text-white flex items-center justify-center"
+              aria-label="Enviar mensaje"
+            >
+              <FaPaperPlane className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       )}
     </div>
