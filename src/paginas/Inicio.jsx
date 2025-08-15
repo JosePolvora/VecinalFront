@@ -179,6 +179,7 @@ const Inicio = () => {
     });
   };
 
+  const BASE_IMG_URL = API_URL.replace("/api", "");
   return (
     <div>
       <Banner />
@@ -344,7 +345,7 @@ const Inicio = () => {
                         {/* <img
                           src={
                             novedad.imagen_url
-                              ? `http://localhost:3000${novedad.imagen_url}`
+                              ? `${API_URL}${novedad.imagen_url}`
                               : "https://via.placeholder.com/300x200"
                           }
                           alt={novedad.titulo}
@@ -353,7 +354,7 @@ const Inicio = () => {
                         <img
                           src={
                             novedad.imagen_url
-                              ? `${API_URL}${novedad.imagen_url}`
+                              ? `${BASE_IMG_URL}${novedad.imagen_url}`
                               : "https://via.placeholder.com/300x200"
                           }
                           alt={novedad.titulo}
@@ -385,14 +386,10 @@ const Inicio = () => {
           {imagenes.map((img, index) => (
             <img
               key={index}
-              //src={`http://localhost:3000${img.imagen_url}`}
-              src={`${API_URL}${img.imagen_url}`}
+              src={`${BASE_IMG_URL}${img.imagen_url}`}
               alt={`Galería ${index + 1}`}
               className="w-full max-w-xs sm:max-w-none h-48 sm:h-64 object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
-              onClick={() =>
-                //openLightbox(`http://localhost:3000${img.imagen_url}`)
-                openLightbox(`${API_URL}${img.imagen_url}`)
-              }
+              onClick={() => openLightbox(`${BASE_IMG_URL}${img.imagen_url}`)}
             />
           ))}
         </div>

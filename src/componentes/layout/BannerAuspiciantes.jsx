@@ -33,7 +33,9 @@ const BannerAuspiciantes = () => {
   if (banners.length === 0) {
     return <div>No hay banners de auspiciantes para mostrar</div>;
   }
-
+  
+  const BASE_IMG_URL = API_URL.replace("/api", "");
+  
   return (
     <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-[100vw] h-52 sm:h-64 xl:h-80 2xl:h-96 -mt-6">
       <Carousel pauseOnHover>
@@ -45,9 +47,14 @@ const BannerAuspiciantes = () => {
             rel="noopener noreferrer"
           >
             <div className="w-full h-full bg-white">
-              <img
+              {/* <img
                 // src={`http://localhost:3000${banner.imagen_url}`}
                 src={`${API_URL}${banner.imagen_url}`}
+                alt={banner.descripcion || "Auspiciantes"}
+                className="w-full h-full object-contain"
+              /> */}
+              <img
+                src={`${BASE_IMG_URL}${banner.imagen_url}`}
                 alt={banner.descripcion || "Auspiciantes"}
                 className="w-full h-full object-contain"
               />

@@ -40,14 +40,21 @@ const Banner = () => {
     return <div>No hay banners para mostrar</div>;
   }
 
+  const BASE_IMG_URL = API_URL.replace("/api", "");
   return (
     <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-[100vw] h-64 sm:h-80 xl:h-96 2xl:h-[30rem] -mt-6">
       <Carousel pauseOnHover>
         {banners.map((banner) => (
+          // <img
+          //   key={banner.id}
+          //   // src={`http://localhost:3000${banner.imagen_url}`}
+          //   src={`${API_URL}${banner.imagen_url}`}
+          //   alt={banner.descripcion || "Banner"}
+          //   className="w-full h-full object-cover"
+          // />
           <img
             key={banner.id}
-            // src={`http://localhost:3000${banner.imagen_url}`}
-            src={`${API_URL}${banner.imagen_url}`}
+            src={`${BASE_IMG_URL}${banner.imagen_url}`}
             alt={banner.descripcion || "Banner"}
             className="w-full h-full object-cover"
           />
