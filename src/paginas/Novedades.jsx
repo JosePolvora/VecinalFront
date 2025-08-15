@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+//import { API_URL } from "../config";
+
 const Novedades = () => {
   const [novedades, setNovedades] = useState([]);
   const [paginaActual, setPaginaActual] = useState(1);
@@ -10,7 +12,9 @@ const Novedades = () => {
   useEffect(() => {
     const cargarNovedades = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/novedades");
+        //const res = await axios.get("http://localhost:3000/api/novedades");
+        const res = await axios.get("https://api.santaisabel2.com/api/novedades");
+        //const res = await axios.get(`${API_URL}/novedades`);
         setNovedades(res.data.body);
       } catch (error) {
         console.error("Error al cargar novedades:", error);
