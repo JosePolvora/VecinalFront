@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import { API_URL } from "../config";
+
 const FormSubirRevista = () => {
   const [pdf, setPdf] = useState(null);
   const [descripcion, setDescripcion] = useState("");
@@ -25,17 +27,24 @@ const FormSubirRevista = () => {
     formData.append("descripcion", descripcion);
     formData.append("mes", mes);
 
+    // try {
+    //   setCargando(true);
+    //   const res = await axios.post(
+    //     "http://localhost:3000/api/revistas",
+    //     formData,
+    //     {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     }
+    //   );
     try {
       setCargando(true);
-      const res = await axios.post(
-        "http://localhost:3000/api/revistas",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios.post(`${API_URL}/revistas`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       setMensaje("✅ Revista subida con éxito");
       setPdf(null);

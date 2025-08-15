@@ -3,6 +3,8 @@ import axios from "axios";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+import { API_URL } from "../config";
+
 const ConsultaReclamo = () => {
   const [numero, setNumero] = useState("");
   const [reclamo, setReclamo] = useState(null);
@@ -19,8 +21,10 @@ const ConsultaReclamo = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/reclamos/numero/${numero}`
+        `${API_URL}/reclamos/numero/${numero}`
+        //`http://localhost:3000/api/reclamos/numero/${numero}`
       );
+
       setReclamo(res.data.body);
     } catch (err) {
       if (err.response && err.response.status === 404) {

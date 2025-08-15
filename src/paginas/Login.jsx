@@ -4,6 +4,8 @@ import axios from "axios";
 import Swal from "sweetalert2"; // <-- Importa SweetAlert2
 import algarrobo from "../imagenes/imgLogin/algarrobo.png";
 
+import { API_URL } from "../config";
+
 export default function Login({ onLogin }) {
   const [correo, setCorreo] = useState("");
   const [clave, setClave] = useState("");
@@ -24,7 +26,8 @@ export default function Login({ onLogin }) {
     setCargando(true);
 
     try {
-      const res = await axios.post("http://localhost:3000/api/login", {
+      //const res = await axios.post("http://localhost:3000/api/login",
+      const res = await axios.post(`${API_URL}/login`, {
         correo,
         clave,
       });

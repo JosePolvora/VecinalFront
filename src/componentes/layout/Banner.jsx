@@ -2,14 +2,19 @@ import { useEffect, useState } from "react";
 import { Carousel } from "flowbite-react";
 import axios from "axios";
 
+import { API_URL } from "../config";
+
 const Banner = () => {
   const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBanners = async () => {
+      // try {
+      //   const res = await axios.get("http://localhost:3000/api/banners/all");
       try {
-        const res = await axios.get("http://localhost:3000/api/banners/all");
+        const res = await axios.get(`${API_URL}/banners/all`);
+
         if (res.status === 200 && res.data.body) {
           // Filtramos los que NO son 'auspiciantes'
           const principales = res.data.body.filter(
@@ -41,7 +46,8 @@ const Banner = () => {
         {banners.map((banner) => (
           <img
             key={banner.id}
-            src={`http://localhost:3000${banner.imagen_url}`}
+            // src={`http://localhost:3000${banner.imagen_url}`}
+            src={`${API_URL.replace("/api", "")}${banner.imagen_url}`}
             alt={banner.descripcion || "Banner"}
             className="w-full h-full object-cover"
           />

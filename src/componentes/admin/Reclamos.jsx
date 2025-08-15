@@ -142,11 +142,12 @@
 
 // export default ListadoReclamos;
 
-
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+
+import { API_URL } from "../config";
 
 const ListadoReclamos = () => {
   const [reclamos, setReclamos] = useState([]);
@@ -155,8 +156,11 @@ const ListadoReclamos = () => {
 
   useEffect(() => {
     const fetchReclamos = async () => {
+      // try {
+      //   const res = await axios.get("http://localhost:3000/api/reclamos");
       try {
-        const res = await axios.get("http://localhost:3000/api/reclamos");
+        const res = await axios.get(`${API_URL}/reclamos`);
+
         if (res.data.body) {
           setReclamos(res.data.body);
         }
@@ -182,8 +186,20 @@ const ListadoReclamos = () => {
 
     if (!result.isConfirmed) return;
 
+    // try {
+    //   await axios.delete(`http://localhost:3000/api/reclamos/${id}`);
+    //   setReclamos((prev) => prev.filter((rec) => rec.id !== id));
+
+    //   Swal.fire({
+    //     title: "Eliminado",
+    //     text: "El reclamo ha sido eliminado con éxito.",
+    //     icon: "success",
+    //     timer: 2000,
+    //     showConfirmButton: false,
+    //   });
+
     try {
-      await axios.delete(`http://localhost:3000/api/reclamos/${id}`);
+      await axios.delete(`${API_URL}/reclamos/${id}`);
       setReclamos((prev) => prev.filter((rec) => rec.id !== id));
 
       Swal.fire({

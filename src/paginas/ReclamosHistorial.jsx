@@ -3,6 +3,8 @@ import axios from "axios";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+import { API_URL } from "../config";
+
 const Historial = () => {
   const [reclamos, setReclamos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,8 +43,18 @@ const Historial = () => {
 
   useEffect(() => {
     const fetchReclamos = async () => {
+      // try {
+      //   const res = await axios.get("http://localhost:3000/api/reclamos");
+      //   setReclamos(res.data.body || []);
+      // } catch (err) {
+      //   console.error(err);
+      //   setError("Error al cargar el historial de reclamos.");
+      // } finally {
+      //   setLoading(false);
+      // }
+
       try {
-        const res = await axios.get("http://localhost:3000/api/reclamos");
+        const res = await axios.get(`${API_URL}/reclamos`);
         setReclamos(res.data.body || []);
       } catch (err) {
         console.error(err);

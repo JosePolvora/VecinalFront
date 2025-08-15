@@ -4,6 +4,8 @@ import axios from "axios";
 import Swal from "sweetalert2"; // <-- Importa SweetAlert2
 import algarrobo from "../imagenes/imgLogin/algarrobo.png";
 
+import { API_URL } from "../config";
+
 export default function Registro() {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -22,7 +24,16 @@ export default function Registro() {
     setCargando(true);
 
     try {
-      await axios.post("http://localhost:3000/api/usuarios", {
+      // await axios.post("http://localhost:3000/api/usuarios", {
+      //   nombre,
+      //   apellido,
+      //   correo,
+      //   clave,
+      //   rol,
+      //   activo,
+      //   claveAutorizacion, // Enviamos la clave al backend para validar
+      // });
+      await axios.post(`${API_URL}/usuarios`, {
         nombre,
         apellido,
         correo,

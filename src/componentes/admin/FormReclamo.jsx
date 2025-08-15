@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+import { API_URL } from "../config";
+
 const EditarReclamo = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -15,9 +17,13 @@ const EditarReclamo = () => {
 
   useEffect(() => {
     const fetchReclamo = async () => {
+      // try {
+      //   setLoading(true);
+      //   const res = await axios.get(`http://localhost:3000/api/reclamos/${id}`);
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:3000/api/reclamos/${id}`);
+        const res = await axios.get(`${API_URL}/reclamos/${id}`);
+
         if (res.data.body) {
           setReclamo(res.data.body);
           setEstado(res.data.body.estado || "Pendiente");
@@ -42,9 +48,15 @@ const EditarReclamo = () => {
   }, [id]);
 
   const handleGuardar = async () => {
+    // try {
+    //   setGuardando(true);
+    //   await axios.put(`http://localhost:3000/api/reclamos/${id}/estado`, {
+    //     estado,
+    //   });
+
     try {
       setGuardando(true);
-      await axios.put(`http://localhost:3000/api/reclamos/${id}/estado`, {
+      await axios.put(`${API_URL}/reclamos/${id}/estado`, {
         estado,
       });
 

@@ -169,6 +169,8 @@ import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+import { API_URL } from "../config";
+
 const Contacto = () => {
   const [formData, setFormData] = useState({
     nombre: "",
@@ -202,8 +204,8 @@ const Contacto = () => {
 
     if (confirm.isConfirmed) {
       try {
-        await axios.post("http://localhost:3000/api/mensajes", formData);
-
+        //await axios.post("http://localhost:3000/api/mensajes", formData);
+        const res = await axios.post(`${API_URL}/mensajes`, formData);
         Swal.fire({
           icon: "success",
           title: "Mensaje enviado",

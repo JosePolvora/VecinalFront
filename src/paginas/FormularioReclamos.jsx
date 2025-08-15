@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { FaSearch, FaHistory } from "react-icons/fa";
 
+import { API_URL } from "../config";
+
 const FormularioReclamos = () => {
   const [formData, setFormData] = useState({
     nombres: "",
@@ -43,10 +45,11 @@ const FormularioReclamos = () => {
     }
 
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/reclamos",
-        formData
-      );
+      const res = await axios.post(`${API_URL}/reclamos`, formData);
+      // const res = await axios.post(
+      //   "http://localhost:3000/api/reclamos",
+      //   formData
+      // );
       const numero = res.data.body.numeroReclamo;
 
       Swal.fire({

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import { API_URL } from "../config";
+
 const FormSubirImagen = () => {
   const [imagen, setImagen] = useState(null);
   const [descripcion, setDescripcion] = useState("");
@@ -23,17 +25,24 @@ const FormSubirImagen = () => {
     formData.append("imagen", imagen);
     formData.append("descripcion", descripcion);
 
+    // try {
+    //   setCargando(true);
+    //   const res = await axios.post(
+    //     "http://localhost:3000/api/imagenes",
+    //     formData,
+    //     {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     }
+    //   );
     try {
       setCargando(true);
-      const res = await axios.post(
-        "http://localhost:3000/api/imagenes",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios.post(`${API_URL}/imagenes`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       setMensaje("✅ Imagen subida con éxito");
       setImagen(null);

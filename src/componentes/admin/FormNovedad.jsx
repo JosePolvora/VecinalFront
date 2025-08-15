@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import { API_URL } from "../config";
+
 const FormNovedad = () => {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
@@ -20,8 +22,12 @@ const FormNovedad = () => {
     formData.append("descripcion", descripcion);
     formData.append("imagen", imagen);
 
+    // try {
+    //   await axios.post("http://localhost:3000/api/novedades", formData, {
+    //     headers: { "Content-Type": "multipart/form-data" },
+    //   });
     try {
-      await axios.post("http://localhost:3000/api/novedades", formData, {
+      await axios.post(`${API_URL}/novedades`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

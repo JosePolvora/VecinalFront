@@ -4,6 +4,8 @@ import { Trash2, Plus } from "lucide-react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+import { API_URL } from "../config";
+
 function Imagenes() {
   const [loading, setLoading] = useState(true);
   const [imagenes, setImagenes] = useState([]);
@@ -11,11 +13,16 @@ function Imagenes() {
   const [imagenesPorPagina] = useState(5); // cambia esto para ajustar cuántas mostrar por página
   const navigate = useNavigate();
 
+  // const cargarImagenes = async () => {
+  //   try {
+  //     const respuesta = await axios.get(
+  //       "http://localhost:3000/api/imagenes/all"
+  //     );
+
   const cargarImagenes = async () => {
     try {
-      const respuesta = await axios.get(
-        "http://localhost:3000/api/imagenes/all"
-      );
+      const respuesta = await axios.get(`${API_URL}/imagenes/all`);
+
       if (respuesta.status === 200 && respuesta.data?.body) {
         setImagenes(respuesta.data.body);
       } else {
@@ -47,8 +54,19 @@ function Imagenes() {
     });
 
     if (isConfirmed) {
+      // try {
+      //   await axios.delete(`http://localhost:3000/api/imagenes/${id}`);
+      //   await cargarImagenes();
+      //   Swal.fire({
+      //     icon: "success",
+      //     title: "Eliminado",
+      //     text: "Imagen eliminada correctamente.",
+      //     timer: 2000,
+      //     showConfirmButton: false,
+      //   });
+
       try {
-        await axios.delete(`http://localhost:3000/api/imagenes/${id}`);
+        await axios.delete(`${API_URL}/imagenes/${id}`);
         await cargarImagenes();
         Swal.fire({
           icon: "success",
@@ -132,7 +150,10 @@ function Imagenes() {
                     >
                       <td className="px-4 py-4 whitespace-nowrap">
                         <img
-                          src={`http://localhost:3000${imagen.imagen_url}`}
+                          // src={`http://localhost:3000${imagen.imagen_url}`}
+                          src={`${API_URL.replace("/api", "")}${
+                            imagen.imagen_url
+                          }`}
                           alt={imagen.descripcion}
                           className="h-16 w-16 object-cover rounded-lg border border-white/20"
                         />

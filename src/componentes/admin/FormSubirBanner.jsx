@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import { API_URL } from "../config";
+
 const FormSubirBanner = () => {
   const [imagen, setImagen] = useState(null);
   const [descripcion, setDescripcion] = useState("");
@@ -27,17 +29,24 @@ const FormSubirBanner = () => {
     formData.append("tipo", tipo);
     formData.append("link", link);
 
+    // try {
+    //   setCargando(true);
+    //   const res = await axios.post(
+    //     "http://localhost:3000/api/banners",
+    //     formData,
+    //     {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     }
+    //   );
     try {
       setCargando(true);
-      const res = await axios.post(
-        "http://localhost:3000/api/banners",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios.post(`${API_URL}/banners`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       setMensaje("✅ Banner subido con éxito");
       setImagen(null);

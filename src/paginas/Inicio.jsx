@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Carousel } from "flowbite-react";
 import axios from "axios";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
+import { API_URL } from "../config";
 import ImgReclamo from "../imagenes/imgAccesos/reclamo.png";
 import ImgCamara from "../imagenes/imgAccesos/camara.png";
 import ImgRevista from "../imagenes/imgAccesos/revista.png";
@@ -52,10 +52,15 @@ const Inicio = () => {
 
     setHistorial((prev) => [...prev, { from: "user", text: texto }]);
 
+    // try {
+    //   const response = await axios.post("http://localhost:3000/api/ai/ask", {
+    //     question: texto,
+    //   });
     try {
-      const response = await axios.post("http://localhost:3000/api/ai/ask", {
+      const response = await axios.post(`${API_URL}/ai/ask`, {
         question: texto,
       });
+
       const respuesta = response.data.answer;
       setHistorial((prev) => [...prev, { from: "bot", text: respuesta }]);
     } catch (error) {
@@ -73,10 +78,15 @@ const Inicio = () => {
 
     setHistorial((prev) => [...prev, { from: "user", text: mensaje }]);
 
+    // try {
+    //   const response = await axios.post("http://localhost:3000/api/ai/ask", {
+    //     question: mensaje,
+    //   });
     try {
-      const response = await axios.post("http://localhost:3000/api/ai/ask", {
+      const response = await axios.post(`${API_URL}/ai/ask`, {
         question: mensaje,
       });
+
       const respuesta = response.data.answer;
 
       setHistorial((prev) => [...prev, { from: "bot", text: respuesta }]);
@@ -106,7 +116,8 @@ const Inicio = () => {
   useEffect(() => {
     const cargarNovedades = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/novedades");
+        //const res = await axios.get("http://localhost:3000/api/novedades");
+        const res = await axios.get(`${API_URL}/novedades`);
         setNovedades(res.data.body);
       } catch (error) {
         console.error("Error al cargar novedades:", error);
@@ -118,7 +129,8 @@ const Inicio = () => {
   useEffect(() => {
     const cargarImagenes = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/imagenes");
+        //const res = await axios.get("http://localhost:3000/api/imagenes");
+        const res = await axios.get(`${API_URL}/imagenes`);
         setImagenes(res.data.body);
       } catch (error) {
         console.error("Error al cargar imágenes:", error);

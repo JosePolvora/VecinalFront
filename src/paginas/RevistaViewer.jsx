@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/revistaViewerStyles.css";
 
+import { API_URL } from "../config";
+
 const RevistaViewer = ({ revista }) => {
   const [paginas, setPaginas] = useState([]);
   const [paginaActual, setPaginaActual] = useState(0);
@@ -21,9 +23,25 @@ const RevistaViewer = ({ revista }) => {
     return verificadas.filter((url) => url !== null);
   };
 
+  // useEffect(() => {
+  //   if (revista && revista.paginas_carpeta) {
+  //     const baseUrl = `http://localhost:3000${revista.paginas_carpeta}`;
+  //     const urls = [];
+  //     for (let i = 1; i <= 30; i++) {
+  //       urls.push(`${baseUrl}/pagina-${String(i).padStart(2, "0")}.jpg`);
+  //     }
+  //     verificarImagenes(urls).then((validas) => {
+  //       setPaginas(validas);
+  //       setPaginaActual(0);
+  //     });
+  //   }
+  // }, [revista]);
+
   useEffect(() => {
     if (revista && revista.paginas_carpeta) {
-      const baseUrl = `http://localhost:3000${revista.paginas_carpeta}`;
+      const baseUrl = `${API_URL.replace("/api", "")}${
+        revista.paginas_carpeta
+      }`;
       const urls = [];
       for (let i = 1; i <= 30; i++) {
         urls.push(`${baseUrl}/pagina-${String(i).padStart(2, "0")}.jpg`);
@@ -69,10 +87,7 @@ const RevistaViewer = ({ revista }) => {
       </button>
 
       <div className={`revista-pagina-sola ${fade ? "fade-in" : "fade-out"}`}>
-        <img
-          src={paginas[paginaActual]}
-          alt={`Página ${paginaActual + 1}`}
-        />
+        <img src={paginas[paginaActual]} alt={`Página ${paginaActual + 1}`} />
       </div>
 
       <button

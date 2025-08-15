@@ -134,16 +134,21 @@ import empresa3 from "../imagenes/imgPublicidad/carniceriatriangulo.png";
 import empresa4 from "../imagenes/imgPublicidad/sanchezmartinez.png";
 import empresa5 from "../imagenes/imgPublicidad/carniceriatriangulo.png";
 
+import { API_URL } from "../config";
+
 const NovedadDetalle = () => {
   const { id } = useParams();
   const [novedad, setNovedad] = useState(null);
 
   useEffect(() => {
     const obtenerNovedad = async () => {
+      // try {
+      //   const res = await axios.get(
+      //     `http://localhost:3000/api/novedades/${id}`
+      //   );
       try {
-        const res = await axios.get(
-          `http://localhost:3000/api/novedades/${id}`
-        );
+        const res = await axios.get(`${API_URL}/novedades/${id}`);
+
         setNovedad(res.data.body);
       } catch (error) {
         console.error("Error al obtener la novedad:", error);
@@ -152,8 +157,7 @@ const NovedadDetalle = () => {
     obtenerNovedad();
   }, [id]);
 
-  if (!novedad)
-    return <p className="text-center mt-10">Cargando novedad...</p>;
+  if (!novedad) return <p className="text-center mt-10">Cargando novedad...</p>;
 
   return (
     <>

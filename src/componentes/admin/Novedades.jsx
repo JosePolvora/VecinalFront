@@ -4,14 +4,19 @@ import { Trash2, Plus } from "lucide-react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+import { API_URL } from "../config";
+
 function Novedades() {
   const [loading, setLoading] = useState(true);
   const [novedades, setNovedades] = useState([]);
   const navigate = useNavigate();
 
   const cargarNovedades = async () => {
+    // try {
+    //   const respuesta = await axios.get("http://localhost:3000/api/novedades");
     try {
-      const respuesta = await axios.get("http://localhost:3000/api/novedades");
+      const respuesta = await axios.get(`${API_URL}/novedades`);
+
       if (respuesta.status === 200 && respuesta.data?.body) {
         setNovedades(respuesta.data.body);
       } else {
@@ -43,8 +48,19 @@ function Novedades() {
     });
 
     if (isConfirmed) {
+      // try {
+      //   await axios.delete(`http://localhost:3000/api/novedades/${id}`);
+      //   await cargarNovedades();
+      //   Swal.fire({
+      //     icon: "success",
+      //     title: "Eliminado",
+      //     text: "Novedad eliminada correctamente.",
+      //     timer: 2000,
+      //     showConfirmButton: false,
+      //   });
+
       try {
-        await axios.delete(`http://localhost:3000/api/novedades/${id}`);
+        await axios.delete(`${API_URL}/novedades/${id}`);
         await cargarNovedades();
         Swal.fire({
           icon: "success",
@@ -114,7 +130,10 @@ function Novedades() {
                       <td className="px-4 py-4 whitespace-nowrap">
                         {novedad.imagen_url ? (
                           <img
-                            src={`http://localhost:3000${novedad.imagen_url}`}
+                            // src={`http://localhost:3000${novedad.imagen_url}`}
+                            src={`${API_URL.replace("/api", "")}${
+                              novedad.imagen_url
+                            }`}
                             alt={novedad.titulo}
                             className="h-16 w-16 object-cover rounded-lg border border-white/20"
                           />
