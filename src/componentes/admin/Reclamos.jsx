@@ -147,7 +147,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 
 const ListadoReclamos = () => {
   const [reclamos, setReclamos] = useState([]);

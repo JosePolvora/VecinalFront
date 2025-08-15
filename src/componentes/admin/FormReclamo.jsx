@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 
 const EditarReclamo = () => {
   const { id } = useParams();

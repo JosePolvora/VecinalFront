@@ -4,7 +4,7 @@ import { Trash2, Plus } from "lucide-react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 
 function Novedades() {
   const [loading, setLoading] = useState(true);

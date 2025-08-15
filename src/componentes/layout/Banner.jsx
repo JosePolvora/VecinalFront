@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Carousel } from "flowbite-react";
 import axios from "axios";
 
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 
 const Banner = () => {
   const [banners, setBanners] = useState([]);
