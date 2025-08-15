@@ -47,7 +47,7 @@ const Banner = () => {
           <img
             key={banner.id}
             // src={`http://localhost:3000${banner.imagen_url}`}
-            src={`${API_URL.replace("/api", "")}${banner.imagen_url}`}
+            src={`${API_URL}${banner.imagen_url}`}
             alt={banner.descripcion || "Banner"}
             className="w-full h-full object-cover"
           />

@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 
 import { API_URL } from "../../config";
 
-
 function Banners() {
   const [loading, setLoading] = useState(true);
   const [banners, setBanners] = useState([]);
@@ -64,16 +63,15 @@ function Banners() {
       //     showConfirmButton: false,
       //   });
       try {
-  await axios.delete(`${API_URL}/banners/${id}`);
-  await cargarBanners();
-  Swal.fire({
-    icon: "success",
-    title: "Eliminado",
-    text: "Banner eliminado correctamente.",
-    timer: 2000,
-    showConfirmButton: false,
-  });
-
+        await axios.delete(`${API_URL}/banners/${id}`);
+        await cargarBanners();
+        Swal.fire({
+          icon: "success",
+          title: "Eliminado",
+          text: "Banner eliminado correctamente.",
+          timer: 2000,
+          showConfirmButton: false,
+        });
       } catch (error) {
         console.error("Error al borrar banner", error);
         Swal.fire({
@@ -147,8 +145,8 @@ function Banners() {
                       <td className="px-4 py-4 whitespace-nowrap">
                         <img
                           // src={`http://localhost:3000${banner.imagen_url}`}
-                          src={`${API_URL.replace("/api", "")}${banner.imagen_url}`}
 
+                          src={`${API_URL}${banner.imagen_url}`}
                           alt={banner.descripcion}
                           className="h-16 w-48 object-cover rounded-lg border border-white/20"
                         />

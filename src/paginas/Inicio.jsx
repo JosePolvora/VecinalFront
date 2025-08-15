@@ -333,19 +333,15 @@ const Inicio = () => {
               <p>Cargando novedades...</p>
             ) : (
               gruposTarjetas.map((grupo, i) => (
-                <div
-                  key={i}
-                  //className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4"
-                  className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4"
-                >
+                <div key={i} className="flex gap-6 px-4">
                   {grupo.map((novedad, j) => (
                     <Link
                       to={`/novedades/${novedad.id}`}
                       key={j}
-                      className="block"
+                      className="block flex-shrink-0 w-80"
                     >
                       <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition-all h-[28rem] flex flex-col">
-                        <img
+                        {/* <img
                           src={
                             novedad.imagen_url
                               ? `http://localhost:3000${novedad.imagen_url}`
@@ -353,7 +349,17 @@ const Inicio = () => {
                           }
                           alt={novedad.titulo}
                           className="object-cover w-full h-64"
+                        /> */}
+                        <img
+                          src={
+                            novedad.imagen_url
+                              ? `${API_URL}${novedad.imagen_url}`
+                              : "https://via.placeholder.com/300x200"
+                          }
+                          alt={novedad.titulo}
+                          className="object-cover w-full h-64"
                         />
+
                         <div className="p-5 flex flex-col flex-grow">
                           <h3 className="text-xl font-semibold mb-2 text-[#00527A]">
                             {novedad.titulo}
@@ -379,11 +385,13 @@ const Inicio = () => {
           {imagenes.map((img, index) => (
             <img
               key={index}
-              src={`http://localhost:3000${img.imagen_url}`}
+              //src={`http://localhost:3000${img.imagen_url}`}
+              src={`${API_URL}${img.imagen_url}`}
               alt={`Galería ${index + 1}`}
               className="w-full max-w-xs sm:max-w-none h-48 sm:h-64 object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
               onClick={() =>
-                openLightbox(`http://localhost:3000${img.imagen_url}`)
+                //openLightbox(`http://localhost:3000${img.imagen_url}`)
+                openLightbox(`${API_URL}${img.imagen_url}`)
               }
             />
           ))}
