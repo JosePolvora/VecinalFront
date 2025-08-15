@@ -180,6 +180,7 @@ const Inicio = () => {
   };
 
   const BASE_IMG_URL = API_URL.replace("/api", "");
+
   return (
     <div>
       <Banner />
@@ -391,6 +392,8 @@ const Inicio = () => {
               className="w-full max-w-xs sm:max-w-none h-48 sm:h-64 object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
               onClick={() => openLightbox(`${BASE_IMG_URL}${img.imagen_url}`)}
             />
+
+            
           ))}
         </div>
       </section>
