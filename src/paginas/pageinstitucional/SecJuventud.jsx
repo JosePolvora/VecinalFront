@@ -1,6 +1,6 @@
 // PageJuventud.jsx
 
-import lulyImg from "../../imagenes/imgInstitucional/luly.png";
+//import lulyImg from "../../imagenes/imgInstitucional/luly.png";
 
 const SecJuventud = () => {
   const juventud = [

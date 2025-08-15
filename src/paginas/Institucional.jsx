@@ -3,7 +3,7 @@ import pesceImg from "../imagenes/imgInstitucional/pesce.jpg";
 import oviedoImg from "../imagenes/imgInstitucional/oviedo.jpg";
 import cayutiImg from "../imagenes/imgInstitucional/cayuti.png";
 import sanchezImg from "../imagenes/imgInstitucional/sanchez.png";
-import lulyImg from "../imagenes/imgInstitucional/luly.png";
+//import lulyImg from "../imagenes/imgInstitucional/luly.png";
 
 const Institucional = () => {
   const titular = [
