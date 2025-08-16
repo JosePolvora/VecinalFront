@@ -7,7 +7,7 @@ const SecJuventud = () => {
     {
       nombre: "Luciana Romero",
       cargo: "Secretaría de Juventud y Género (Titular)",
-      img: lulyImg,
+      img: null,
     },
     {
       nombre: "Tomás Aguirre",

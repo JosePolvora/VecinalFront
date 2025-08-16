@@ -51,7 +51,7 @@ const Institucional = () => {
     {
       nombre: "Luciana Romero",
       cargo: "Secretaría de Juventud y Género (Titular)",
-      img: lulyImg,
+      img: null,
       ruta: "/integrantes/secjuventud",
     },
     {
