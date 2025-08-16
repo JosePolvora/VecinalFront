@@ -4,6 +4,13 @@ import oviedoImg from "../imagenes/imgInstitucional/oviedo.jpg";
 import cayutiImg from "../imagenes/imgInstitucional/cayuti.png";
 import sanchezImg from "../imagenes/imgInstitucional/sanchez.png";
 //import lulyImg from "../imagenes/imgInstitucional/luly.png";
+import ramirezImg from "../imagenes/imgInstitucional/miguelR.png";
+import claudiaImg from "../imagenes/imgInstitucional/claudia.png";
+import diegoImg from "../imagenes/imgInstitucional/diego.png";
+import ezeImg from "../imagenes/imgInstitucional/ezequiel.png";
+import fabianaImg from "../imagenes/imgInstitucional/fabiana.png";
+import martinImg from "../imagenes/imgInstitucional/martin.png";
+import aleImg from "../imagenes/imgInstitucional/ale.png";
 
 const Institucional = () => {
   const titular = [
@@ -25,88 +32,103 @@ const Institucional = () => {
 
   const secretarias = [
     {
-      nombre: "Lucía Romero",
+      nombre: "Fabiana Capitanelli",
       cargo: "Secretaría de Cultura y Educación (Titular)",
-      img: null,
+      img: fabianaImg,
       ruta: "/integrantes/seccultura",
     },
     {
-      nombre: "Sofía Acuña",
+      nombre: "Ariel Gonzalez",
       cargo: "Secretaría de Cultura y Educación (Suplente)",
       img: null,
       ruta: "/integrantes/seccultura",
     },
     {
-      nombre: "Martín Sosa",
+      nombre: "Sergio Fonseca",
       cargo: "Secretaría de Deportes y Recreación (Titular)",
       img: null,
       ruta: "/integrantes/secdeporte",
     },
     {
-      nombre: "Paula Giménez",
+      nombre: "Alejandra Espinosa",
       cargo: "Secretaría de Deportes y Recreación (Suplente)",
-      img: null,
+      img: aleImg,
       ruta: "/integrantes/secdeporte",
     },
     {
-      nombre: "Luciana Romero",
+      nombre: "Cristian Machado",
       cargo: "Secretaría de Juventud y Género (Titular)",
       img: null,
       ruta: "/integrantes/secjuventud",
     },
     {
-      nombre: "Tomás Aguirre",
+      nombre: "Sonia Flores",
       cargo: "Secretaría de Juventud y Género(Suplente)",
       img: null,
       ruta: "/integrantes/secjuventud",
     },
     {
-      nombre: "Roberto Medina",
+      nombre: "Claudia Jaime",
       cargo: "Secretaría de Seguridad y Convivencia (Titular)",
-      img: null,
+      img: claudiaImg,
       ruta: "/integrantes/secseguridad",
     },
     {
-      nombre: "Liliana Torres",
+      nombre: "Martin Cisterna",
       cargo: "Secretaría de Seguridad y Convivencia (Suplente)",
-      img: null,
+      img: martinImg,
       ruta: "/integrantes/secseguridad",
     },
     {
-      nombre: "Valeria Castro",
+      nombre: "Marcos Maldonado",
       cargo: "Secretaría de Comunicación y Prensa (Titular)",
       img: null,
       ruta: "/integrantes/seccomunicacion",
     },
     {
-      nombre: "José Barrios",
+      nombre: "Analia Moreno",
       cargo: "Secretaría de Comunicación y Prensa (Suplente)",
       img: null,
       ruta: "/integrantes/seccomunicacion",
     },
-    {
-      nombre: "Hernán Gómez",
-      cargo: "Secretaría de Infraestructura y Servicios (Titular)",
-      img: null,
-      ruta: "/integrantes/secinfraestructura",
-    },
-    {
-      nombre: "Natalia Ríos",
-      cargo: "Secretaría de Infraestructura y Servicios (Suplente)",
-      img: null,
-      ruta: "/integrantes/secinfraestructura",
-    },
+    
   ];
 
   const adicionales = [
     {
-      nombre: "Claudia Ramírez",
+      nombre: "Diego Urrea",
+      cargo: "Revisor de Cuentas",
+      img: diegoImg,
+      ruta: "",
+    },
+    {
+      nombre: "María Nasuti",
       cargo: "Revisora de Cuentas",
       img: null,
       ruta: "",
     },
-    { nombre: "Federico Benítez", cargo: "Prosecretario", img: null, ruta: "" },
-    { nombre: "Romina Oliva", cargo: "Tesorera", img: null, ruta: "" },
+    {
+      nombre: "Miguel Ramirez",
+      cargo: "Revisor de Cuentas",
+      img: ramirezImg,
+      ruta: "",
+    },
+  
+  ];
+
+  const adicionalesSuplentes = [
+    {
+      nombre: "Eliana Peralta",
+      cargo: "Revisora de Cuentas",
+      img: null,
+      ruta: "",
+    },
+    {
+      nombre: "Ezequiel Rodriguez",
+      cargo: "Revisor de Cuentas",
+      img: ezeImg,
+      ruta: "",
+    },
   ];
 
   const renderIntegrantes = (lista, cols = "lg:grid-cols-3") => (
@@ -180,11 +202,23 @@ const Institucional = () => {
           {renderIntegrantes(secretarias, "lg:grid-cols-2")}
         </div>
 
-        <div className="bg-white rounded-xl p-5 sm:p-10">
+        <div className="bg-white rounded-xl p-5 sm:p-10 ">
           <h2 className="font-semibold text-[#00527A] text-xl sm:text-2xl mb-10 text-center">
-            Cargos Adicionales
+            Comisión Revisora de Cuentas Titular
           </h2>
           {renderIntegrantes(adicionales)}
+        </div>
+
+        <div className="">
+          <div className="bg-white rounded-xl p-5 sm:p-10">
+            <h2 className="font-semibold text-[#00527A] text-xl sm:text-2xl mb-10 text-center">
+              Comisión Revisora de Cuentas Suplente
+            </h2>
+
+            <div className="">
+              {renderIntegrantes(adicionalesSuplentes, "lg:grid-cols-2")}
+            </div>
+          </div>
         </div>
       </div>
     </section>

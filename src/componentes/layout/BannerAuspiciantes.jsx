@@ -66,7 +66,6 @@
 
 // export default BannerAuspiciantes;
 
-
 import { useEffect, useState } from "react";
 import { Carousel } from "flowbite-react";
 import axios from "axios";
@@ -120,7 +119,9 @@ const BannerAuspiciantes = () => {
             rel="noopener noreferrer"
             className="w-full h-full block"
           >
-            <div className="w-full h-full bg-white flex items-center justify-center">
+            {/* <div className="w-full h-full bg-white flex items-center justify-center"> */}
+
+            <div className="w-full h-full bg-white">
               <img
                 src={`${BASE_IMG_URL}${banner.imagen_url}`}
                 alt={banner.descripcion || "Auspiciantes"}
