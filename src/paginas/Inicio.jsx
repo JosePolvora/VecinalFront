@@ -52,10 +52,6 @@ const Inicio = () => {
 
     setHistorial((prev) => [...prev, { from: "user", text: texto }]);
 
-    // try {
-    //   const response = await axios.post("http://localhost:3000/api/ai/ask", {
-    //     question: texto,
-    //   });
     try {
       const response = await axios.post(`${API_URL}/ai/ask`, {
         question: texto,
@@ -78,10 +74,6 @@ const Inicio = () => {
 
     setHistorial((prev) => [...prev, { from: "user", text: mensaje }]);
 
-    // try {
-    //   const response = await axios.post("http://localhost:3000/api/ai/ask", {
-    //     question: mensaje,
-    //   });
     try {
       const response = await axios.post(`${API_URL}/ai/ask`, {
         question: mensaje,
@@ -179,7 +171,7 @@ const Inicio = () => {
     });
   };
 
-  const BASE_IMG_URL = API_URL.replace("/api", "");
+  const BASE_IMG_URL = "https://api.santaisabel2.com";
 
   return (
     <div>
@@ -343,15 +335,6 @@ const Inicio = () => {
                       className="block flex-shrink-0 w-80"
                     >
                       <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition-all h-[28rem] flex flex-col">
-                        {/* <img
-                          src={
-                            novedad.imagen_url
-                              ? `${API_URL}${novedad.imagen_url}`
-                              : "https://via.placeholder.com/300x200"
-                          }
-                          alt={novedad.titulo}
-                          className="object-cover w-full h-64"
-                        /> */}
                         <img
                           src={
                             novedad.imagen_url
@@ -387,13 +370,11 @@ const Inicio = () => {
           {imagenes.map((img, index) => (
             <img
               key={index}
-              src={`${BASE_IMG_URL}${img.imagen_url}`}
+              src={`${BASE_IMG_URL}${img.imagen_url}`} // URL completa usando la constante
               alt={`Galería ${index + 1}`}
               className="w-full max-w-xs sm:max-w-none h-48 sm:h-64 object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
               onClick={() => openLightbox(`${BASE_IMG_URL}${img.imagen_url}`)}
             />
-
-            
           ))}
         </div>
       </section>

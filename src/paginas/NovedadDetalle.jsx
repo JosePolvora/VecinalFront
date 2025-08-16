@@ -142,10 +142,6 @@ const NovedadDetalle = () => {
 
   useEffect(() => {
     const obtenerNovedad = async () => {
-      // try {
-      //   const res = await axios.get(
-      //     `http://localhost:3000/api/novedades/${id}`
-      //   );
       try {
         const res = await axios.get(`${API_URL}/novedades/${id}`);
 
@@ -159,6 +155,7 @@ const NovedadDetalle = () => {
 
   if (!novedad) return <p className="text-center mt-10">Cargando novedad...</p>;
 
+  const BASE_IMG_URL = "https://api.santaisabel2.com";
   return (
     <>
       <h2 className="text-3xl font-bold text-[#002c73] text-center mb-10 uppercase px-4">
@@ -183,7 +180,7 @@ const NovedadDetalle = () => {
             <img
               src={
                 novedad.imagen_url
-                  ? `http://localhost:3000${novedad.imagen_url}`
+                  ? `${BASE_IMG_URL}${novedad.imagen_url}`
                   : "https://via.placeholder.com/800x450"
               }
               alt={novedad.titulo}

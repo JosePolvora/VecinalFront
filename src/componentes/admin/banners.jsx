@@ -98,6 +98,8 @@ function Banners() {
     setPaginaActual(numero);
   };
 
+  const BASE_IMG_URL = "https://api.santaisabel2.com";
+
   return (
     <div className="min-h-screen flex justify-center items-center p-4 sm:p-6">
       <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#0059b3] rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
@@ -146,7 +148,7 @@ function Banners() {
                         <img
                           // src={`http://localhost:3000${banner.imagen_url}`}
 
-                          src={`${API_URL}${banner.imagen_url}`}
+                          src={`${BASE_IMG_URL}${banner.imagen_url}`}
                           alt={banner.descripcion}
                           className="h-16 w-48 object-cover rounded-lg border border-white/20"
                         />

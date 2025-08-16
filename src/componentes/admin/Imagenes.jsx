@@ -13,12 +13,6 @@ function Imagenes() {
   const [imagenesPorPagina] = useState(5); // cambia esto para ajustar cuántas mostrar por página
   const navigate = useNavigate();
 
-  // const cargarImagenes = async () => {
-  //   try {
-  //     const respuesta = await axios.get(
-  //       "http://localhost:3000/api/imagenes/all"
-  //     );
-
   const cargarImagenes = async () => {
     try {
       const respuesta = await axios.get(`${API_URL}/imagenes/all`);
@@ -54,17 +48,6 @@ function Imagenes() {
     });
 
     if (isConfirmed) {
-      // try {
-      //   await axios.delete(`http://localhost:3000/api/imagenes/${id}`);
-      //   await cargarImagenes();
-      //   Swal.fire({
-      //     icon: "success",
-      //     title: "Eliminado",
-      //     text: "Imagen eliminada correctamente.",
-      //     timer: 2000,
-      //     showConfirmButton: false,
-      //   });
-
       try {
         await axios.delete(`${API_URL}/imagenes/${id}`);
         await cargarImagenes();
@@ -103,6 +86,8 @@ function Imagenes() {
     else if (numero > totalPaginas) numero = totalPaginas;
     setPaginaActual(numero);
   };
+
+  const BASE_IMG_URL = "https://api.santaisabel2.com";
 
   return (
     <div className="min-h-screen flex justify-center items-center p-4 sm:p-6">
@@ -150,11 +135,12 @@ function Imagenes() {
                     >
                       <td className="px-4 py-4 whitespace-nowrap">
                         <img
-                          // src={`http://localhost:3000${imagen.imagen_url}`}
-                          src={`${API_URL.replace("/api", "")}${
+                          src={
                             imagen.imagen_url
-                          }`}
-                          alt={imagen.descripcion}
+                              ? `${BASE_IMG_URL}${imagen.imagen_url}`
+                              : "https://via.placeholder.com/64"
+                          }
+                          alt={imagen.descripcion || "Imagen"}
                           className="h-16 w-16 object-cover rounded-lg border border-white/20"
                         />
                       </td>

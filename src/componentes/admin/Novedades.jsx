@@ -80,6 +80,8 @@ function Novedades() {
     }
   };
 
+  const BASE_IMG_URL = "https://api.santaisabel2.com";
+
   return (
     <div className="min-h-screen flex justify-center items-center p-4 sm:p-6">
       <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#0059b3] rounded-2xl border border-white/20 p-6 sm:p-10 w-full max-w-6xl shadow-xl backdrop-blur-md">
@@ -130,10 +132,11 @@ function Novedades() {
                       <td className="px-4 py-4 whitespace-nowrap">
                         {novedad.imagen_url ? (
                           <img
-                            // src={`http://localhost:3000${novedad.imagen_url}`}
-                            src={`${API_URL.replace("/api", "")}${
+                            src={
                               novedad.imagen_url
-                            }`}
+                                ? `${BASE_IMG_URL}${novedad.imagen_url}`
+                                : "https://via.placeholder.com/64"
+                            }
                             alt={novedad.titulo}
                             className="h-16 w-16 object-cover rounded-lg border border-white/20"
                           />
