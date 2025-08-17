@@ -6,24 +6,24 @@
 const SecComunicacion = () => {
   const comunicacion = [
     {
-      nombre: "Mauro Vega",
+      nombre: "Marcos Maldonado",
       cargo: "Secretaría de Comunicación (Titular)",
       img: null,
     },
     {
-      nombre: "Laura Pérez",
+      nombre: "Analia Moreno",
       cargo: "Secretaría de Comunicación (Suplente)",
       img: null,
     },
   ];
 
   const vocales = [
-    { nombre: "Lucía Herrera", cargo: "Vocal", img: null },
-    { nombre: "Federico Martínez", cargo: "Vocal", img: null },
-    { nombre: "Natalia Gómez", cargo: "Vocal", img: null },
-    { nombre: "Sergio Díaz", cargo: "Vocal", img: null },
-    { nombre: "Camila Ruiz", cargo: "Vocal", img: null },
-    { nombre: "Tomás Luna", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
   ];
 
   const renderIntegrantes = (lista, lgCols = "lg:grid-cols-3") => (

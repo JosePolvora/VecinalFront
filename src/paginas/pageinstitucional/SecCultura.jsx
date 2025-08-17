@@ -1,29 +1,30 @@
 // PageCultura.jsx
 
-// import juventudImg from "../imagenes/juventud.jpg"; // opcional
-// import suplenteImg from "../imagenes/suplente.jpg"; // opcional
+
+import fabianaImg from "../../imagenes/imgInstitucional/fabiana.png";
+//import arielImg from "../../imagenes/imgInstitucional/ariel.png";
 
 const SecCultura = () => {
   const cultura = [
     {
-      nombre: "Alicia Fernández",
+      nombre: "Fabiana Capitanelli",
       cargo: "Secretaría de Cultura (Titular)",
-      img: null,
+      img: fabianaImg,
     },
     {
-      nombre: "Carlos Pereyra",
+      nombre: "Ariel Gonzalez",
       cargo: "Secretaría de Cultura (Suplente)",
       img: null,
     },
   ];
 
   const vocales = [
-    { nombre: "Gabriela López", cargo: "Vocal", img: null },
-    { nombre: "Andrés Quinteros", cargo: "Vocal", img: null },
-    { nombre: "Sandra Ríos", cargo: "Vocal", img: null },
-    { nombre: "Damián Carrizo", cargo: "Vocal", img: null },
-    { nombre: "Patricia Moyano", cargo: "Vocal", img: null },
-    { nombre: "Julián Figueroa", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
   ];
 
   const renderIntegrantes = (lista, cols = "sm:grid-cols-2 lg:grid-cols-3") => (

@@ -1,29 +1,29 @@
 // PageSeguridad.jsx
 
-// import deporteImg from "../imagenes/deporte.jpg"; // opcional
-// import suplenteImg from "../imagenes/suplente.jpg"; // opcional
+import claudiaImg from "../../imagenes/imgInstitucional/claudia.png";
+import martinImg from "../../imagenes/imgInstitucional/martin.png";
 
 const SecSeguridad = () => {
   const seguridad = [
     {
-      nombre: "Andrés Moyano",
+      nombre: "Claudia Jaime",
       cargo: "Secretaría de Seguridad (Titular)",
-      img: null,
+      img: claudiaImg,
     },
     {
-      nombre: "Valeria Godoy",
+      nombre: "Martin Cisterna",
       cargo: "Secretaría de Seguridad (Suplente)",
-      img: null,
+      img: martinImg,
     },
   ];
 
   const vocales = [
-    { nombre: "Pablo Rivas", cargo: "Vocal", img: null },
-    { nombre: "Camila Sánchez", cargo: "Vocal", img: null },
-    { nombre: "Ramiro López", cargo: "Vocal", img: null },
-    { nombre: "Julieta Aguirre", cargo: "Vocal", img: null },
-    { nombre: "Federico Díaz", cargo: "Vocal", img: null },
-    { nombre: "Florencia Medina", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
   ];
 
   const renderIntegrantes = (lista, cols = "sm:grid-cols-2 lg:grid-cols-3") => (

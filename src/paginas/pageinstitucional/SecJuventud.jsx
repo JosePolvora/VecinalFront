@@ -5,24 +5,24 @@
 const SecJuventud = () => {
   const juventud = [
     {
-      nombre: "Luciana Romero",
+      nombre: "Cristian Machado",
       cargo: "Secretaría de Juventud y Género (Titular)",
       img: null,
     },
     {
-      nombre: "Tomás Aguirre",
+      nombre: "Sonia Flores",
       cargo: "Secretaría de Juventud y Género (Suplente)",
       img: null,
     },
   ];
 
   const vocales = [
-    { nombre: "Lucía Romero", cargo: "Vocal", img: null },
-    { nombre: "Martín Sosa", cargo: "Vocal", img: null },
-    { nombre: "Roberto Medina", cargo: "Vocal", img: null },
-    { nombre: "Valeria Castro", cargo: "Vocal", img: null },
-    { nombre: "Hernán Gómez", cargo: "Vocal", img: null },
-    { nombre: "Federico Benítez", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
   ];
 
   const renderIntegrantes = (lista, cols = "sm:grid-cols-2 lg:grid-cols-3") => (

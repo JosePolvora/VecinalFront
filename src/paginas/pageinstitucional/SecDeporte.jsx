@@ -1,29 +1,28 @@
 // PageDeporte.jsx
 
-// import deporteImg from "../imagenes/deporte.jpg"; // opcional
-// import suplenteImg from "../imagenes/suplente.jpg"; // opcional
+import aleImg from "../../imagenes/imgInstitucional/ale.png";
 
 const SecDeporte = () => {
   const deporte = [
     {
-      nombre: "Camila Herrera",
+      nombre: "Sergio Fonseca",
       cargo: "Secretaría de Deportes (Titular)",
       img: null,
     },
     {
-      nombre: "Nicolás Ríos",
+      nombre: "Alejandra Espinosa",
       cargo: "Secretaría de Deportes (Suplente)",
-      img: null,
+      img: aleImg,
     },
   ];
 
   const vocales = [
-    { nombre: "Laura Martínez", cargo: "Vocal", img: null },
-    { nombre: "Diego Torres", cargo: "Vocal", img: null },
-    { nombre: "Agustina Blanco", cargo: "Vocal", img: null },
-    { nombre: "Ramiro Peña", cargo: "Vocal", img: null },
-    { nombre: "Sofía Álvarez", cargo: "Vocal", img: null },
-    { nombre: "Bruno Castillo", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
+    { nombre: "", cargo: "Vocal", img: null },
   ];
 
   const renderIntegrantes = (lista, cols = "sm:grid-cols-2 lg:grid-cols-3") => (
