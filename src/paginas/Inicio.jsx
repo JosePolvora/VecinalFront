@@ -197,7 +197,7 @@ const Inicio = () => {
     });
   };
 
-  const BASE_IMG_URL = "https://api.santaisabel2.com/api";
+  const BASE_IMG_URL = "https://api.santaisabel2.com";
 
   return (
     <div>
