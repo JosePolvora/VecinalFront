@@ -40,11 +40,17 @@ const FormSubirRevista = () => {
     //   );
     try {
       setCargando(true);
+      // const res = await axios.post(`${API_URL}/revistas`, formData, {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      // });
+
       const res = await axios.post(`${API_URL}/revistas`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+  headers: { "Content-Type": "multipart/form-data" },
+  withCredentials: true // <--- esto es clave
+});
+
 
       setMensaje("✅ Revista subida con éxito");
       setPdf(null);
