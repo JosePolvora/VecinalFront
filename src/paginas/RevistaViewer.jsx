@@ -95,7 +95,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = "https://api.santaisabel2.com/api"; // tu backend
+const API_URL = "https://api.santaisabel2.com/api"; // backend real
 
 const RevistaViewer = () => {
   const [revistas, setRevistas] = useState([]);
@@ -104,7 +104,8 @@ const RevistaViewer = () => {
     const fetchRevistas = async () => {
       try {
         const res = await axios.get(`${API_URL}/revistas`);
-        setRevistas(res.data);
+        const revistasArray = Array.isArray(res.data.body) ? res.data.body : [];
+        setRevistas(revistasArray);
       } catch (error) {
         console.error("Error al traer revistas:", error);
       }
@@ -120,18 +121,22 @@ const RevistaViewer = () => {
           <div key={revista.id} className="p-4 border rounded-lg shadow bg-white">
             <h3 className="text-xl font-semibold capitalize">{revista.mes}</h3>
             <p className="text-gray-600">{revista.descripcion}</p>
-            
+
             {/* Cargar imágenes */}
             <div className="mt-4 space-y-2">
-              {[1, 2, 3, 4, 5].map((num) => ( // 🔹 ajustá la cantidad de páginas reales
-                <img
-                  key={num}
-                  src={`https://api.santaisabel2.com${revista.paginas_carpeta}/pagina${num}.jpg`}
-                  alt={`Página ${num} de ${revista.mes}`}
-                  className="w-full rounded shadow"
-                  onError={(e) => (e.target.style.display = "none")}
-                />
-              ))}
+              {[...Array(10)].map((_, i) => { // ajustar según la cantidad de páginas
+                const num = i + 1;
+                const imgUrl = `${API_URL.replace("/api", "")}${revista.paginas_carpeta}/${num}_${revista.mes}_pages-to-jpg-000${num}.jpg`;
+                return (
+                  <img
+                    key={num}
+                    src={imgUrl}
+                    alt={`Página ${num} de ${revista.mes}`}
+                    className="w-full rounded shadow"
+                    onError={(e) => (e.target.style.display = "none")}
+                  />
+                );
+              })}
             </div>
           </div>
         ))}

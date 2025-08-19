@@ -55,42 +55,70 @@
 // export default RevistaDetalle;
 
 
+// src/paginas/RevistaDetalle.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import RevistaViewer from "./RevistaViewer";
 
-const API_URL = import.meta.env.VITE_API_URL; // tu backend
+const API_URL = import.meta.env.VITE_API_URL; // tu backend en producción
 
 const RevistaDetalle = () => {
   const { id } = useParams();
   const [revista, setRevista] = useState(null);
   const [imagenes, setImagenes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchRevista = async () => {
-      const res = await axios.get(`${API_URL}/revistas/${id}`);
-      setRevista(res.data);
+      try {
+        setLoading(true);
+        setError(null);
 
-      // 📌 Generamos las imágenes suponiendo que se suben como 1.jpg, 2.jpg, 3.jpg, ...
-      const carpeta = res.data.paginas_carpeta;
-      const totalPaginas = 10; // <-- cámbialo al máximo estimado de páginas
-      const imgs = [];
+        const res = await axios.get(`${API_URL}/revistas/${id}`);
+        const data = res.data.body;
 
-      for (let i = 1; i <= totalPaginas; i++) {
-        imgs.push(`${API_URL}${carpeta}/${i}.jpg`);
+        if (!data) {
+          setError("Revista no encontrada");
+          return;
+        }
+
+        setRevista(data);
+
+        // Generar URLs de imágenes según la carpeta y nombres reales
+        const carpeta = data.paginas_carpeta; // ejemplo: /uploads/revistas/paginas/agosto
+        const totalPaginas = 10; // ajustar al número máximo de páginas de la revista
+        const imgs = [];
+
+        for (let i = 1; i <= totalPaginas; i++) {
+          // Ajustar el nombre de cada archivo según tu patrón real
+          imgs.push(
+            `${API_URL.replace("/api", "")}${carpeta}/${i}_${data.mes}_pages-to-jpg-000${i}.jpg`
+          );
+        }
+
+        setImagenes(imgs);
+      } catch (err) {
+        console.error("Error al cargar la revista:", err);
+        setError("Error al cargar la revista");
+      } finally {
+        setLoading(false);
       }
-      setImagenes(imgs);
     };
 
-    fetchRevista();
+    if (id) fetchRevista();
+    else setError("ID inválido");
   }, [id]);
 
-  if (!revista) return <p>Cargando...</p>;
+  if (loading) return <p className="text-center py-10">Cargando revista...</p>;
+  if (error) return <p className="text-center py-10 text-red-600">{error}</p>;
+  if (!revista) return null;
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold">{revista.titulo}</h1>
+    <div className="p-4 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-bold mb-6">{revista.mes.toUpperCase()}</h1>
+      <p className="mb-6 text-gray-700">{revista.descripcion}</p>
       <RevistaViewer imagenes={imagenes} />
     </div>
   );
