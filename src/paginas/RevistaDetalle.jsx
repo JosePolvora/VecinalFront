@@ -323,7 +323,7 @@ const RevistaDetalle = () => {
         setRevista(revistaData);
 
         // 🔹 Generar URLs de imágenes según la carpeta y patrón de nombres
-        const totalPaginas = 10; // Ajusta según la cantidad real de páginas
+        const totalPaginas = 5; // mostrar solo 5 páginas por ahora
         const imgs = [];
         for (let i = 1; i <= totalPaginas; i++) {
           const pageNum = String(i).padStart(2, "0"); // 01, 02, 03...
@@ -357,7 +357,7 @@ const RevistaDetalle = () => {
         📅 Creado en: {new Date(revista.creado_en).toLocaleDateString()}
       </p>
 
-      {/* 🔹 Mostrar todas las imágenes */}
+      {/* 🔹 Mostrar las 5 imágenes */}
       <div className="space-y-4">
         {imagenes.map((img, index) => (
           <img
