@@ -14,7 +14,6 @@ const BannerAuspiciantes = () => {
         const res = await axios.get(`${API_URL}/banners/all`);
 
         if (res.status === 200 && res.data.body) {
-          console.log("Banners recibidos:", res.data.body);
           const auspiciantes = res.data.body.filter(
             (b) => b.tipo && b.tipo.trim().toLowerCase() === "auspiciantes"
           );
@@ -51,8 +50,6 @@ const BannerAuspiciantes = () => {
             rel="noopener noreferrer"
             className="w-full h-full block"
           >
-            {/* <div className="w-full h-full bg-white flex items-center justify-center"> */}
-
             <div className="w-full h-full bg-white">
               <img
                 src={`${BASE_IMG_URL}${banner.imagen_url}`}

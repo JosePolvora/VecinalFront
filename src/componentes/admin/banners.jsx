@@ -14,10 +14,6 @@ function Banners() {
   const navigate = useNavigate();
 
   const cargarBanners = async () => {
-    // try {
-    //   const respuesta = await axios.get(
-    //     "http://localhost:3000/api/banners/all"
-    //   );
     try {
       const respuesta = await axios.get(`${API_URL}/banners/all`);
 
@@ -52,16 +48,6 @@ function Banners() {
     });
 
     if (isConfirmed) {
-      // try {
-      //   await axios.delete(`http://localhost:3000/api/banners/${id}`);
-      //   await cargarBanners();
-      //   Swal.fire({
-      //     icon: "success",
-      //     title: "Eliminado",
-      //     text: "Banner eliminado correctamente.",
-      //     timer: 2000,
-      //     showConfirmButton: false,
-      //   });
       try {
         await axios.delete(`${API_URL}/banners/${id}`);
         await cargarBanners();
@@ -146,8 +132,6 @@ function Banners() {
                     >
                       <td className="px-4 py-4 whitespace-nowrap">
                         <img
-                          // src={`http://localhost:3000${banner.imagen_url}`}
-
                           src={`${BASE_IMG_URL}${banner.imagen_url}`}
                           alt={banner.descripcion}
                           className="h-16 w-48 object-cover rounded-lg border border-white/20"

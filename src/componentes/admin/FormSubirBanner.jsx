@@ -29,17 +29,6 @@ const FormSubirBanner = () => {
     formData.append("tipo", tipo);
     formData.append("link", link);
 
-    // try {
-    //   setCargando(true);
-    //   const res = await axios.post(
-    //     "http://localhost:3000/api/banners",
-    //     formData,
-    //     {
-    //       headers: {
-    //         "Content-Type": "multipart/form-data",
-    //       },
-    //     }
-    //   );
     try {
       setCargando(true);
       const res = await axios.post(`${API_URL}/banners`, formData, {

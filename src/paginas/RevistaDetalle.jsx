@@ -302,7 +302,6 @@ const API_URL = "https://api.santaisabel2.com/api"; // tu backend real
 const RevistaDetalle = () => {
   const { id } = useParams();
   const [revista, setRevista] = useState(null);
-  const [imagenes, setImagenes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -321,17 +320,6 @@ const RevistaDetalle = () => {
         }
 
         setRevista(revistaData);
-
-        // 🔹 Generar URLs de imágenes según la carpeta y patrón de nombres
-        const totalPaginas = 5; // mostrar solo 5 páginas por ahora
-        const imgs = [];
-        for (let i = 1; i <= totalPaginas; i++) {
-          const pageNum = String(i).padStart(2, "0"); // 01, 02, 03...
-          imgs.push(
-            `${API_URL.replace("/api", "")}${revistaData.paginas_carpeta}/${i}_${revistaData.mes}_pages-to-jpg-000${pageNum}.jpg`
-          );
-        }
-        setImagenes(imgs);
       } catch (err) {
         console.error("Error al cargar la revista:", err);
         setError("Error al cargar la revista");
@@ -348,6 +336,9 @@ const RevistaDetalle = () => {
   if (error) return <p className="text-center py-10 text-red-600">{error}</p>;
   if (!revista) return null;
 
+  // Mostrar máximo 5 imágenes
+  const imagenesAMostrar = revista.imagenes.slice(0, 5);
+
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4 capitalize">{revista.mes}</h1>
@@ -357,15 +348,15 @@ const RevistaDetalle = () => {
         📅 Creado en: {new Date(revista.creado_en).toLocaleDateString()}
       </p>
 
-      {/* 🔹 Mostrar las 5 imágenes */}
+      {/* Mostrar imágenes recibidas del backend */}
       <div className="space-y-4">
-        {imagenes.map((img, index) => (
+        {imagenesAMostrar.map((img, index) => (
           <img
             key={index}
-            src={img}
+            src={`${API_URL.replace("/api", "")}${img}`}
             alt={`Página ${index + 1}`}
             className="w-full shadow-lg rounded-lg"
-            onError={(e) => (e.target.style.display = "none")} // Ocultar si no existe
+            onError={(e) => (e.target.style.display = "none")}
           />
         ))}
       </div>
