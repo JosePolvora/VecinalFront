@@ -297,7 +297,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "https://api.santaisabel2.com/api"; // tu backend
+const API_URL = "https://api.santaisabel2.com/api"; // tu backend real
 
 const RevistaDetalle = () => {
   const { id } = useParams();
@@ -322,11 +322,14 @@ const RevistaDetalle = () => {
 
         setRevista(revistaData);
 
-        // 🔹 Generar URLs de imágenes según la carpeta
-        const totalPaginas = 10; // Ajusta según la cantidad máxima de páginas reales
+        // 🔹 Generar URLs de imágenes según la carpeta y patrón de nombres
+        const totalPaginas = 10; // Ajusta según la cantidad real de páginas
         const imgs = [];
         for (let i = 1; i <= totalPaginas; i++) {
-          imgs.push(`${API_URL.replace("/api", "")}${revistaData.paginas_carpeta}/${i}.jpg`);
+          const pageNum = String(i).padStart(2, "0"); // 01, 02, 03...
+          imgs.push(
+            `${API_URL.replace("/api", "")}${revistaData.paginas_carpeta}/${i}_${revistaData.mes}_pages-to-jpg-000${pageNum}.jpg`
+          );
         }
         setImagenes(imgs);
       } catch (err) {
