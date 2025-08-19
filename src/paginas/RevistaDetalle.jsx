@@ -136,7 +136,7 @@ const RevistaDetalle = () => {
       {/* 🔹 Página actual */}
       <div className="mb-4">
         <img
-          src={`${API_URL.replace("/api", "")}${revista.imagenes[currentPage]}`}
+          src={`https://api.santaisabel2.com${revista.imagenes[currentPage]}`}
           alt={`Página ${currentPage + 1}`}
           className="w-full shadow-lg rounded-lg"
         />
