@@ -292,7 +292,6 @@
 
 // export default RevistaDetalle;
 
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -336,9 +335,6 @@ const RevistaDetalle = () => {
   if (error) return <p className="text-center py-10 text-red-600">{error}</p>;
   if (!revista) return null;
 
-  // Mostrar máximo 5 imágenes
-  const imagenesAMostrar = revista.imagenes.slice(0, 5);
-
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4 capitalize">{revista.mes}</h1>
@@ -348,20 +344,25 @@ const RevistaDetalle = () => {
         📅 Creado en: {new Date(revista.creado_en).toLocaleDateString()}
       </p>
 
-      {/* Mostrar imágenes recibidas del backend */}
+      {/* 🔹 Mostrar todas las imágenes que realmente existen */}
       <div className="space-y-4">
-        {imagenesAMostrar.map((img, index) => (
-          <img
-            key={index}
-            src={`${API_URL.replace("/api", "")}${img}`}
-            alt={`Página ${index + 1}`}
-            className="w-full shadow-lg rounded-lg"
-            onError={(e) => (e.target.style.display = "none")}
-          />
-        ))}
+        {revista.imagenes && revista.imagenes.length > 0 ? (
+          revista.imagenes.map((img, index) => (
+            <img
+              key={index}
+              src={`https://api.santaisabel2.com${img}`}
+              alt={`Página ${index + 1}`}
+              className="w-full shadow-lg rounded-lg"
+              onError={(e) => (e.target.style.display = "none")}
+            />
+          ))
+        ) : (
+          <p className="text-gray-500">No hay imágenes para mostrar.</p>
+        )}
       </div>
     </div>
   );
 };
 
 export default RevistaDetalle;
+
