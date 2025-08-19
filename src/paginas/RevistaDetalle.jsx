@@ -204,44 +204,170 @@
 
 // export default RevistaDetalle;
 
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
+
+// const API_URL = "https://api.santaisabel2.com/api/revistas";
+
+// const RevistaDetalle = () => {
+//   const { id } = useParams();
+//   const [revista, setRevista] = useState(null);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     axios.get(`${API_URL}/${id}`)
+//       .then((response) => {
+//         if (response.data.ok) {
+//           setRevista(response.data.body); // 👈 usar body, no response.data directo
+//         } else {
+//           setError("No se encontró la revista");
+//         }
+//       })
+//       .catch(() => setError("Error al cargar la revista"));
+//   }, [id]);
+
+//   if (error) return <p>{error}</p>;
+//   if (!revista) return <p>Cargando...</p>;
+
+//   return (
+//     <div className="p-6">
+//       <h1 className="text-2xl font-bold">{revista.mes}</h1>
+//       <p className="text-gray-600">{revista.descripcion}</p>
+      
+//       <div className="mt-4">
+//         <p>📂 Carpeta: {revista.paginas_carpeta}</p>
+//         <p>📅 Creado en: {new Date(revista.creado_en).toLocaleDateString()}</p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default RevistaDetalle;
+
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
+// import { API_URL } from "../config"; // o la ruta donde definiste tu API_URL
+
+// const RevistaDetalle = () => {
+//   const { id } = useParams(); 
+//   const [revista, setRevista] = useState(null);
+
+//   useEffect(() => {
+//     const fetchRevista = async () => {
+//       try {
+//         const { data } = await axios.get(`${API_URL}/revistas/${id}`);
+//         setRevista(data.body);
+//       } catch (error) {
+//         console.error("Error al obtener la revista:", error);
+//       }
+//     };
+//     fetchRevista();
+//   }, [id]);
+
+//   if (!revista) return <p>Cargando revista...</p>;
+
+//   return (
+//     <div className="p-6">
+//       <h1 className="text-2xl font-bold mb-4 capitalize">{revista.mes}</h1>
+//       <p className="mb-2">{revista.descripcion}</p>
+//       <p className="text-sm text-gray-500 mb-6">
+//         📂 Carpeta: {revista.paginas_carpeta} <br />
+//         📅 Creado en: {new Date(revista.creado_en).toLocaleDateString()}
+//       </p>
+
+//       {/* Aquí se muestran las imágenes */}
+//       {revista.imagenes && revista.imagenes.map((img, index) => (
+//         <img 
+//           key={index} 
+//           src={`${API_URL.replace("/api", "")}${img}`} 
+//           alt={`Página ${index + 1}`} 
+//           className="w-full mb-4 shadow-lg rounded-lg"
+//         />
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default RevistaDetalle;
+
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "https://api.santaisabel2.com/api/revistas";
+const API_URL = "https://api.santaisabel2.com/api"; // tu backend
 
 const RevistaDetalle = () => {
   const { id } = useParams();
   const [revista, setRevista] = useState(null);
+  const [imagenes, setImagenes] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`${API_URL}/${id}`)
-      .then((response) => {
-        if (response.data.ok) {
-          setRevista(response.data.body); // 👈 usar body, no response.data directo
-        } else {
-          setError("No se encontró la revista");
+    const fetchRevista = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const { data } = await axios.get(`${API_URL}/revistas/${id}`);
+        const revistaData = data.body;
+
+        if (!revistaData) {
+          setError("Revista no encontrada");
+          return;
         }
-      })
-      .catch(() => setError("Error al cargar la revista"));
+
+        setRevista(revistaData);
+
+        // 🔹 Generar URLs de imágenes según la carpeta
+        const totalPaginas = 10; // Ajusta según la cantidad máxima de páginas reales
+        const imgs = [];
+        for (let i = 1; i <= totalPaginas; i++) {
+          imgs.push(`${API_URL.replace("/api", "")}${revistaData.paginas_carpeta}/${i}.jpg`);
+        }
+        setImagenes(imgs);
+      } catch (err) {
+        console.error("Error al cargar la revista:", err);
+        setError("Error al cargar la revista");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) fetchRevista();
+    else setError("ID inválido");
   }, [id]);
 
-  if (error) return <p>{error}</p>;
-  if (!revista) return <p>Cargando...</p>;
+  if (loading) return <p className="text-center py-10">Cargando revista...</p>;
+  if (error) return <p className="text-center py-10 text-red-600">{error}</p>;
+  if (!revista) return null;
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold">{revista.mes}</h1>
-      <p className="text-gray-600">{revista.descripcion}</p>
-      
-      <div className="mt-4">
-        <p>📂 Carpeta: {revista.paginas_carpeta}</p>
-        <p>📅 Creado en: {new Date(revista.creado_en).toLocaleDateString()}</p>
+    <div className="p-6 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4 capitalize">{revista.mes}</h1>
+      <p className="mb-2">{revista.descripcion}</p>
+      <p className="text-sm text-gray-500 mb-6">
+        📂 Carpeta: {revista.paginas_carpeta} <br />
+        📅 Creado en: {new Date(revista.creado_en).toLocaleDateString()}
+      </p>
+
+      {/* 🔹 Mostrar todas las imágenes */}
+      <div className="space-y-4">
+        {imagenes.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt={`Página ${index + 1}`}
+            className="w-full shadow-lg rounded-lg"
+            onError={(e) => (e.target.style.display = "none")} // Ocultar si no existe
+          />
+        ))}
       </div>
     </div>
   );
 };
 
 export default RevistaDetalle;
-
