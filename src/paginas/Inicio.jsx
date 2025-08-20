@@ -9,7 +9,8 @@ import axios from "axios";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { API_URL } from "../config";
 import ImgReclamo from "../imagenes/imgAccesos/reclamo.png";
-import ImgCamara from "../imagenes/imgAccesos/camara.png";
+//import ImgCamara from "../imagenes/imgAccesos/camara.png";
+import ImgYouTube from "../imagenes/imgAccesos/youtube.png";
 import ImgRevista from "../imagenes/imgAccesos/revista.png";
 import ImgMpf from "../imagenes/imgAccesos/mpf.png";
 import ImgRadio from "../imagenes/imgAccesos/radio.png";
@@ -252,15 +253,15 @@ const Inicio = () => {
                  flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2"
           >
             <img
-              src={ImgCamara}
+              src={ImgYouTube}
               alt="Cámara en Vivo"
-              className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0"
+              className="w-14 h-12 sm:w-16 sm:h-16 flex-shrink-0"
             />
             <div className="pl-4 border-l border-white sm:border-0 sm:pl-0 sm:mt-2">
               <div className="text-base font-semibold leading-tight">
-                Cámara en Vivo
+                Transmisión en linea
               </div>
-              <div className="text-sm">Ver plaza en directo</div>
+              <div className="text-sm">Ver de contenido</div>
             </div>
           </Link>
 

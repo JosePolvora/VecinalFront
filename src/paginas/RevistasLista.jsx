@@ -14,10 +14,10 @@ const RevistaLista = () => {
     const fetchRevistas = async () => {
       try {
         const res = await axios.get(API_URL);
-        console.log("📌 Respuesta completa del backend:", res.data);
+        //console.log("📌 Respuesta completa del backend:", res.data);
 
         const revistasArray = Array.isArray(res.data.body) ? res.data.body : [];
-        console.log("📌 Revistas extraídas:", revistasArray);
+        //console.log("📌 Revistas extraídas:", revistasArray);
 
         setRevistas(revistasArray);
       } catch (err) {
