@@ -39,40 +39,12 @@ const Inicio = () => {
   const preguntasFrecuentes = [
     "¿Cuál es la dirección del Centro Vecinal de Santa Isabel 2ª Sección?",
     "¿Qué actividades se realizan en el Centro Vecinal de Santa Isabel 2ª Sección?",
-    "¿Quiénes forman parte de la comisión directiva del Centro Vecinal?",
     "¿Cómo puedo participar en el Centro Vecinal de Santa Isabel 2ª Sección?",
     "¿Cuál es el horario de atención del Centro Vecinal?",
     "¿Qué servicios ofrece el Centro Vecinal?",
     "¿Cómo contactar al Centro Vecinal de Santa Isabel 2ª Sección?",
     "¿Qué beneficios tiene estar involucrado en el Centro Vecinal?",
   ];
-
-  function ChatRespuesta({ pregunta, respuesta }) {
-    if (
-      pregunta ===
-      "¿Quiénes forman parte de la comisión directiva del Centro Vecinal?"
-    ) {
-      return (
-        <div>
-          <p>{pregunta}</p>
-          <a
-            href="https://www.santaisabel2.com/institucional"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ver más aquí
-          </a>
-        </div>
-      );
-    }
-
-    return (
-      <div>
-        <p>{pregunta}</p>
-        <span>{respuesta}</span>
-      </div>
-    );
-  }
 
   // Función para enviar pregunta frecuente como mensaje
   const enviarMensajeConTexto = async (texto) => {
