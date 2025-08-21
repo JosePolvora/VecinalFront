@@ -47,6 +47,33 @@ const Inicio = () => {
     "¿Qué beneficios tiene estar involucrado en el Centro Vecinal?",
   ];
 
+  function ChatRespuesta({ pregunta, respuesta }) {
+    if (
+      pregunta ===
+      "¿Quiénes forman parte de la comisión directiva del Centro Vecinal?"
+    ) {
+      return (
+        <div>
+          <p>{pregunta}</p>
+          <a
+            href="https://www.santaisabel2.com/institucional"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver más aquí
+          </a>
+        </div>
+      );
+    }
+
+    return (
+      <div>
+        <p>{pregunta}</p>
+        <span>{respuesta}</span>
+      </div>
+    );
+  }
+
   // Función para enviar pregunta frecuente como mensaje
   const enviarMensajeConTexto = async (texto) => {
     if (!texto.trim()) return;
@@ -125,9 +152,6 @@ const Inicio = () => {
         //const res = await axios.get("http://localhost:3000/api/imagenes");
         const res = await axios.get(`${API_URL}/imagenes`);
         setImagenes(res.data.body);
-
-       
-
       } catch (error) {
         console.error("Error al cargar imágenes:", error);
       }
