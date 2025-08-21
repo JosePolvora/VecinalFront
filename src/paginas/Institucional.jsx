@@ -4,6 +4,7 @@ import oviedoImg from "../imagenes/imgInstitucional/oviedo.jpg";
 import cayutiImg from "../imagenes/imgInstitucional/cayuti.png";
 import sanchezImg from "../imagenes/imgInstitucional/sanchez.png";
 //import lulyImg from "../imagenes/imgInstitucional/luly.png";
+import arielImg from "../imagenes/imgInstitucional/ariel.jpg";
 import ramirezImg from "../imagenes/imgInstitucional/miguelR.png";
 import claudiaImg from "../imagenes/imgInstitucional/claudia.png";
 import diegoImg from "../imagenes/imgInstitucional/diego.png";
@@ -40,11 +41,11 @@ const Institucional = () => {
     {
       nombre: "Ariel Gonzalez",
       cargo: "Secretaría de Cultura y Educación (Suplente)",
-      img: null,
+      img: arielImg,
       ruta: "/integrantes/seccultura",
     },
     {
-      nombre: "Sergio Fonseca",
+      nombre: "Gastón Fonseca",
       cargo: "Secretaría de Deportes y Recreación (Titular)",
       img: null,
       ruta: "/integrantes/secdeporte",
