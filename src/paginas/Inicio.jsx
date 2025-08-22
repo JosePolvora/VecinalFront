@@ -131,37 +131,41 @@ const Inicio = () => {
     cargarImagenes();
   }, []);
 
+  /////////////////////
+
   // Función helper para agrupar en chunks
-  const agruparTarjetas = (array, tamañoGrupo) => {
-    const grupos = [];
-    for (let i = 0; i < array.length; i += tamañoGrupo) {
-      grupos.push(array.slice(i, i + tamañoGrupo));
-    }
-    return grupos;
-  };
+  // const agruparTarjetas = (array, tamañoGrupo) => {
+  //   const grupos = [];
+  //   for (let i = 0; i < array.length; i += tamañoGrupo) {
+  //     grupos.push(array.slice(i, i + tamañoGrupo));
+  //   }
+  //   return grupos;
+  // };
 
-  // Función para definir cuántos items por slide según el ancho de pantalla
-  const getItemsPerSlide = () => {
-    if (window.innerWidth >= 1024) return 3; // Desktop
-    if (window.innerWidth >= 640) return 2; // Tablets
-    return 1; // Mobile
-  };
+  // // Función para definir cuántos items por slide según el ancho de pantalla
+  // const getItemsPerSlide = () => {
+  //   if (window.innerWidth >= 1024) return 3; // Desktop
+  //   if (window.innerWidth >= 640) return 2; // Tablets
+  //   return 1; // Mobile
+  // };
 
-  // Estado para items por slide
-  const [itemsPerSlide, setItemsPerSlide] = useState(getItemsPerSlide());
+  // // Estado para items por slide
+  // const [itemsPerSlide, setItemsPerSlide] = useState(getItemsPerSlide());
 
-  // Escuchar cambios de tamaño de ventana
-  useEffect(() => {
-    const onResize = () => setItemsPerSlide(getItemsPerSlide());
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
+  // // Escuchar cambios de tamaño de ventana
+  // useEffect(() => {
+  //   const onResize = () => setItemsPerSlide(getItemsPerSlide());
+  //   window.addEventListener("resize", onResize);
+  //   return () => window.removeEventListener("resize", onResize);
+  // }, []);
 
-  // Generar grupos responsivos
-  const gruposTarjetas = React.useMemo(
-    () => agruparTarjetas(novedades, itemsPerSlide),
-    [novedades, itemsPerSlide]
-  );
+  // // Generar grupos responsivos
+  // const gruposTarjetas = React.useMemo(
+  //   () => agruparTarjetas(novedades, itemsPerSlide),
+  //   [novedades, itemsPerSlide]
+  // );
+
+  /////////////////
 
   const openLightbox = (imageSrc) => {
     setCurrentImage(imageSrc);
@@ -327,7 +331,7 @@ const Inicio = () => {
 
       {/* NOVEDADES */}
 
-      <section className="max-w-6xl mx-auto px-4 py-8">
+      {/* <section className="max-w-6xl mx-auto px-4 py-8">
         <h2 className="text-3xl font-black text-[#00527A] text-center border-b-2 border-[#00527A] pt-10 uppercase">
           Novedades
         </h2>
@@ -380,6 +384,77 @@ const Inicio = () => {
                     </Link>
                   ))}
                 </div>
+              ))
+            )}
+          </Carousel>
+        </div>
+      </section> */}
+
+      {/* NOVEDADES */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <h2 className="text-3xl font-black text-[#00527A] text-center border-b-2 border-[#00527A] pt-10 uppercase">
+          Novedades
+        </h2>
+
+        <div className="h-[35rem]">
+          <Carousel
+            pauseOnHover
+            slide
+            loop={true} // 🔄 ahora es infinito
+            leftControl={
+              <button className="p-2 rounded-full bg-white bg-opacity-70 hover:bg-opacity-90 text-[#00527A]">
+                <FaChevronLeft size={24} />
+              </button>
+            }
+            rightControl={
+              <button className="p-2 rounded-full bg-white bg-opacity-70 hover:bg-opacity-90 text-[#00527A]">
+                <FaChevronRight size={24} />
+              </button>
+            }
+            className="rounded-lg"
+          >
+            {/* ❌ Antes usabas gruposTarjetas */}
+            {/* {gruposTarjetas.length === 0 ? (
+        <p>Cargando novedades...</p>
+      ) : (
+        gruposTarjetas.map((grupo, i) => (
+          <div key={i} className="flex justify-center gap-6 px-4">
+            {grupo.map((novedad) => (
+              ...
+            ))}
+          </div>
+        ))
+      )} */}
+
+            {/* ✅ Ahora simplemente recorremos novedades en orden invertido */}
+            {novedades.length === 0 ? (
+              <p>Cargando novedades...</p>
+            ) : (
+              novedades.map((novedad) => (
+                <Link
+                  to={`/novedades/${novedad.id}`}
+                  key={novedad.id}
+                  className="block flex-shrink-0 w-80 mx-auto"
+                >
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition-all h-[28rem] flex flex-col">
+                    <img
+                      src={
+                        novedad.imagen_url
+                          ? `${BASE_IMG_URL}${novedad.imagen_url}`
+                          : "https://via.placeholder.com/300x200"
+                      }
+                      alt={novedad.titulo}
+                      className="object-cover w-full h-64"
+                    />
+
+                    <div className="p-5 flex flex-col flex-grow">
+                      <h3 className="text-xl font-semibold mb-2 text-[#00527A]">
+                        {novedad.titulo}
+                      </h3>
+                      <p className="text-gray-600">{novedad.descripcion}</p>
+                    </div>
+                  </div>
+                </Link>
               ))
             )}
           </Carousel>
