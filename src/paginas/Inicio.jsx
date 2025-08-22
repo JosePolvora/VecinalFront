@@ -367,7 +367,7 @@ const Inicio = () => {
               <p>Cargando novedades...</p>
             ) : (
               gruposTarjetas.map((grupo, i) => (
-                <div key={i} className="flex justify-center gap-6 px-4">
+                <div key={i} className="flex justify-start gap-6 px-4">
                   {grupo.map((novedad) => (
                     <Link
                       to={`/novedades/${novedad.id}`}
