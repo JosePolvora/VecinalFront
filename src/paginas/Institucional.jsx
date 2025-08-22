@@ -12,6 +12,11 @@ import ezeImg from "../imagenes/imgInstitucional/ezequiel.png";
 import fabianaImg from "../imagenes/imgInstitucional/fabiana.png";
 import martinImg from "../imagenes/imgInstitucional/martin.png";
 import aleImg from "../imagenes/imgInstitucional/ale.png";
+import gastonImg from "../imagenes/imgInstitucional/gaston.png";
+import tatyImg from "../imagenes/imgInstitucional/taty.png";
+
+
+
 
 const Institucional = () => {
   const titular = [
@@ -28,7 +33,7 @@ const Institucional = () => {
       img: sanchezImg,
       ruta: "",
     },
-    { nombre: "Natalia Ruiz", cargo: "Tesorera", img: null, ruta: "" },
+    { nombre: "Natalia Ruiz", cargo: "Tesorera", img: tatyImg, ruta: "" },
   ];
 
   const secretarias = [
@@ -47,7 +52,7 @@ const Institucional = () => {
     {
       nombre: "Gastón Fonseca",
       cargo: "Secretaría de Deportes y Recreación (Titular)",
-      img: null,
+      img: gastonImg,
       ruta: "/integrantes/secdeporte",
     },
     {

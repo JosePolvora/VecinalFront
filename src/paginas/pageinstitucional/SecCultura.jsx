@@ -2,7 +2,7 @@
 
 
 import fabianaImg from "../../imagenes/imgInstitucional/fabiana.png";
-//import arielImg from "../../imagenes/imgInstitucional/ariel.png";
+import arielImg from "../../imagenes/imgInstitucional/ariel.jpg";
 
 const SecCultura = () => {
   const cultura = [
@@ -14,7 +14,7 @@ const SecCultura = () => {
     {
       nombre: "Ariel Gonzalez",
       cargo: "Secretaría de Cultura (Suplente)",
-      img: null,
+      img: arielImg,
     },
   ];
 

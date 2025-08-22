@@ -1,13 +1,14 @@
 // PageDeporte.jsx
 
 import aleImg from "../../imagenes/imgInstitucional/ale.png";
+import gastonImg from "../../imagenes/imgInstitucional/gaston.png";
 
 const SecDeporte = () => {
   const deporte = [
     {
       nombre: "Sergio Fonseca",
       cargo: "Secretaría de Deportes (Titular)",
-      img: null,
+      img: gastonImg,
     },
     {
       nombre: "Alejandra Espinosa",
