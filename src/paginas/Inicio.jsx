@@ -105,12 +105,25 @@ const Inicio = () => {
     }
   }, [historial]);
 
+  // useEffect(() => {
+  //   const cargarNovedades = async () => {
+  //     try {
+  //       //const res = await axios.get("http://localhost:3000/api/novedades");
+  //       const res = await axios.get(`${API_URL}/novedades`);
+  //       setNovedades(res.data.body);
+  //     } catch (error) {
+  //       console.error("Error al cargar novedades:", error);
+  //     }
+  //   };
+  //   cargarNovedades();
+  // }, []);
+
   useEffect(() => {
     const cargarNovedades = async () => {
       try {
-        //const res = await axios.get("http://localhost:3000/api/novedades");
         const res = await axios.get(`${API_URL}/novedades`);
-        setNovedades(res.data.body);
+        const novedadesOrdenadas = [...res.data.body].reverse(); // 🔄 invertimos ANTES
+        setNovedades(novedadesOrdenadas);
       } catch (error) {
         console.error("Error al cargar novedades:", error);
       }
@@ -400,7 +413,7 @@ const Inicio = () => {
           <Carousel
             pauseOnHover
             slide
-            loop={true} // 🔄 ahora es infinito
+            loop={true} // 🔄 carrusel infinito
             leftControl={
               <button className="p-2 rounded-full bg-white bg-opacity-70 hover:bg-opacity-90 text-[#00527A]">
                 <FaChevronLeft size={24} />
@@ -413,49 +426,38 @@ const Inicio = () => {
             }
             className="rounded-lg"
           >
-            {/* ❌ Antes usabas gruposTarjetas */}
-            {/* {gruposTarjetas.length === 0 ? (
-        <p>Cargando novedades...</p>
-      ) : (
-        gruposTarjetas.map((grupo, i) => (
-          <div key={i} className="flex justify-center gap-6 px-4">
-            {grupo.map((novedad) => (
-              ...
-            ))}
-          </div>
-        ))
-      )} */}
-
-            {/* ✅ Ahora simplemente recorremos novedades en orden invertido */}
+            {/* ❌ Antes usabas w-80 y mx-auto, ahora usamos grid responsive */}
             {novedades.length === 0 ? (
               <p>Cargando novedades...</p>
             ) : (
-              novedades.map((novedad) => (
-                <Link
-                  to={`/novedades/${novedad.id}`}
-                  key={novedad.id}
-                  className="block flex-shrink-0 w-80 mx-auto"
-                >
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition-all h-[28rem] flex flex-col">
-                    <img
-                      src={
-                        novedad.imagen_url
-                          ? `${BASE_IMG_URL}${novedad.imagen_url}`
-                          : "https://via.placeholder.com/300x200"
-                      }
-                      alt={novedad.titulo}
-                      className="object-cover w-full h-64"
-                    />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+                {novedades.map((novedad) => (
+                  <Link
+                    to={`/novedades/${novedad.id}`}
+                    key={novedad.id}
+                    className="block w-full"
+                  >
+                    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition-all h-[28rem] flex flex-col w-full">
+                      <img
+                        src={
+                          novedad.imagen_url
+                            ? `${BASE_IMG_URL}${novedad.imagen_url}`
+                            : "https://via.placeholder.com/300x200"
+                        }
+                        alt={novedad.titulo}
+                        className="object-cover w-full h-64"
+                      />
 
-                    <div className="p-5 flex flex-col flex-grow">
-                      <h3 className="text-xl font-semibold mb-2 text-[#00527A]">
-                        {novedad.titulo}
-                      </h3>
-                      <p className="text-gray-600">{novedad.descripcion}</p>
+                      <div className="p-5 flex flex-col flex-grow">
+                        <h3 className="text-xl font-semibold mb-2 text-[#00527A]">
+                          {novedad.titulo}
+                        </h3>
+                        <p className="text-gray-600">{novedad.descripcion}</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))
+                  </Link>
+                ))}
+              </div>
             )}
           </Carousel>
         </div>
