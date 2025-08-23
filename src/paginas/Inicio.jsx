@@ -132,6 +132,23 @@ const Inicio = () => {
   }, []);
 
   useEffect(() => {
+    const cargarNovedades = async () => {
+      try {
+        const res = await axios.get(`${API_URL}/novedades`);
+        // Ordena por fecha descendente
+        const novedadesOrdenadas = res.data.body.sort(
+          (a, b) => new Date(b.fecha) - new Date(a.fecha)
+        );
+        setNovedades(novedadesOrdenadas);
+      } catch (error) {
+        console.error("Error al cargar novedades:", error);
+      }
+    };
+
+    cargarNovedades();
+  }, []);
+
+  useEffect(() => {
     const cargarImagenes = async () => {
       try {
         //const res = await axios.get("http://localhost:3000/api/imagenes");
@@ -143,7 +160,6 @@ const Inicio = () => {
     };
     cargarImagenes();
   }, []);
-
 
   // Función helper para agrupar en chunks
   const agruparTarjetas = (array, tamañoGrupo) => {
@@ -176,7 +192,6 @@ const Inicio = () => {
     () => agruparTarjetas(novedades, itemsPerSlide),
     [novedades, itemsPerSlide]
   );
-
 
   const openLightbox = (imageSrc) => {
     setCurrentImage(imageSrc);
