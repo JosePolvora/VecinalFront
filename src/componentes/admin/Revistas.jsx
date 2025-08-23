@@ -68,6 +68,7 @@ function Revistas() {
     }
   };
 
+  // Paginación
   const indiceUltimaRevista = paginaActual * revistasPorPagina;
   const indicePrimeraRevista = indiceUltimaRevista - revistasPorPagina;
   const revistasPaginadas = revistas.slice(
@@ -110,7 +111,10 @@ function Revistas() {
               <thead className="bg-white/10 text-white/80">
                 <tr>
                   <th className="px-4 py-3 text-left uppercase tracking-wider">
-                    Título
+                    Mes
+                  </th>
+                  <th className="px-4 py-3 text-left uppercase tracking-wider">
+                    Descripción
                   </th>
                   <th className="px-4 py-3 text-left uppercase tracking-wider">
                     Fecha
@@ -124,11 +128,12 @@ function Revistas() {
                 {revistasPaginadas.length > 0 ? (
                   revistasPaginadas.map((revista) => (
                     <tr className="hover:bg-white/10 transition" key={revista.id}>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        {revista.titulo}
+                      <td className="px-4 py-4 whitespace-nowrap">{revista.mes}</td>
+                      <td className="px-4 py-4 whitespace-nowrap text-white/90">
+                        {revista.descripcion}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-white/90">
-                        {new Date(revista.fecha).toLocaleDateString("es-AR")}
+                        {new Date(revista.creado_en).toLocaleDateString("es-AR")}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         <button
@@ -143,7 +148,7 @@ function Revistas() {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="3" className="text-center py-4 text-white/60">
+                    <td colSpan="4" className="text-center py-4 text-white/60">
                       No hay revistas cargadas
                     </td>
                   </tr>

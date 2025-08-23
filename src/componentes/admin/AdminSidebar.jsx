@@ -145,10 +145,14 @@ const AdminSidebar = () => {
                 <i className="fas fa-upload"></i>
                 Subir Revista
               </Link>
-              {/* <Link to="/adminpanel/revistas" className="flex items-center gap-2 hover:underline">
+              
+              <Link
+                to="/adminpanel/revistas"
+                className="flex items-center gap-2 hover:underline"
+              >
                 <i className="fas fa-folder-open"></i>
-                Gestor Revista
-              </Link> */}
+                Gestor Revistas
+              </Link>
             </div>
           )}
         </div>
