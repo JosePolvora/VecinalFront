@@ -11,7 +11,7 @@ import FormReclamo from "../componentes/admin/FormReclamo";
 import Reclamos from "../componentes/admin/Reclamos";
 import FormSubirBanner from "../componentes/admin/FormSubirBanner";
 import Banners from "../componentes/admin/banners";
-
+import Revistas from "../componentes/admin/Revistas";
 
 const AdminPanel = () => {
     const navigate = useNavigate();
@@ -41,6 +41,7 @@ const AdminPanel = () => {
                         <Route path="imagenes" element={<Imagenes />} />
                         <Route path="banners" element={<Banners />} />
                         <Route path="novedades" element={<Novedades />} />
+                        <Route path="revistas" element={<Revistas />} />
                         <Route path="reclamos/lista" element={<Reclamos />} />
                         
 
