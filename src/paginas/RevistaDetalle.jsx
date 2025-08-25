@@ -53,9 +53,9 @@ const RevistaDetalle = () => {
     return <p className="text-center py-10">No hay imágenes para mostrar.</p>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto text-center">
+    <div className="p-6 max-w-4xl mx-auto text-start">
       <h1 className="text-xl sm:text-3xl font-bold text-[#00527A] mb-6 ml-2 sm:ml-10 font-sans">
-        Revista Nuestro Barrio - Tomo{" "}
+        Revista Nuestro Barrio - Mes de{" "}
         {revista.mes.charAt(0).toUpperCase() + revista.mes.slice(1)}
       </h1>
 
@@ -73,17 +73,17 @@ const RevistaDetalle = () => {
         <button
           onClick={handlePrev}
           disabled={currentPage === 0}
-          className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
+          className="px-4 py-2 rounded disabled:opacity-50 bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff]"
         >
           Anterior
         </button>
         <span>
-          Página {currentPage + 1} / {revista.imagenes.length}
+           {currentPage + 1} / {revista.imagenes.length}
         </span>
         <button
           onClick={handleNext}
           disabled={currentPage === revista.imagenes.length - 1}
-          className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
+          className="px-4 py-2 rounded disabled:opacity-50 bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff]"
         >
           Siguiente
         </button>
