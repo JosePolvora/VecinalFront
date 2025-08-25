@@ -73,7 +73,7 @@ const RevistaDetalle = () => {
         <button
           onClick={handlePrev}
           disabled={currentPage === 0}
-          className="px-4 py-2 rounded disabled:opacity-50 bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff]"
+          className="text-white font-semibold px-4 py-2 rounded disabled:opacity-50 bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff]"
         >
           Anterior
         </button>
@@ -83,7 +83,7 @@ const RevistaDetalle = () => {
         <button
           onClick={handleNext}
           disabled={currentPage === revista.imagenes.length - 1}
-          className="px-4 py-2 rounded disabled:opacity-50 bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff]"
+          className="text-white font-semibold px-4 py-2 rounded disabled:opacity-50 bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff]"
         >
           Siguiente
         </button>
