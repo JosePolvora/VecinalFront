@@ -51,9 +51,13 @@ const RevistaLista = () => {
             className="p-4 border rounded-lg shadow-md flex justify-between items-center bg-[#66ccff] hover:bg-[#3399cc] transition-colors duration-300"
           >
             <div>
-              <h3 className="text-lg font-semibold text-white uppercase border-l-4 border-white pl-2">
+              {/* <h3 className="text-lg font-semibold text-white uppercase border-l-4 border-white pl-2">
+                {revista.mes}
+              </h3> */}
+              <h3 className="text-lg font-semibold text-white uppercase border-r-4 border-white pr-2">
                 {revista.mes}
               </h3>
+
               {/* <p className="text-sm text-white">{revista.descripcion}</p> */}
             </div>
             <button
