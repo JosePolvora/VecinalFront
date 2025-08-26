@@ -54,10 +54,10 @@ const RevistaDetalle = () => {
 
   return (
     <div className="p-6 max-w-4xl mx-auto text-start">
-      <h1 className="text-xl sm:text-3xl font-bold text-[#00527A] mb-6 ml-2 sm:ml-10 font-sans">
+      {/* <h1 className="text-xl sm:text-3xl font-bold text-[#00527A] mb-6 ml-2 sm:ml-10 font-sans">
         Revista Nuestro Barrio - Mes de{" "}
         {revista.mes.charAt(0).toUpperCase() + revista.mes.slice(1)}
-      </h1>
+      </h1> */}
 
       {/* 🔹 Página actual */}
       <div className="mb-4">
