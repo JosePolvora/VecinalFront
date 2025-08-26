@@ -40,7 +40,7 @@ const ConsultaReclamo = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-start justify-center p-4">
       <form
         onSubmit={handleSubmit}
         className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] rounded-2xl p-6 sm:p-12 w-full max-w-3xl text-white shadow-xl space-y-6 min-h-[300px]"

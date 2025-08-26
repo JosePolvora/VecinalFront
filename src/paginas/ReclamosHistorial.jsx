@@ -43,16 +43,6 @@ const Historial = () => {
 
   useEffect(() => {
     const fetchReclamos = async () => {
-      // try {
-      //   const res = await axios.get("http://localhost:3000/api/reclamos");
-      //   setReclamos(res.data.body || []);
-      // } catch (err) {
-      //   console.error(err);
-      //   setError("Error al cargar el historial de reclamos.");
-      // } finally {
-      //   setLoading(false);
-      // }
-
       try {
         const res = await axios.get(`${API_URL}/reclamos`);
         setReclamos(res.data.body || []);
@@ -70,7 +60,7 @@ const Historial = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-6 sm:p-10">
+    <div className="min-h-screen flex justify-center items-start p-6 sm:p-10">
       <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#66a3ff] rounded-2xl p-6 sm:p-10 shadow-xl w-full max-w-6xl text-white">
         <button
           onClick={() => navigate("/reclamos")}

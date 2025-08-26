@@ -51,16 +51,16 @@ const RevistaLista = () => {
             className="p-4 border rounded-lg shadow-md flex justify-between items-center bg-[#66ccff] hover:bg-[#3399cc] transition-colors duration-300"
           >
             <div>
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-lg font-semibold text-white uppercase border-l-4 border-white pl-2">
                 {revista.mes}
               </h3>
-              <p className="text-sm text-white">{revista.descripcion}</p>
+              {/* <p className="text-sm text-white">{revista.descripcion}</p> */}
             </div>
             <button
               onClick={() => verRevista(revista)}
-              className="bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+              className="bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 w-32"
             >
-              Ver
+              Leer Edición
             </button>
           </li>
         ))}
