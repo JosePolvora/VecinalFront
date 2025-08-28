@@ -1,48 +1,3 @@
-// import { Link } from 'react-router-dom';
-// import LogoCv from '../../imagenes/imgLogo/LogoCv.png';
-
-// export default function Navbar() {
-//     return (
-//         // <header className="bg-gradient-to-b from-[#002c73] via-[#5e267b] to-[#e70063] text-white shadow-md">
-//         //<header className="bg-gradient-to-b from-[#002c73] via-[#006a8e] to-[#66ffd9] text-white shadow-md">
-//         <header id="inicio" className="bg-gradient-to-b from-[#002c73] via-[#0057b7] to-[#66ccff] text-white shadow-md">
-//             <div className="container mx-auto px-4 py-1 flex items-center justify-between">
-//                 <div className="flex items-center">
-
-//                     <div className="flex flex-col text-center">
-//                         <span className="text-lg font-montserrat font-bold uppercase" style={{ lineHeight: '1' }}>
-//                             NUESTRO<br />BARRIO
-//                         </span>
-
-//                         <div
-//                             className="w-full h-[2px] bg-white my-1 mx-auto"
-//                             style={{
-//                                 clipPath: 'polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%)'
-//                             }}
-//                         ></div>
-
-//                         <span className="text-xs italic tracking-wide">Santa Isabel 2</span>
-//                     </div>
-
-//                     <img
-//                         src={LogoCv}
-//                         alt="Logo"
-//                         className="h-24 w-auto"
-//                     />
-//                 </div>
-
-//                 <nav className="space-x-6 text-base font-semibold uppercase">
-//                     <Link to="/" className="hover:underline">Inicio</Link>
-//                     <Link to="/institucional" className="hover:underline">Institucional</Link>
-//                     {/* <Link to="/digital" className="hover:underline">Santa Isabel Digital</Link> */}
-//                     <Link to="/novedades" className="hover:underline">Novedades</Link>
-//                     <Link to="/contacto" className="hover:underline">Contacto</Link>
-//                 </nav>
-//             </div>
-//         </header>
-//     );
-// }
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -89,12 +44,19 @@ export default function Navbar() {
           <Link to="/" className="hover:underline">
             Inicio
           </Link>
+
           <Link to="/institucional" className="hover:underline">
             Institucional
           </Link>
+
+          <Link to="/cuadrante" className="hover:underline">
+            Cuadrantes
+          </Link>
+
           <Link to="/novedades" className="hover:underline">
             Novedades
           </Link>
+
           <Link to="/contacto" className="hover:underline">
             Contacto
           </Link>
@@ -126,6 +88,14 @@ export default function Navbar() {
           >
             Institucional
           </Link>
+          <Link
+            to="/cuadrante"
+            className="block hover:underline"
+            onClick={() => setMenuAbierto(false)}
+          >
+            Cuadrantes
+          </Link>
+
           <Link
             to="/novedades"
             className="block hover:underline"

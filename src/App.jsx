@@ -21,6 +21,9 @@ import SecDeporte from "./paginas/pageinstitucional/SecDeporte";
 import SecComunicacion from "./paginas/pageinstitucional/SecCominicacion";
 import SecJuventud from "./paginas/pageinstitucional/SecJuventud";
 import SecSeguridad from "./paginas/pageinstitucional/SecSeguridad";
+import Cuadrantes from "./paginas/pageinstitucional/Cuadrantes";
+
+
 
 function App() {
   return (
@@ -40,8 +43,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="radio" element={<Radio />} />
+        <Route path="cuadrante" element={<Cuadrantes />} />
         <Route path="integrantes/seccultura" element={<SecCultura />} />
         <Route path="integrantes/secdeporte" element={<SecDeporte />} />
+        
+        
         <Route
           path="integrantes/seccomunicacion"
           element={<SecComunicacion />}
