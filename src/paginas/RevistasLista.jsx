@@ -66,6 +66,12 @@ const RevistaLista = () => {
             >
               Leer Edición
             </button>
+             <a
+                href={`https://api.santaisabel2.com/api/revistas/${revista.id}/download`}
+                className="bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 w-32 text-center"
+              >
+                Descargar Revista
+              </a>
           </li>
         ))}
       </ul>
