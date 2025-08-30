@@ -159,6 +159,85 @@
 
 // export default RevistaLista;
 
+// import { useEffect, useState } from "react";
+// import axios from "axios";
+// import { useNavigate } from "react-router-dom";
+
+// // Base común para todas las llamadas al API
+// const API_URL = "https://api.santaisabel2.com/api";
+
+// const RevistaLista = () => {
+//   const [revistas, setRevistas] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const fetchRevistas = async () => {
+//       try {
+//         const res = await axios.get(`${API_URL}/revistas`);
+//         const revistasArray = Array.isArray(res.data.body) ? res.data.body : [];
+//         setRevistas(revistasArray);
+//       } catch (err) {
+//         console.error("❌ Error al obtener revistas:", err);
+//         setError("No se pudieron cargar las revistas.");
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+//     fetchRevistas();
+//   }, []);
+
+//   const verRevista = (revista) => {
+//     navigate(`/revistas/${revista.id}`);
+//   };
+
+//   if (loading) return <p className="text-center py-10">Cargando revistas...</p>;
+//   if (error) return <p className="text-center py-10 text-red-600">{error}</p>;
+//   if (revistas.length === 0)
+//     return <p className="text-center py-10">No hay revistas disponibles.</p>;
+
+//   return (
+//     <div className="p-6 max-w-4xl mx-auto">
+//       <h2 className="text-3xl font-bold mb-6 text-center text-[#00527A] border-b-2 border-[#00527A] pb-4 uppercase">
+//         REVISTAS NUESTRO BARRIO
+//       </h2>
+//       <ul className="space-y-4">
+//         {revistas.map((revista) => (
+//           <li
+//             key={revista.id}
+//             className="p-4 border rounded-lg shadow-md flex justify-between items-center bg-[#66ccff] hover:bg-[#3399cc] transition-colors duration-300"
+//           >
+//             <div>
+//               <h3 className="text-lg font-semibold text-white uppercase border-r-4 border-white pr-2">
+//                 {revista.mes}
+//               </h3>
+//             </div>
+//             <div className="flex gap-2">
+//               <button
+//                 onClick={() => verRevista(revista)}
+//                 className="bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 w-32"
+//               >
+//                 Leer Edición
+//               </button>
+
+//               <a
+//                 href={`${API_URL}/revistas/${revista.id}/download`}
+//                 className="bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 w-32 text-center"
+//               >
+//                 Descargar
+//               </a>
+//             </div>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default RevistaLista;
+
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -192,40 +271,42 @@ const RevistaLista = () => {
     navigate(`/revistas/${revista.id}`);
   };
 
-  if (loading) return <p className="text-center py-10">Cargando revistas...</p>;
-  if (error) return <p className="text-center py-10 text-red-600">{error}</p>;
+  if (loading)
+    return <p className="text-center py-10 text-lg">Cargando revistas...</p>;
+  if (error)
+    return <p className="text-center py-10 text-red-600 text-lg">{error}</p>;
   if (revistas.length === 0)
-    return <p className="text-center py-10">No hay revistas disponibles.</p>;
+    return <p className="text-center py-10 text-lg">No hay revistas disponibles.</p>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-center text-[#00527A] border-b-2 border-[#00527A] pb-4 uppercase">
+    <div className="p-4 sm:p-6 md:p-8 max-w-5xl mx-auto">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center text-[#00527A] border-b-2 border-[#00527A] pb-4 uppercase">
         REVISTAS NUESTRO BARRIO
       </h2>
-      <ul className="space-y-4">
+
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {revistas.map((revista) => (
           <li
             key={revista.id}
-            className="p-4 border rounded-lg shadow-md flex justify-between items-center bg-[#66ccff] hover:bg-[#3399cc] transition-colors duration-300"
+            className="p-4 border rounded-lg shadow-md flex flex-col justify-between bg-[#66ccff] hover:bg-[#3399cc] transition-colors duration-300"
           >
-            <div>
-              <h3 className="text-lg font-semibold text-white uppercase border-r-4 border-white pr-2">
-                {revista.mes}
-              </h3>
-            </div>
-            <div className="flex gap-2">
+            <h3 className="text-lg sm:text-xl font-semibold text-white uppercase mb-4">
+              {revista.mes}
+            </h3>
+
+            <div className="flex flex-col sm:flex-row gap-3 mt-auto">
               <button
                 onClick={() => verRevista(revista)}
-                className="bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 w-32"
+                className="flex-1 bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 text-center"
               >
                 Leer Edición
               </button>
 
               <a
                 href={`${API_URL}/revistas/${revista.id}/download`}
-                className="bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 w-32 text-center"
+                className="flex-1 bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 text-center"
               >
-                Descargar Revista
+                Descargar
               </a>
             </div>
           </li>
