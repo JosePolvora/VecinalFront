@@ -1,13 +1,13 @@
 // PageJuventud.jsx
 
-//import lulyImg from "../../imagenes/imgInstitucional/luly.png";
+import cristianImg from "../../imagenes/imgInstitucional/cristian.png";
 
 const SecJuventud = () => {
   const juventud = [
     {
       nombre: "Cristian Machado",
       cargo: "Secretaría de Juventud y Género (Titular)",
-      img: null,
+      img: cristianImg,
     },
     {
       nombre: "Sonia Flores",

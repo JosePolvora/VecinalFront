@@ -14,6 +14,7 @@ import ImgYouTube from "../imagenes/imgAccesos/youtube.png";
 import ImgRevista from "../imagenes/imgAccesos/revista.png";
 import ImgMpf from "../imagenes/imgAccesos/mpf.png";
 import ImgRadio from "../imagenes/imgAccesos/radio.png";
+import ImgMascota from "../imagenes/imgLogo/logoMascota.png";
 import { FaPaperPlane } from "react-icons/fa";
 
 const Inicio = () => {
@@ -248,12 +249,15 @@ const Inicio = () => {
           Todos tus accesos, <span className="text-cyan-500">están acá.</span>
         </h2>
 
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8">
+        {/* <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8"> */}
+
+        {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 justify-items-center"> */}
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-6 justify-items-center">
           <Link
             to="/reclamos"
             className="bg-[#00a8e6] rounded-xl p-4 text-white 
                  w-11/12 h-28
-                 sm:w-48 sm:h-48
+                 sm:w-44 sm:h-44
                  hover:bg-[#008cc4] transition 
                  flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2"
           >
@@ -271,31 +275,10 @@ const Inicio = () => {
           </Link>
 
           <Link
-            to="/camara/vivo"
-            className="bg-[#e91e63] rounded-xl p-4 text-white 
-                 w-11/12 h-28
-                 sm:w-48 sm:h-48
-                 hover:bg-[#d81b60] transition 
-                 flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2"
-          >
-            <img
-              src={ImgYouTube}
-              alt="Cámara en Vivo"
-              className="w-14 h-12 sm:w-16 sm:h-16 flex-shrink-0"
-            />
-            <div className="pl-4 border-l border-white sm:border-0 sm:pl-0 sm:mt-2">
-              <div className="text-base font-semibold leading-tight">
-                Transmisión en linea
-              </div>
-              <div className="text-sm">Ver de contenido</div>
-            </div>
-          </Link>
-
-          <Link
             to="/revistas"
             className="bg-[#4CAF50] rounded-xl p-4 text-white 
                  w-11/12 h-28
-                 sm:w-48 sm:h-48
+                 sm:w-44 sm:h-44
                  hover:bg-[#388E3C] transition 
                  flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2"
           >
@@ -311,14 +294,34 @@ const Inicio = () => {
               <div className="text-sm">Nuestro Barrio</div>
             </div>
           </Link>
+          <Link
+            to="/mascotas"
+            className="bg-white rounded-xl p-4 text-black
+            w-11/12 h-28
+            sm:w-44 sm:h-44
+            hover:bg-gray-50 transition
+            flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2"
+          >
+            <img
+              src={ImgMascota}
+              alt="Radio en Vivo"
+              className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0"
+            />
+            <div className="pl-4 border-l border-white sm:border-0 sm:pl-0 sm:mt-2">
+              <div className="text-base font-semibold leading-tight">
+                Portal
+              </div>
+              <div className="text-sm">Mi Mascota</div>
+            </div>
+          </Link>
 
           <a
             href="https://denunciasmpf.mpfcordoba.gob.ar/publicpages/PortalDenuncias"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white hover:bg-gray-100 rounded-xl p-4 text-gray-800 
+            className="bg-gray-300 hover:bg-gray-400 rounded-xl p-4 text-gray-800 
                  w-11/12 h-28
-                 sm:w-48 sm:h-48
+                 sm:w-44 sm:h-44
                  transition flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2 shadow-md"
           >
             <img
@@ -338,7 +341,7 @@ const Inicio = () => {
             to="/radio"
             className="bg-orange-500 rounded-xl p-4 text-white 
                  w-11/12 h-28
-                 sm:w-48 sm:h-48
+                 sm:w-44 sm:h-44
                  hover:bg-orange-600 transition 
                  flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2"
           >
@@ -350,6 +353,27 @@ const Inicio = () => {
             <div className="pl-4 border-l border-white sm:border-0 sm:pl-0 sm:mt-2">
               <div className="text-base font-semibold leading-tight">Radio</div>
               <div className="text-sm">En vivo</div>
+            </div>
+          </Link>
+
+          <Link
+            to="/camara/vivo"
+            className="bg-[#e91e63] rounded-xl p-4 text-white 
+                 w-11/12 h-28
+                 sm:w-44 sm:h-44
+                 hover:bg-[#d81b60] transition 
+                 flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2"
+          >
+            <img
+              src={ImgYouTube}
+              alt="Cámara en Vivo"
+              className="w-14 h-12 sm:w-16 sm:h-16 flex-shrink-0"
+            />
+            <div className="pl-4 border-l border-white sm:border-0 sm:pl-0 sm:mt-2">
+              <div className="text-base font-semibold leading-tight">
+                Transmisión en linea
+              </div>
+              <div className="text-sm">Ver de contenido</div>
             </div>
           </Link>
         </div>

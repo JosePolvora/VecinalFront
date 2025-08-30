@@ -22,8 +22,9 @@ import SecComunicacion from "./paginas/pageinstitucional/SecCominicacion";
 import SecJuventud from "./paginas/pageinstitucional/SecJuventud";
 import SecSeguridad from "./paginas/pageinstitucional/SecSeguridad";
 import Cuadrantes from "./paginas/pageinstitucional/Cuadrantes";
-
-
+import Mascotas from "./paginas/Mascotas";
+import MascotasDetalle from "./paginas/MascotasDetalle";
+import FormMascota from "./paginas/FormMascota";
 
 function App() {
   return (
@@ -31,8 +32,10 @@ function App() {
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Inicio />} />
         <Route path="/institucional" element={<Institucional />} />
+
         <Route path="/novedades" element={<Novedades />} />
         <Route path="/novedades/:id" element={<NovedadDetalle />} />
+
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/reclamos" element={<FormularioReclamos />} />
         <Route path="/reclamos/consulta" element={<ConsultaReclamo />} />
@@ -46,8 +49,10 @@ function App() {
         <Route path="cuadrante" element={<Cuadrantes />} />
         <Route path="integrantes/seccultura" element={<SecCultura />} />
         <Route path="integrantes/secdeporte" element={<SecDeporte />} />
-        
-        
+        <Route path="mascotas" element={<Mascotas />} />
+        <Route path="/mascotas/:id" element={<MascotasDetalle />} />
+        <Route path="/mascotas/formulario" element={<FormMascota />} />
+
         <Route
           path="integrantes/seccomunicacion"
           element={<SecComunicacion />}

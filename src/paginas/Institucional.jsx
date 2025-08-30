@@ -14,7 +14,8 @@ import martinImg from "../imagenes/imgInstitucional/martin.png";
 import aleImg from "../imagenes/imgInstitucional/ale.png";
 import gastonImg from "../imagenes/imgInstitucional/gaston.png";
 import tatyImg from "../imagenes/imgInstitucional/taty.png";
-
+import elianaImg from "../imagenes/imgInstitucional/eliana.png";
+import cristianImg from "../imagenes/imgInstitucional/cristian.png";
 
 
 
@@ -64,7 +65,7 @@ const Institucional = () => {
     {
       nombre: "Cristian Machado",
       cargo: "Secretaría de Juventud y Género (Titular)",
-      img: null,
+      img: cristianImg,
       ruta: "/integrantes/secjuventud",
     },
     {
@@ -126,7 +127,7 @@ const Institucional = () => {
     {
       nombre: "Eliana Peralta",
       cargo: "Revisora de Cuentas",
-      img: null,
+      img: elianaImg,
       ruta: "",
     },
     {
