@@ -12,6 +12,7 @@ import Reclamos from "../componentes/admin/Reclamos";
 import FormSubirBanner from "../componentes/admin/FormSubirBanner";
 import Banners from "../componentes/admin/banners";
 import Revistas from "../componentes/admin/Revistas";
+import MascotasGestor from "../componentes/admin/MascotasGestor";
 
 const AdminPanel = () => {
     const navigate = useNavigate();
@@ -43,6 +44,8 @@ const AdminPanel = () => {
                         <Route path="novedades" element={<Novedades />} />
                         <Route path="revistas" element={<Revistas />} />
                         <Route path="reclamos/lista" element={<Reclamos />} />
+
+                        <Route path="mascotas/gestor" element={<MascotasGestor />} />
                         
 
 

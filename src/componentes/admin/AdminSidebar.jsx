@@ -8,6 +8,8 @@ const AdminSidebar = () => {
   const [openRevistas, setOpenRevistas] = useState(false);
   const [openReclamos, setOpenReclamos] = useState(false);
 
+  const [openMascotasGestor, setOpenMascotasGestor] = useState(false);
+
   return (
     <aside className="w-64 bg-[#002c73] text-white min-h-screen p-6 space-y-6">
       <h2 className="text-2xl font-bold">MENÚ</h2>
@@ -145,7 +147,7 @@ const AdminSidebar = () => {
                 <i className="fas fa-upload"></i>
                 Subir Revista
               </Link>
-              
+
               <Link
                 to="/adminpanel/revistas"
                 className="flex items-center gap-2 hover:underline"
@@ -178,6 +180,33 @@ const AdminSidebar = () => {
               >
                 <i className="fas fa-edit"></i>
                 Modificar Estado Reclamo
+              </Link>
+            </div>
+          )}
+        </div>
+
+        <div>
+          <button
+            onClick={() => setOpenReclamos(!openMascotasGestor)}
+            className="w-full flex items-center justify-between font-semibold hover:underline"
+          >
+            <span className="flex items-center gap-2">
+              <i className="fas fa-exclamation-circle"></i>
+              Mascotas
+            </span>
+            <i
+              className={`fas fa-chevron-${openMascotasGestor ? "up" : "down"}`}
+            ></i>
+          </button>
+
+          {openMascotasGestor && (
+            <div className="ml-5 mt-2 space-y-1 text-sm">
+              <Link
+                to="/adminpanel/mascotas/gestor"
+                className="flex items-center gap-2 hover:underline"
+              >
+                <i className="fas fa-edit"></i>
+                Gestor Mascotas
               </Link>
             </div>
           )}
