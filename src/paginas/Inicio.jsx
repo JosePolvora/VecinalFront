@@ -294,6 +294,7 @@ const Inicio = () => {
               <div className="text-sm">Nuestro Barrio</div>
             </div>
           </Link>
+          
           <Link
             to="/mascotas"
             className="bg-white rounded-xl p-4 text-black
@@ -304,10 +305,10 @@ const Inicio = () => {
           >
             <img
               src={ImgMascota}
-              alt="Radio en Vivo"
+              alt="Mascotas"
               className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0"
             />
-            <div className="pl-4 border-l border-white sm:border-0 sm:pl-0 sm:mt-2">
+            <div className="pl-4 border-l border-black sm:border-0 sm:pl-0 sm:mt-2">
               <div className="text-base font-semibold leading-tight">
                 Portal
               </div>

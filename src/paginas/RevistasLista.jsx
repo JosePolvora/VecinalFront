@@ -237,10 +237,11 @@
 
 // export default RevistaLista;
 
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+import { Download } from "lucide-react"; // 👈 icono de descarga
 
 // Base común para todas las llamadas al API
 const API_URL = "https://api.santaisabel2.com/api";
@@ -276,7 +277,9 @@ const RevistaLista = () => {
   if (error)
     return <p className="text-center py-10 text-red-600 text-lg">{error}</p>;
   if (revistas.length === 0)
-    return <p className="text-center py-10 text-lg">No hay revistas disponibles.</p>;
+    return (
+      <p className="text-center py-10 text-lg">No hay revistas disponibles.</p>
+    );
 
   return (
     <div className="p-4 sm:p-6 md:p-8 max-w-5xl mx-auto">
@@ -294,7 +297,7 @@ const RevistaLista = () => {
               {revista.mes}
             </h3>
 
-            <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+            {/* <div className="flex flex-col sm:flex-row gap-3 mt-auto">
               <button
                 onClick={() => verRevista(revista)}
                 className="flex-1 bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 text-center"
@@ -308,6 +311,33 @@ const RevistaLista = () => {
               >
                 Descargar
               </a>
+            </div> */}
+
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-auto w-full">
+              {/* Nombre de la revista (ej: Agosto) */}
+              <span className="text-lg font-semibold text-[#00527A]">
+                {revista.nombre || "Sin título"}
+              </span>
+
+              {/* Botones alineados a la derecha */}
+              <div className="flex items-center gap-4">
+                {/* Botón leer */}
+                <button
+                  onClick={() => verRevista(revista)}
+                  className="bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                >
+                  Leer Edición
+                </button>
+
+                {/* Icono de descarga */}
+                <a
+                  href={`${API_URL}/revistas/${revista.id}/download`}
+                  className="text-[#00527A] hover:text-[#003f5c] transition"
+                  title="Descargar"
+                >
+                  <Download size={24} />
+                </a>
+              </div>
             </div>
           </li>
         ))}
