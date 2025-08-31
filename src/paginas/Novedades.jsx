@@ -9,21 +9,6 @@ const Novedades = () => {
   const [paginaActual, setPaginaActual] = useState(1);
   const novedadesPorPagina = 5;
 
-  // useEffect(() => {
-  //   const cargarNovedades = async () => {
-  //     try {
-  //       //const res = await axios.get("http://localhost:3000/api/novedades");
-  //       //const res = await axios.get("https://api.santaisabel2.com/api/novedades");
-  //       const res = await axios.get(`${API_URL}/novedades`);
-  //       setNovedades(res.data.body);
-  //     } catch (error) {
-  //       console.error("Error al cargar novedades:", error);
-  //     }
-  //   };
-
-  //   cargarNovedades();
-  // }, []);
-
   useEffect(() => {
     const cargarNovedades = async () => {
       try {
