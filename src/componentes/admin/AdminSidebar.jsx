@@ -185,9 +185,11 @@ const AdminSidebar = () => {
           )}
         </div>
 
+        {/* MASCOTAS */}
+
         <div>
           <button
-            onClick={() => setOpenReclamos(!openMascotasGestor)}
+            onClick={() => setOpenMascotasGestor(!openMascotasGestor)}
             className="w-full flex items-center justify-between font-semibold hover:underline"
           >
             <span className="flex items-center gap-2">
@@ -195,7 +197,9 @@ const AdminSidebar = () => {
               Mascotas
             </span>
             <i
-              className={`fas fa-chevron-${openMascotasGestor ? "up" : "down"}`}
+              className={`fas fa-paw-${
+                openMascotasGestor ? "up" : "down"
+              }`}
             ></i>
           </button>
 
