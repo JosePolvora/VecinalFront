@@ -187,7 +187,7 @@ const AdminSidebar = () => {
 
         {/* MASCOTAS */}
 
-        <div>
+        {/* <div>
           <button
             onClick={() => setOpenMascotasGestor(!openMascotasGestor)}
             className="w-full flex items-center justify-between font-semibold hover:underline"
@@ -214,7 +214,37 @@ const AdminSidebar = () => {
               </Link>
             </div>
           )}
-        </div>
+        </div> */}
+
+
+
+
+        {/* MASCOTAS */}
+<div>
+  <button
+    onClick={() => setOpenMascotasGestor(!openMascotasGestor)}
+    className="w-full flex items-center justify-between font-semibold hover:underline"
+  >
+    <span className="flex items-center gap-2">
+      <i className="fas fa-paw"></i>
+      Mascotas
+    </span>
+    <i className={`fas fa-chevron-${openMascotasGestor ? "up" : "down"}`}></i>
+  </button>
+
+  {openMascotasGestor && (
+    <div className="ml-5 mt-2 space-y-1 text-sm">
+      <Link
+        to="/adminpanel/mascotas/gestor"
+        className="flex items-center gap-2 hover:underline"
+      >
+        <i className="fas fa-edit"></i>
+        Gestor Mascotas
+      </Link>
+    </div>
+  )}
+</div>
+
       </nav>
     </aside>
   );
