@@ -241,7 +241,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-import { Download } from "lucide-react"; // 👈 icono de descarga
+import { Eye, Download } from "lucide-react"; // 👈 icono de descarga
 
 // Base común para todas las llamadas al API
 const API_URL = "https://api.santaisabel2.com/api";
@@ -313,29 +313,30 @@ const RevistaLista = () => {
               </a>
             </div> */}
 
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-auto w-full">
-              {/* Nombre de la revista (ej: Agosto) */}
+            <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3 mt-auto">
+              {/* Nombre de la revista */}
               <span className="text-lg font-semibold text-[#00527A]">
-                {revista.nombre || "Sin título"}
+                {revista.nombre}
               </span>
 
-              {/* Botones alineados a la derecha */}
+              {/* Iconos alineados a la derecha */}
               <div className="flex items-center gap-4">
-                {/* Botón leer */}
+                {/* Ver revista */}
                 <button
                   onClick={() => verRevista(revista)}
-                  className="bg-white text-[#00527A] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                  className="p-2 rounded-full bg-white shadow hover:bg-gray-200 text-[#00527A] transition"
+                  title="Leer Edición"
                 >
-                  Leer Edición
+                  <Eye size={22} />
                 </button>
 
-                {/* Icono de descarga */}
+                {/* Descargar revista */}
                 <a
                   href={`${API_URL}/revistas/${revista.id}/download`}
-                  className="text-[#00527A] hover:text-[#003f5c] transition"
+                  className="p-2 rounded-full bg-white shadow hover:bg-gray-200 text-[#00527A] transition"
                   title="Descargar"
                 >
-                  <Download size={24} />
+                  <Download size={22} />
                 </a>
               </div>
             </div>
