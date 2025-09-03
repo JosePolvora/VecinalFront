@@ -65,9 +65,11 @@ const MascotaDetalle = () => {
               <strong>Tipo:</strong> {mascota.tipo}{" "}
               {mascota.raza && `(${mascota.raza})`}
             </p>
-            <p>
+
+            {/* <p>
               <strong>Edad:</strong> {mascota.edad}
-            </p>
+            </p> */}
+            
             <p>
               <strong>Sexo:</strong> {mascota.sexo}
             </p>

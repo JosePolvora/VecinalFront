@@ -15,45 +15,41 @@ import Revistas from "../componentes/admin/Revistas";
 import MascotasGestor from "../componentes/admin/MascotasGestor";
 
 const AdminPanel = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleLogout = () => {
-        console.log("Cerrando sesión...");
-        localStorage.removeItem("token");
-        localStorage.removeItem("usuario");
-        navigate("/"); // Redirige al inicio
-    };
+  const handleLogout = () => {
+    console.log("Cerrando sesión...");
+    localStorage.removeItem("token");
+    localStorage.removeItem("usuario");
+    navigate("/"); // Redirige al inicio
+  };
 
-    return (
-        <div className="flex min-h-screen">
-            <AdminSidebar />
-            <div className="flex-1 flex flex-col">
-                {/* Le pasamos la función de logout como prop */}
-                <AdminHeader onLogout={handleLogout} />
-                <main className="p-6 bg-gray-100 flex-grow">
-                    <Routes>
-                        <Route path="" element={<AdminInicio />} /> {/* ruta inicial */}
-                        <Route path="formnovedad" element={<FormNovedad />} />
-                        <Route path="formimagen" element={<FormSubirImagen />} />
-                        <Route path="formbanner" element={<FormSubirBanner />} />
-                        <Route path="formrevista" element={<FormSubirRevista />} />
-                        <Route path="formreclamo" element={<FormReclamo />} />
-                        <Route path="formreclamo/:id" element={<FormReclamo />} />
-                        <Route path="imagenes" element={<Imagenes />} />
-                        <Route path="banners" element={<Banners />} />
-                        <Route path="novedades" element={<Novedades />} />
-                        <Route path="revistas" element={<Revistas />} />
-                        <Route path="reclamos/lista" element={<Reclamos />} />
-
-                        <Route path="mascotas/gestor" element={<MascotasGestor />} />
-                        
-
-
-                    </Routes>
-                </main>
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex min-h-screen">
+      <AdminSidebar />
+      <div className="flex-1 flex flex-col">
+        {/* Le pasamos la función de logout como prop */}
+        <AdminHeader onLogout={handleLogout} />
+        <main className="p-6 bg-gray-100 flex-grow">
+          <Routes>
+            <Route path="" element={<AdminInicio />} /> {/* ruta inicial */}
+            <Route path="formnovedad" element={<FormNovedad />} />
+            <Route path="formimagen" element={<FormSubirImagen />} />
+            <Route path="formbanner" element={<FormSubirBanner />} />
+            <Route path="formrevista" element={<FormSubirRevista />} />
+            <Route path="formreclamo" element={<FormReclamo />} />
+            <Route path="formreclamo/:id" element={<FormReclamo />} />
+            <Route path="imagenes" element={<Imagenes />} />
+            <Route path="banners" element={<Banners />} />
+            <Route path="novedades" element={<Novedades />} />
+            <Route path="revistas" element={<Revistas />} />
+            <Route path="reclamos/lista" element={<Reclamos />} />
+            <Route path="mascotas/gestor" element={<MascotasGestor />} />
+          </Routes>
+        </main>
+      </div>
+    </div>
+  );
 };
 
 export default AdminPanel;

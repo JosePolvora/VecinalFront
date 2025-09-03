@@ -1,8 +1,12 @@
 import mapa from "../../imagenes/cuadrante.png";
+import sabrinaFoto from "../../imagenes/imgInstitucional/sabrina.png";
+import pinguinoFoto from "../../imagenes/imgInstitucional/pinguino.png";
+import raulFoto from "../../imagenes/imgInstitucional/raul.png";
+import mirandaFoto from "../../imagenes/imgInstitucional/miranda.png";
 
 const coordinadores = [
-  { id: 1, nombre: "Raúl Mansilla", foto: "https://via.placeholder.com/150" },
-  { id: 2, nombre: "Luis Miranda", foto: "https://via.placeholder.com/150" },
+  { id: 1, nombre: "Raúl Mansilla", foto: raulFoto },
+  { id: 2, nombre: "Luis Miranda", foto: mirandaFoto },
   { id: 3, nombre: "Jorge Guzmán", foto: "https://via.placeholder.com/150" },
   { id: 4, nombre: "Jazmín Ruiz", foto: "https://via.placeholder.com/150" },
   { id: 5, nombre: "Berta Loyola", foto: "https://via.placeholder.com/150" },
@@ -10,9 +14,9 @@ const coordinadores = [
   { id: 7, nombre: "Matías Valor", foto: "https://via.placeholder.com/150" },
   { id: 8, nombre: "Guadalupe Freite", foto: "https://via.placeholder.com/150" },
   { id: 9, nombre: "Daniel Tello", foto: "https://via.placeholder.com/150" },
-  { id: 10, nombre: "José Herrera", foto: "https://via.placeholder.com/150" },
+  { id: 10, nombre: "José Herrera", foto: pinguinoFoto},
   { id: 11, nombre: "Ángel Rodriguez", foto: "https://via.placeholder.com/150" },
-  { id: 12, nombre: "Sabrina Montoya", foto: "https://via.placeholder.com/150" },
+  { id: 12, nombre: "Sabrina Montoya", foto: sabrinaFoto},
   { id: 13, nombre: "Claudia Barraza", foto: "https://via.placeholder.com/150" },
 ];
 
