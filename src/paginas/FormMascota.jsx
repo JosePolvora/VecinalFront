@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
+import { useNavigate } from "react-router-dom";
 //import mascotaImg from "../imagenes/imgLogo/3logoMascota.png"; // 👈 tu imagen
 
 const FormMascota = () => {
@@ -77,6 +78,8 @@ const FormMascota = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex justify-center items-center p-4 sm:p-6 ">
       <div className="bg-gradient-to-b from-[#002c73] via-[#004c99] to-[#0059b3] rounded-2xl border border-white/20 p-8 sm:p-12 w-full max-w-4xl shadow-2xl backdrop-blur-md">
@@ -87,7 +90,7 @@ const FormMascota = () => {
           {/* <div className="w-28 h-28">
             <img src={null} alt="Mascota" className="" />
           </div> */}
-          
+
           <button
             onClick={() => navigate("/mascotas")}
             className="mb-6 px-3 py-1 sm:px-4 sm:py-1.5 bg-white text-[#002c73] font-semibold rounded-xl shadow hover:bg-white/90 transition flex items-center gap-2 w-auto"
