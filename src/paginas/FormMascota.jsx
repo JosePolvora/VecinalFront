@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../config";
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 //import mascotaImg from "../imagenes/imgLogo/3logoMascota.png"; // 👈 tu imagen
 
 const FormMascota = () => {
