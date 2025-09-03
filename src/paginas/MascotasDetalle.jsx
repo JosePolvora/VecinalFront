@@ -32,17 +32,25 @@ const MascotaDetalle = () => {
       <h2 className="text-3xl font-bold text-[#002c73] text-center mb-10 uppercase px-4">
         Mascotas
       </h2>
+      <p className="mb-6 text-gray-700 text-base md:text-lg leading-relaxed">
+        Si encontrás un perro perdido en el barrio, acercate al Centro Vecinal o
+        contactá a algún miembro de la comisión. De esta manera podremos
+        asegurarnos de que el animal vuelva a su hogar de manera rápida y
+        segura, y si no tiene dueño, nos encargaremos de buscarle un nuevo hogar
+        seguro y responsable.
+      </p>
 
       <div className="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row gap-8">
         {/* Contenido principal */}
         <div className="md:w-2/3 bg-white shadow-xl rounded-2xl p-6 md:p-8 animate-fade-in">
+          
           {/* Fecha */}
-          <p className="text-sm text-gray-500 mb-2 text-right italic">
+          {/* <p className="text-sm text-gray-500 mb-2 text-right italic">
             Publicado el: {new Date(mascota.fecha).toLocaleDateString("es-AR")}
-          </p>
+          </p> */}
 
           {/* Nombre */}
-          <h1 className="text-2xl md:text-3xl font-bold text-[#002c73] mb-6 text-center leading-relaxed">
+          <h1 className="text-2xl md:text-3xl font-bold text-[#002c73] mb-6 text-center leading-relaxed uppercase">
             {mascota.nombre || "Sin nombre"}
           </h1>
 
@@ -69,7 +77,7 @@ const MascotaDetalle = () => {
             {/* <p>
               <strong>Edad:</strong> {mascota.edad}
             </p> */}
-            
+
             <p>
               <strong>Sexo:</strong> {mascota.sexo}
             </p>

@@ -44,13 +44,7 @@ const Mascotas = () => {
     <div className="max-w-6xl mx-auto p-4">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-[#00527A]">Mascotas</h1>
-        <p className="mb-6 text-gray-700 text-base md:text-lg leading-relaxed">
-          Si encontrás un perro perdido en el barrio, acercate al Centro Vecinal
-          o contactá a algún miembro de la comisión. De esta manera podremos
-          asegurarnos de que el animal vuelva a su hogar de manera rápida y
-          segura, y si no tiene dueño, nos encargaremos de buscarle un nuevo
-          hogar seguro y responsable.
-        </p>
+
         <Link
           to="/mascotas/formulario"
           className="px-6 py-2 bg-[#00527A] text-white rounded-lg hover:bg-[#003f5c] transition"
@@ -77,7 +71,7 @@ const Mascotas = () => {
                 lugar,
                 contacto_nombre,
                 contacto_telefono,
-                //fecha,
+                fecha,
                 imagen_url,
               }) => (
                 <Link
@@ -104,9 +98,9 @@ const Mascotas = () => {
                       Ubicación: {lugar} <br />
                       Contacto: {contacto_nombre} - {contacto_telefono}
                     </p>
-                    {/* <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-400">
                       {new Date(fecha).toLocaleDateString("es-AR")}
-                    </p> */}
+                    </p>
                   </div>
                 </Link>
               )
