@@ -49,7 +49,7 @@ const Mascotas = () => {
           to="/mascotas/formulario"
           className="px-6 py-2 bg-[#00527A] text-white rounded-lg hover:bg-[#003f5c] transition"
         >
-          Agregar Mascota
+          Agregar
         </Link>
       </div>
 

@@ -94,9 +94,10 @@ const FormMascota = () => {
 
           <button
             onClick={() => navigate("/mascotas")}
-            className="mb-6 px-3 py-1 sm:px-4 sm:py-1.5 bg-white text-[#002c73] font-semibold rounded-xl shadow hover:bg-white/90 transition flex items-center w-auto"
+            className="mb-6 px-3 py-1 sm:px-4 sm:py-1.5 bg-white text-[#002c73] font-semibold rounded-xl shadow hover:bg-white/90 transition flex items-center justify-center w-fit col-span-1"
             aria-label="Volver"
             title="Volver"
+            type="button"
           >
             <FaArrowLeft className="text-sm" />
           </button>
