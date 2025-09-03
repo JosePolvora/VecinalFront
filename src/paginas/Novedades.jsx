@@ -45,7 +45,7 @@ const Novedades = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-4">
-      <h1 className="text-3xl font-bold text-[#00527A] mb-6 text-center sm:text-left">
+      <h1 className="text-2xl font-bold text-[#00527A] mb-6 text-center sm:text-left uppercase">
         Novedades
       </h1>
 

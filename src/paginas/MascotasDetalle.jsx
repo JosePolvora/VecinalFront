@@ -30,13 +30,13 @@ const MascotaDetalle = () => {
   return (
     <>
       <h2 className="text-3xl font-bold text-[#002c73] text-start mb-10 uppercase px-4">
-        Mascotas
+        Portal Mascotas
       </h2>
-      <p className="mb-6 text-gray-900 text-base md:text-lg leading-relaxed mx-[5%] italic">
-        Si encontrás un perro perdido en el barrio, acercate al Centro Vecinal o
+      <p className="mb-6 text-gray-900 text-base md:text-lg leading-relaxed mx-[5%] italic text-justify font-semibold">
+        Si encontrás una mascota perdida en el barrio, acercate al Centro Vecinal o
         contactá a algún miembro de la comisión. De esta manera podremos
         asegurarnos de que el animal vuelva a su hogar de manera rápida y
-        segura, y si no tiene dueño, nos encargaremos de buscarle un nuevo hogar
+        segura, en caso de no tener dueño, nos encargaremos de buscarle un nuevo hogar
         seguro y responsable.
       </p>
 
