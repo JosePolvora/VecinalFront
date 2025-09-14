@@ -2,8 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import empresa2 from "../imagenes/imgPublicidad/almacor.png";
-import empresa3 from "../imagenes/imgPublicidad/carniceriatriangulo.png";
+// import empresa2 from "../imagenes/imgPublicidad/almacor.png";
+// import empresa3 from "../imagenes/imgPublicidad/carniceriatriangulo.png";
 
 import { API_URL } from "../config";
 
@@ -108,7 +108,8 @@ const MascotaDetalle = () => {
         </div>
 
         {/* Sidebar derecho */}
-        <aside className="md:w-1/3 mt-8 md:mt-0 px-2 md:px-6 border-t md:border-t-0 md:border-l-2 border-gray-300 animate-fade-in">
+
+        {/* <aside className="md:w-1/3 mt-8 md:mt-0 px-2 md:px-6 border-t md:border-t-0 md:border-l-2 border-gray-300 animate-fade-in">
           <h2 className="text-xl font-bold text-[#002c73] mb-10 text-center uppercase">
             Empresas Amigas
           </h2>
@@ -125,7 +126,7 @@ const MascotaDetalle = () => {
               className="image-rotate w-full h-auto rounded-md shadow"
             />
           </div>
-        </aside>
+        </aside> */}
       </div>
     </>
   );

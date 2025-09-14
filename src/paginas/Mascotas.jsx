@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Plus } from "lucide-react";
 
 import { API_URL } from "../config";
 
@@ -43,13 +44,21 @@ const Mascotas = () => {
   return (
     <div className="max-w-6xl mx-auto p-4">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-[#00527A] uppercase">Mascotas Perdidas</h1>
+        <h1 className="text-2xl font-bold text-[#00527A] uppercase">
+          Mascotas Perdidas
+        </h1>
 
+        {/* <Link
+          to="/mascotas/formulario"
+          className="px-3 py-1 bg-[#00527A] text-white rounded-lg hover:bg-[#003f5c] transition"
+        >
+          +
+        </Link> */}
         <Link
           to="/mascotas/formulario"
-          className="px-6 py-2 bg-[#00527A] text-white rounded-lg hover:bg-[#003f5c] transition"
+          className="px-3 py-2 bg-[#00527A] text-white rounded-lg hover:bg-[#003f5c] transition flex items-center justify-center"
         >
-          Agregar
+          <Plus size={20} />
         </Link>
       </div>
 
