@@ -6,13 +6,13 @@
 const SecComunicacion = () => {
   const comunicacion = [
     {
-      nombre: "Marcos Maldonado",
-      cargo: "Secretaría de Comunicación (Titular)",
+      nombre: "",
+      cargo: "Género y Diversidad",
       img: null,
     },
     {
-      nombre: "Analia Moreno",
-      cargo: "Secretaría de Comunicación (Suplente)",
+      nombre: "",
+      cargo: "Género y Diversidad",
       img: null,
     },
   ];
@@ -67,7 +67,7 @@ const SecComunicacion = () => {
   return (
     <section>
       <h1 className="text-lg sm:text-2xl font-bold text-[#00527A] mb-6 ml-0 sm:ml-10 font-sans text-center sm:text-left">
-        SECRETARÍA DE COMUNICACIÓN
+        SECRETARÍA DE GÉNERO Y DIVERSIDAD
       </h1>
       <div className="max-w-screen-xl mx-auto p-4 sm:p-5 space-y-10 sm:space-y-16">
         {/* Titular y suplente */}

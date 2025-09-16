@@ -1,19 +1,19 @@
 // PageDeporte.jsx
 
-import aleImg from "../../imagenes/imgInstitucional/ale.png";
-import gastonImg from "../../imagenes/imgInstitucional/gaston.png";
+//import aleImg from "../../imagenes/imgInstitucional/ale.png";
+//import gastonImg from "../../imagenes/imgInstitucional/gaston.png";
 
 const SecDeporte = () => {
   const deporte = [
     {
-      nombre: "Sergio Fonseca",
-      cargo: "Secretaría de Deportes (Titular)",
-      img: gastonImg,
+      nombre: "",
+      cargo: "Deporte, Niñez, Juventud y Tercera Edad",
+      //img: gastonImg,
     },
     {
-      nombre: "Alejandra Espinosa",
-      cargo: "Secretaría de Deportes (Suplente)",
-      img: aleImg,
+      nombre: "",
+      cargo: "Deporte, Niñez, Juventud y Tercera Edad",
+      //img: aleImg,
     },
   ];
 
@@ -67,7 +67,7 @@ const SecDeporte = () => {
   return (
     <section>
       <h1 className="text-lg sm:text-2xl font-bold text-[#00527A] mb-6 text-center sm:text-left ml-0 sm:ml-10 font-sans">
-        SECRETARÍA DE DEPORTES
+        SECRETARÍA DE DEPORTE, NIÑEZ, JUVENTUD Y TERCERA EDAD
       </h1>
       <div className="max-w-screen-xl mx-auto p-4 sm:p-5 space-y-10 sm:space-y-16">
         {/* Titulares y Suplentes */}

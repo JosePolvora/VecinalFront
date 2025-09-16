@@ -6,12 +6,12 @@ const SecJuventud = () => {
   const juventud = [
     {
       nombre: "Cristian Machado",
-      cargo: "Secretaría de Juventud y Género (Titular)",
+      cargo: "Acción Social, Salud, Medio Ambiente y Empleo",
       img: cristianImg,
     },
     {
       nombre: "Sonia Flores",
-      cargo: "Secretaría de Juventud y Género (Suplente)",
+      cargo: "Acción Social, Salud, Medio Ambiente y Empleo",
       img: null,
     },
   ];
@@ -66,7 +66,7 @@ const SecJuventud = () => {
   return (
     <section>
       <h1 className="text-lg sm:text-2xl font-bold text-[#00527A] mb-6 text-center sm:text-left ml-0 sm:ml-10 font-sans">
-        SECRETARÍA DE JUVENTUD
+        SECRETARÍA DE ACCIÓN SOCIAL, SALUD, MEDIO AMBIENTE Y EMPLEO
       </h1>
       <div className="max-w-screen-xl mx-auto p-4 sm:p-5 space-y-10 sm:space-y-16">
         {/* Titulares y Suplentes */}

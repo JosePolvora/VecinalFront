@@ -8,12 +8,12 @@ const SecCultura = () => {
   const cultura = [
     {
       nombre: "Fabiana Capitanelli",
-      cargo: "Secretaría de Cultura (Titular)",
+      cargo: "Educación, Cultura y Eventos",
       img: fabianaImg,
     },
     {
       nombre: "Ariel Gonzalez",
-      cargo: "Secretaría de Cultura (Suplente)",
+      cargo: "Educación, Cultura y Eventos",
       img: arielImg,
     },
   ];
@@ -68,7 +68,7 @@ const SecCultura = () => {
   return (
     <section>
       <h1 className="text-lg sm:text-2xl font-bold text-[#00527A] mb-6 text-center sm:text-left ml-0 sm:ml-10 font-sans">
-        SECRETARÍA DE CULTURA
+        SECRETARÍA DE EDUCACIÓN, CULTURA Y EVENTOS
       </h1>
       <div className="max-w-screen-xl mx-auto p-4 sm:p-5 space-y-10 sm:space-y-16">
         {/* Cultura titulares y suplentes */}

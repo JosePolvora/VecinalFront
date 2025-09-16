@@ -16,11 +16,11 @@ import PrivateRoute from "./componentes/admin/PrivateRoute";
 import ConsultaReclamo from "./paginas/ConsultaReclamo";
 import ReclamosHistorial from "./paginas/ReclamosHistorial";
 import Radio from "./paginas/Radio";
+import SecAccionSocial from "./paginas/pageinstitucional/SecAccionSocial";
 import SecCultura from "./paginas/pageinstitucional/SecCultura";
 import SecDeporte from "./paginas/pageinstitucional/SecDeporte";
-import SecComunicacion from "./paginas/pageinstitucional/SecCominicacion";
-import SecJuventud from "./paginas/pageinstitucional/SecJuventud";
-import SecSeguridad from "./paginas/pageinstitucional/SecSeguridad";
+import SecObras from "./paginas/pageinstitucional/SecObras";
+import SecGenero from "./paginas/pageinstitucional/SecGenero";
 import Cuadrantes from "./paginas/pageinstitucional/Cuadrantes";
 import Mascotas from "./paginas/Mascotas";
 import MascotasDetalle from "./paginas/MascotasDetalle";
@@ -47,19 +47,19 @@ function App() {
         <Route path="/registro" element={<Registro />} />
         <Route path="radio" element={<Radio />} />
         <Route path="cuadrante" element={<Cuadrantes />} />
+        <Route
+          path="integrantes/secaccionsocial"
+          element={<SecAccionSocial />}
+        />
         <Route path="integrantes/seccultura" element={<SecCultura />} />
         <Route path="integrantes/secdeporte" element={<SecDeporte />} />
+
+        <Route path="integrantes/secobras" element={<SecObras />} />
+        <Route path="integrantes/secgenero" element={<SecGenero />} />
+
         <Route path="mascotas" element={<Mascotas />} />
         <Route path="/mascotas/:id" element={<MascotasDetalle />} />
         <Route path="/mascotas/formulario" element={<FormMascota />} />
-
-        <Route
-          path="integrantes/seccomunicacion"
-          element={<SecComunicacion />}
-        />
-
-        <Route path="integrantes/secjuventud" element={<SecJuventud />} />
-        <Route path="integrantes/secseguridad" element={<SecSeguridad />} />
       </Route>
 
       <Route
