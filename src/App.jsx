@@ -25,6 +25,8 @@ import Cuadrantes from "./paginas/pageinstitucional/Cuadrantes";
 import Mascotas from "./paginas/Mascotas";
 import MascotasDetalle from "./paginas/MascotasDetalle";
 import FormMascota from "./paginas/FormMascota";
+import FormMascotaDon from "./paginas/FormMascotaDon";
+import FormMascotaAdop from "./paginas/FormMascotaAdop";
 
 function App() {
   return (
@@ -60,6 +62,8 @@ function App() {
         <Route path="mascotas" element={<Mascotas />} />
         <Route path="/mascotas/:id" element={<MascotasDetalle />} />
         <Route path="/mascotas/formulario" element={<FormMascota />} />
+        <Route path="/mascotas/formulario/donacion" element={<FormMascotaDon />} />
+        <Route path="/mascotas/formulario/adopcion" element={<FormMascotaAdop />} />
       </Route>
 
       <Route
