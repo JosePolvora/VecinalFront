@@ -45,7 +45,7 @@ const FormAdopcion = () => {
         >
           {/* Botón volver */}
           <button
-            onClick={() => navigate("/mascotas/adoptar")}
+            onClick={() => navigate("/mascotas")}
             className="mb-6 px-3 py-1 sm:px-4 sm:py-1.5 bg-white text-[#002c73] font-semibold rounded-xl shadow hover:bg-white/90 transition flex items-center justify-center w-fit col-span-1"
             type="button"
           >
