@@ -22,19 +22,21 @@ const DonacionInfo = () => {
       </h2>
 
       {/* Contenedor principal más ancho */}
-      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-lg p-10 flex flex-col gap-8 text-gray-800">
+      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-lg p-8 flex flex-col gap-8 text-gray-800">
         {/* Tarjeta informativa con padding aumentado */}
-        <div className="flex flex-col gap-4 bg-gray-100 rounded-xl p-8 text-lg">
+        <div className="flex flex-col gap-4 text-lg">
           <p>
             <span className="font-semibold">Titular:</span> {cuenta.titular}
           </p>
           <p>
             <span className="font-semibold">Banco:</span> {cuenta.banco}
           </p>
+
           <p>
             <span className="font-semibold">Número de cuenta:</span>{" "}
-            {cuenta.cvu}
+            <span className="break-words">{cuenta.cvu}</span>
           </p>
+
           <p>
             <span className="font-semibold">Alias:</span> {cuenta.alias}
           </p>
@@ -56,7 +58,7 @@ const DonacionInfo = () => {
         type="button"
       >
         <FaArrowLeft />
-        Volver
+        <span className="hidden sm:inline">Volver</span>
       </button>
     </div>
   );
