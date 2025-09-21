@@ -104,7 +104,7 @@ const Mascotas = () => {
                         : "https://via.placeholder.com/150"
                     }
                     alt={nombre || "Mascota"}
-                    className="w-32 h-48 object-contain bg-gray-100 object-center rounded-md flex-shrink-0"
+                    className="w-32 h-48 object-contain bg-white object-center rounded-md flex-shrink-0"
                   />
 
                   <div className="flex flex-col justify-between">
