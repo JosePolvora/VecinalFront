@@ -334,25 +334,49 @@ const MascotaDetalle = () => {
 
       {/* Accesos principales arriba */}
       <section className="max-w-6xl mx-auto px-4 mb-10">
-        <div className="flex justify-center items-center gap-2 flex-wrap">
+        <div className="flex justify-center items-center gap-6 flex-wrap">
           {/* Adoptar */}
           <Link
             to="/mascotas/formulario/adopcion"
-            className="bg-white rounded-xl p-4 text-black w-44 h-44 hover:bg-gray-50 transition flex flex-col items-center justify-center text-center space-y-2 shadow-md"
+            className="bg-white rounded-xl p-4 text-black 
+                 w-11/12 h-28
+                 sm:w-44 sm:h-44
+                 hover:bg-gray-50 transition
+                 flex flex-row sm:flex-col items-center sm:justify-center 
+                 text-left sm:text-center 
+                 space-x-4 sm:space-x-0 sm:space-y-2 shadow-md"
           >
-            <img src={ImgAdoptar} alt="Adoptar mascota" className="w-20 h-20" />
-            <div className="text-base font-semibold">Adoptar</div>
-            <div className="text-sm">Dale un hogar a {mascota.nombre}</div>
+            <img
+              src={ImgAdoptar}
+              alt="Adoptar mascota"
+              className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0"
+            />
+            <div className="pl-4 border-l border-black sm:border-0 sm:pl-0 sm:mt-2">
+              <div className="text-base font-semibold">Adoptar</div>
+              <div className="text-sm">Dale un hogar a {mascota.nombre}</div>
+            </div>
           </Link>
 
           {/* Donar */}
           <Link
             to="/mascotas/formulario/donacion"
-            className="bg-yellow-600 rounded-xl p-4 text-white w-44 h-44 hover:bg-yellow-700 transition flex flex-col items-center justify-center text-center space-y-2 shadow-md"
+            className="bg-gray-300 rounded-xl p-4 text-black 
+                 w-11/12 h-28
+                 sm:w-44 sm:h-44
+                 hover:bg-gray-400 transition
+                 flex flex-row sm:flex-col items-center sm:justify-center 
+                 text-left sm:text-center 
+                 space-x-4 sm:space-x-0 sm:space-y-2 shadow-md"
           >
-            <img src={ImgDonar} alt="Donar" className="w-20 h-20" />
-            <div className="text-base font-semibold">Donar</div>
-            <div className="text-sm">Apoya a {mascota.nombre}</div>
+            <img
+              src={ImgDonar}
+              alt="Donar"
+              className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0"
+            />
+            <div className="pl-4 border-l border-white sm:border-0 sm:pl-0 sm:mt-2">
+              <div className="text-base font-semibold">Donar</div>
+              <div className="text-sm">Apoya a {mascota.nombre}</div>
+            </div>
           </Link>
         </div>
       </section>

@@ -58,10 +58,10 @@ const DonacionInfo = () => {
   const navigate = useNavigate();
 
   const cuenta = {
-    titular: "Asociación Protectora de Animales",
-    banco: "Banco de la Ciudad",
-    numero: "1234 5678 9012 3456 7890 12",
-    alias: "PROTECTORA.ANIM",
+    titular: "Jose Martin Oviedo",
+    banco: "Mercado Pago",
+    CVU: "0000003100036536149814",
+    alias: "jose.martin.ovi.mp",
     mensaje:
       "Podés donar directamente a esta cuenta para ayudar a nuestras mascotas.",
   };
