@@ -88,7 +88,7 @@ const Mascotas = () => {
                   key={id}
                   className="flex flex-col sm:flex-row bg-white rounded-xl shadow-md gap-4 sm:gap-6 p-4 sm:p-5 hover:shadow-xl hover:scale-[1.01] transition-all"
                 >
-                  <img
+                  {/* <img
                     src={
                       imagen_url
                         ? `${BASE_IMG_URL}${imagen_url}`
@@ -96,6 +96,15 @@ const Mascotas = () => {
                     }
                     alt={nombre || "Mascota"}
                     className="w-full sm:w-36 h-48 sm:h-24 object-cover rounded-md flex-shrink-0 uppercase"
+                  /> */}
+                  <img
+                    src={
+                      imagen_url
+                        ? `${BASE_IMG_URL}${imagen_url}`
+                        : "https://via.placeholder.com/150"
+                    }
+                    alt={nombre || "Mascota"}
+                    className="w-32 h-48 object-contain bg-gray-100 object-center rounded-md flex-shrink-0"
                   />
 
                   <div className="flex flex-col justify-between">
@@ -154,8 +163,6 @@ const Mascotas = () => {
 };
 
 export default Mascotas;
-
-
 
 // import { useEffect, useState } from "react";
 // import axios from "axios";
@@ -216,9 +223,9 @@ export default Mascotas;
 //           {/* Agregar mascota */}
 //           <Link
 //             to="/mascotas/formulario"
-//             className="bg-[#00527A] rounded-xl p-4 text-white 
+//             className="bg-[#00527A] rounded-xl p-4 text-white
 //                      w-11/12 h-28 sm:w-44 sm:h-44
-//                      hover:bg-[#003f5c] transition 
+//                      hover:bg-[#003f5c] transition
 //                      flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2 shadow-md"
 //           >
 //             <img
@@ -237,9 +244,9 @@ export default Mascotas;
 //           {/* Adoptar mascota */}
 //           <Link
 //             to="/mascotas/adoptar"
-//             className="bg-green-600 rounded-xl p-4 text-white 
+//             className="bg-green-600 rounded-xl p-4 text-white
 //                      w-11/12 h-28 sm:w-44 sm:h-44
-//                      hover:bg-green-700 transition 
+//                      hover:bg-green-700 transition
 //                      flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2 shadow-md"
 //           >
 //             <img
@@ -258,9 +265,9 @@ export default Mascotas;
 //           {/* Donaciones */}
 //           <Link
 //             to="/donaciones"
-//             className="bg-yellow-600 rounded-xl p-4 text-white 
+//             className="bg-yellow-600 rounded-xl p-4 text-white
 //                      w-11/12 h-28 sm:w-44 sm:h-44
-//                      hover:bg-yellow-700 transition 
+//                      hover:bg-yellow-700 transition
 //                      flex flex-row sm:flex-col items-center sm:justify-center text-left sm:text-center space-x-4 sm:space-x-0 sm:space-y-2 shadow-md"
 //           >
 //             <img

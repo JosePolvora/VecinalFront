@@ -60,7 +60,7 @@ const DonacionInfo = () => {
   const cuenta = {
     titular: "Jose Martin Oviedo",
     banco: "Mercado Pago",
-    CVU: "0000003100036536149814",
+    cvu: "0000003100036536149814",
     alias: "jose.martin.ovi.mp",
     mensaje:
       "Podés donar directamente a esta cuenta para ayudar a nuestras mascotas.",
@@ -86,7 +86,7 @@ const DonacionInfo = () => {
           </p>
           <p>
             <span className="font-semibold">Número de cuenta:</span>{" "}
-            {cuenta.numero}
+            {cuenta.cvu}
           </p>
           <p>
             <span className="font-semibold">Alias:</span> {cuenta.alias}
