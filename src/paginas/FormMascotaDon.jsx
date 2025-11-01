@@ -8,7 +8,7 @@ const DonacionInfo = () => {
     titular: "Jose Martin Oviedo",
     banco: "Mercado Pago",
     cvu: "0000003100036536149814",
-    alias: "jose.martin.ovi.mp",
+    alias: "cvecinal.2.mp",
     mensaje:
       "Podés donar directamente a esta cuenta para ayudar a nuestras mascotas.",
   };

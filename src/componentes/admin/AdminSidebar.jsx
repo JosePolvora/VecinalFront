@@ -209,6 +209,14 @@ const AdminSidebar = () => {
                 <i className="fas fa-edit"></i>
                 Gestor Mascotas
               </Link>
+
+              <Link
+                to="/adminpanel/mascotas/gestor/adopcion"
+                className="flex items-center gap-2 hover:underline"
+              >
+                <i className="fas fa-tasks"></i>
+                Listado Adopcion
+              </Link>
             </div>
           )}
         </div>
