@@ -1,19 +1,16 @@
-// PageSeguridad.jsx
-
-//import claudiaImg from "../../imagenes/imgInstitucional/claudia.png";
-//import martinImg from "../../imagenes/imgInstitucional/martin.png";
+import martinImg from "../../imagenes/imgInstitucional/martin.png";
 
 const SecSeguridad = () => {
   const seguridad = [
     {
-      nombre: "",
+      nombre: "Martin Cisterna",
       cargo: "Defensa Civil, Obras, Servicios Públicos y Planeamiento Urbano",
-      //img: claudiaImg,
+      img: martinImg,
     },
     {
-      nombre: "",
+      nombre: "Luciana Huenz",
       cargo: "Defensa Civil, Obras, Servicios Públicos y Planeamiento Urbano",
-      //img: martinImg,
+      img: null,
     },
   ];
 
@@ -67,7 +64,8 @@ const SecSeguridad = () => {
   return (
     <section>
       <h1 className="text-lg sm:text-2xl font-bold text-[#00527A] mb-6 text-center sm:text-left ml-0 sm:ml-10 font-sans">
-        SECRETARÍA DE DEFENSA CIVIL, OBRAS, SERVICIOS PÚBLICOS Y PLANEAMIENTO URBANO
+        SECRETARÍA DE DEFENSA CIVIL, OBRAS, SERVICIOS PÚBLICOS Y PLANEAMIENTO
+        URBANO
       </h1>
       <div className="max-w-screen-xl mx-auto p-4 sm:p-5 space-y-10 sm:space-y-16">
         {/* Titulares y Suplentes */}

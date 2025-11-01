@@ -1,19 +1,19 @@
 // PageComunicacion.jsx
 
-// import juventudImg from "../imagenes/juventud.jpg"; // opcional
-// import suplenteImg from "../imagenes/suplente.jpg"; // opcional
+import ezeImg from "../../imagenes/imgInstitucional/ezequiel.png";
+import lulyImg from "../../imagenes/imgInstitucional/luly.png";
 
 const SecComunicacion = () => {
   const comunicacion = [
     {
-      nombre: "",
+      nombre: "Luciana Romero",
       cargo: "Género y Diversidad",
-      img: null,
+      img: lulyImg,
     },
     {
-      nombre: "",
+      nombre: "Ezequiel Rodriguez",
       cargo: "Género y Diversidad",
-      img: null,
+      img: ezeImg,
     },
   ];
 

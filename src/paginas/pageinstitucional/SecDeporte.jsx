@@ -1,19 +1,18 @@
 // PageDeporte.jsx
 
-//import aleImg from "../../imagenes/imgInstitucional/ale.png";
-//import gastonImg from "../../imagenes/imgInstitucional/gaston.png";
+import luisImg from "../../imagenes/imgInstitucional/luis.png";
 
 const SecDeporte = () => {
   const deporte = [
     {
-      nombre: "",
+      nombre: "Jesus Arce",
       cargo: "Deporte, Niñez, Juventud y Tercera Edad",
-      //img: gastonImg,
+      img: null,
     },
     {
-      nombre: "",
+      nombre: "José Luis Alvarez",
       cargo: "Deporte, Niñez, Juventud y Tercera Edad",
-      //img: aleImg,
+      img: luisImg,
     },
   ];
 

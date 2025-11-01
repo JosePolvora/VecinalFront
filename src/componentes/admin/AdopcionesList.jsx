@@ -1,61 +1,3 @@
-// // src/components/AdopcionesList.jsx
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-
-// const API_URL = "https://api.santaisabel2.com/api";
-
-// const AdopcionesList = () => {
-//   const [adopciones, setAdopciones] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     const fetchAdopciones = async () => {
-//       try {
-//         const res = await axios.get(`${API_URL}/adopciones`);
-//         setAdopciones(res.data.body || []);
-//         setLoading(false);
-//       } catch (error) {
-//         console.error("Error al cargar adopciones:", error);
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchAdopciones();
-//   }, []);
-
-//   if (loading) return <p>Cargando adopciones...</p>;
-
-//   return (
-//     <div>
-//       <h2>Listado de Adopciones</h2>
-//       {adopciones.length === 0 ? (
-//         <p>No hay adopciones registradas</p>
-//       ) : (
-//         <table border="1" cellPadding="8" cellSpacing="0">
-//           <thead>
-//             <tr>
-//               <th>Nombre</th>
-//               <th>Teléfono</th>
-//               <th>Dirección</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {adopciones.map((a) => (
-//               <tr key={a.id}>
-//                 <td>{a.nombre}</td>
-//                 <td>{a.telefono}</td>
-//                 <td>{a.direccion}</td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default AdopcionesList;
-
 // src/components/AdopcionesList.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -137,15 +79,25 @@ const AdopcionesList = () => {
 
         <div className="overflow-x-auto">
           {currentAdopciones.length === 0 ? (
-            <p className="text-center text-white/60">No hay adopciones registradas</p>
+            <p className="text-center text-white/60">
+              No hay adopciones registradas
+            </p>
           ) : (
             <table className="min-w-full text-white text-sm divide-y divide-white/20">
               <thead className="bg-white/10 text-white/80">
                 <tr>
-                  <th className="px-4 py-3 text-left uppercase tracking-wider">Nombre</th>
-                  <th className="px-4 py-3 text-left uppercase tracking-wider">Teléfono</th>
-                  <th className="px-4 py-3 text-left uppercase tracking-wider">Dirección</th>
-                  <th className="px-4 py-3 text-left uppercase tracking-wider">Acciones</th>
+                  <th className="px-4 py-3 text-left uppercase tracking-wider">
+                    Nombre
+                  </th>
+                  <th className="px-4 py-3 text-left uppercase tracking-wider">
+                    Teléfono
+                  </th>
+                  <th className="px-4 py-3 text-left uppercase tracking-wider">
+                    Dirección
+                  </th>
+                  <th className="px-4 py-3 text-left uppercase tracking-wider">
+                    Acciones
+                  </th>
                 </tr>
               </thead>
               <tbody className="bg-white/5 divide-y divide-white/10">

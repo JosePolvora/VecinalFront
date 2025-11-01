@@ -5,7 +5,7 @@ import axios from "axios";
 // Importa las imágenes desde src
 //import empresa1 from "../imagenes/imgPublicidad/sanchezmartinez.png";
 import empresa2 from "../imagenes/imgPublicidad/almacor.png";
-import empresa3 from "../imagenes/imgPublicidad/carniceriatriangulo.png";
+//import empresa3 from "../imagenes/imgPublicidad/carniceriatriangulo.png";
 //import empresa4 from "../imagenes/imgPublicidad/sanchezmartinez.png";
 //import empresa5 from "../imagenes/imgPublicidad/carniceriatriangulo.png";
 
@@ -101,11 +101,11 @@ const NovedadDetalle = () => {
               alt="Empresa 2"
               className="image-rotate w-full h-auto rounded-md shadow"
             />
-            <img
+            {/* <img
               src={empresa3}
               alt="Empresa 3"
               className="image-rotate w-full h-auto rounded-md shadow"
-            />
+            /> */}
             {/* <img
               src={empresa4}
               alt="Empresa 4"

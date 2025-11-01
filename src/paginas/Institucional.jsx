@@ -3,21 +3,20 @@ import pesceImg from "../imagenes/imgInstitucional/pesce.jpg";
 import oviedoImg from "../imagenes/imgInstitucional/oviedo.jpg";
 import cayutiImg from "../imagenes/imgInstitucional/cayuti.png";
 import sanchezImg from "../imagenes/imgInstitucional/sanchez.png";
-//import lulyImg from "../imagenes/imgInstitucional/luly.png";
+import lulyImg from "../imagenes/imgInstitucional/luly.png";
 import arielImg from "../imagenes/imgInstitucional/ariel.jpg";
-//import ramirezImg from "../imagenes/imgInstitucional/miguelR.png";
-//import claudiaImg from "../imagenes/imgInstitucional/claudia.png";
+import ramirezImg from "../imagenes/imgInstitucional/miguelR.png";
 import diegoImg from "../imagenes/imgInstitucional/diego.png";
-//import ezeImg from "../imagenes/imgInstitucional/ezequiel.png";
+import ezeImg from "../imagenes/imgInstitucional/ezequiel.png";
 import fabianaImg from "../imagenes/imgInstitucional/fabiana.png";
-//import martinImg from "../imagenes/imgInstitucional/martin.png";
-//import aleImg from "../imagenes/imgInstitucional/ale.png";
+import martinImg from "../imagenes/imgInstitucional/martin.png";
+import aleImg from "../imagenes/imgInstitucional/ale.png";
 //import gastonImg from "../imagenes/imgInstitucional/gaston.png";
+import paoImg from "../imagenes/imgInstitucional/pao.png";
 import tatyImg from "../imagenes/imgInstitucional/taty.png";
 import elianaImg from "../imagenes/imgInstitucional/eliana.png";
 import cristianImg from "../imagenes/imgInstitucional/cristian.png";
-
-
+import luisImg from "../imagenes/imgInstitucional/luis.png";
 
 const Institucional = () => {
   const titular = [
@@ -27,7 +26,12 @@ const Institucional = () => {
   ];
 
   const suplente = [
-    { nombre: "Maria Carcano", cargo: "Presidenta", img: null, ruta: "" },
+    {
+      nombre: "Alejandra Espinosa",
+      cargo: "Presidenta",
+      img: aleImg,
+      ruta: "",
+    },
     {
       nombre: "Miguel Sanchez",
       cargo: "Secretario",
@@ -45,9 +49,9 @@ const Institucional = () => {
       ruta: "/integrantes/secaccionsocial",
     },
     {
-      nombre: "Sonia Flores",
+      nombre: "Paola Valor",
       cargo: "Acción Social, Salud, Medio Ambiente y Empleo (Suplente)",
-      img: null,
+      img: paoImg,
       ruta: "/integrantes/secaccionsocial",
     },
     {
@@ -63,62 +67,55 @@ const Institucional = () => {
       ruta: "/integrantes/seccultura",
     },
     {
-      nombre:"",
-      //nombre: "Romina Morales",
-      //nombre: "Gastón Fonseca",
+      nombre: "",
+      nombre: "Jesus Arce",
       cargo: "Deporte, Niñez, Juventud y Tercera Edad (Titular)",
-      //img: gastonImg,
+      img: null,
       ruta: "/integrantes/secdeporte",
     },
     {
-      nombre:"",
-      //nombre: "Jesus Arce",
-      //nombre: "Alejandra Espinosa",
+      nombre: "José Luis Alvarez",
       cargo: "Deporte, Niñez, Juventud y Tercera Edad (Suplente)",
-      //img: aleImg,
+      img: luisImg,
       ruta: "/integrantes/secdeporte",
     },
-    
+
     {
-      nombre:"",
-      //nombre: "Natalia Contreras",
-      //nombre: "Claudia Jaime",
-      cargo: "Defensa Civil, Obras, Servicios Públicos y Planeamiento Urbano (Titular)",
-      //img: claudiaImg,
+      nombre: "",
+      nombre: "Martin Cisterna",
+      cargo:
+        "Defensa Civil, Obras, Servicios Públicos y Planeamiento Urbano (Titular)",
+      img: martinImg,
       ruta: "/integrantes/secobras",
     },
     {
-      nombre:"",
-      //nombre: "Gustavo Cocconi",
-      //nombre: "Martin Cisterna",
-      cargo: "Defensa Civil, Obras, Servicios Públicos y Planeamiento Urbano (Suplente)",
-      //img: martinImg,
+      nombre: "",
+      nombre: "Luciana Huenz",
+      cargo:
+        "Defensa Civil, Obras, Servicios Públicos y Planeamiento Urbano (Suplente)",
+      img: null,
       ruta: "/integrantes/secobras",
     },
     {
-      nombre:"",
-      //nombre: "Luciana Romero",
-      //nombre: "Marcos Maldonado",
+      nombre: "",
+      nombre: "Luciana Romero",
       cargo: "Género y Diversidad (Titular)",
-      img: null,
+      img: lulyImg,
       ruta: "/integrantes/secgenero",
     },
     {
-      nombre:"",
-      //nombre: "Matias Alvarez",
-      //nombre: "Analia Moreno",
+      nombre: "Ezequiel Rodriguez",
       cargo: "Género y Diversidad (Suplente)",
-      img: null,
+      img: ezeImg,
       ruta: "/integrantes/secgenero",
     },
-    
   ];
 
   const adicionales = [
     {
-      nombre: "Diego Urrea",
+      nombre: "Miguel Ramirez",
       cargo: "Revisor de Cuentas",
-      img: diegoImg,
+      img: ramirezImg,
       ruta: "",
     },
     {
@@ -128,14 +125,13 @@ const Institucional = () => {
       ruta: "",
     },
     {
-      nombre:"",
-      //nombre: "Patricia Ortiz",
-      // nombre: "Miguel Ramirez",
+      nombre: "",
+      nombre: "Diego Urrea",
       cargo: "Revisor de Cuentas",
-      //img: ramirezImg,
+      img: diegoImg,
+
       ruta: "",
     },
-  
   ];
 
   const adicionalesSuplentes = [
@@ -146,11 +142,9 @@ const Institucional = () => {
       ruta: "",
     },
     {
-      nombre:"",
-      //nombre: "Marcela Bedoya",
-      //nombre: "Ezequiel Rodriguez",
+      nombre: "Luis Pesce",
       cargo: "Revisor de Cuentas",
-      //img: ezeImg,
+      img: null,
       ruta: "",
     },
   ];

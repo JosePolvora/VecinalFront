@@ -1,6 +1,5 @@
-// PageJuventud.jsx
-
 import cristianImg from "../../imagenes/imgInstitucional/cristian.png";
+import paoImg from "../../imagenes/imgInstitucional/pao.png";
 
 const SecJuventud = () => {
   const juventud = [
@@ -10,9 +9,9 @@ const SecJuventud = () => {
       img: cristianImg,
     },
     {
-      nombre: "Sonia Flores",
+      nombre: "Paola Valor",
       cargo: "Acción Social, Salud, Medio Ambiente y Empleo",
-      img: null,
+      img: paoImg,
     },
   ];
 
